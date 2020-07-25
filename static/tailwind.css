@@ -1,0 +1,8 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html, body, #sapper { 
+    min-height: 100vh;
+    min-width: 100vw;
+}

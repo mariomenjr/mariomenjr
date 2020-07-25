@@ -1,0 +1,43 @@
+<script>
+  import Hero from "../components/Header/Hero.svelte";
+  import Social from "../components/Header/Social.svelte";
+
+  export let segment;
+
+  export const menus = [
+    [{ label: "/", url: "/" }],
+    [{ label: "about", url: "/about" }],
+  ];
+</script>
+
+<div>
+  <header class="px-4">
+    <div class="container mx-auto mt-2 py-4 px-2 sm:py-2 sm:px-1">
+      <div class="flex flex-row items-center justify-between">
+        <Hero />
+        <Social />
+      </div>
+    </div>
+  </header>
+  <nav class="border-b mt-2 px-4">
+    <div class="container mx-auto">
+      <div class="flex flex-row items-center justify-between">
+        {#each menus as menu}
+          <ul class="flex flex-row items-center space-x-8">
+            {#each menu as item}
+              <li
+                class="py-2 px-2 border-gray-900"
+                class:border-b={item.label.toLowerCase() === (segment === undefined ? '/' : segment)}>
+                <a
+                  class="font-light text-sm uppercase tracking-wide text-gray-900 hover:text-black"
+                  href={item.url}>
+                  {item.label}
+                </a>
+              </li>
+            {/each}
+          </ul>
+        {/each}
+      </div>
+    </div>
+  </nav>
+</div>
