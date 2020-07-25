@@ -1,14 +1,20 @@
 <script>
+  import { setContext } from "svelte";
+  import { writable } from "svelte/store";
+
   import Header from "../containers/Header.svelte";
   import Main from "../containers/Main.svelte";
   import Sidebar from "../containers/Sidebar.svelte";
   import Footer from "../containers/Footer.svelte";
   
   export let segment;
+  export let metadata = writable({ title: "" });
+  
+  $: metadata.set({ title: `~/${segment === undefined ? ``:segment} $` });
 </script>
 
 <svelte:head>
-  <title>{segment} | Software Engineer</title>
+  <title>{$metadata.title} | Mario Menjívar</title>
 </svelte:head>
 
 <div class="box-border min-w-screen min-h-screen">
