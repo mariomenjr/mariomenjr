@@ -11,7 +11,7 @@
   export let segment;
   export let metadata = writable({ title: "" });
   
-  $: metadata.set({ title: `~/${segment === undefined ? ``:segment} $` });
+  $: metadata.set({ title: `~${segment === undefined ? ``:`/${segment}`}` });
 </script>
 
 <Tailwindcss />
@@ -24,7 +24,7 @@
   <div class="flex flex-col justify-between h-100">
     <Header {segment} />
     <div class="bg-gray-200 px-4">
-      <div class="c-container-centered">
+      <div class="container mx-auto">
         <div class="grid grid-cols-4 gap-2">
           <div class="col-span-4 sm:col-span-3">
             <Main>
