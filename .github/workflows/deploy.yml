@@ -17,7 +17,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS }}
           BRANCH: master
           FOLDER: __sapper__/export
           # The base branch of your repository which you would like to checkout prior to deploying. This defaults to the current commit SHA that triggered the build followed by master if it does not exist. This is useful for making deployments from another branch, and also may be necessary when using a scheduled job.
