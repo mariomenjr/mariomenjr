@@ -11,7 +11,7 @@
   export let segment;
   export let metadata = writable({ title: "" });
   
-  $: metadata.set({ title: `~/${segment === undefined ? ``:segment} $` });
+  $: metadata.set({ title: `~${segment === undefined ? ``:`/${segment}`}` });
 </script>
 
 <Tailwindcss />
