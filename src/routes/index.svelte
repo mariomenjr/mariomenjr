@@ -1,6 +1,9 @@
 <script context="module">
-	export async function preload(page, session) {
-		return { page };
+	export async function preload({ params }) {
+		// const res = await this.fetch(`https://api.github.com/repos/mariomenjr/archive/git/trees/master`);
+		// const json = await res.json();
+
+		// console.log({ tree: json.tree });
 	}
 </script>
 <article>
