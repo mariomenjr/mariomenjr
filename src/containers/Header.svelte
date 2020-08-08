@@ -5,7 +5,7 @@
   export let segment;
 
   export const menus = [
-    [{ label: "/", url: "/" }],
+    [{ label: "blog", url: "/blog" }],
     [{ label: "about", url: "/about" }],
   ];
 </script>
