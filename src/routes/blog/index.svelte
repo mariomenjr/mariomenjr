@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-  <title>Blog</title>
+	<title>Blog | Mario Menjívar</title>
 </svelte:head>
 
 <ul>
@@ -36,7 +36,7 @@
         {post.title}
       </a>
       <p class="c-label-last-updated">
-        Posted on {post.timestamp.toLocaleString()}
+        Posted on {post.timestamp.toLocaleString()} by {post.author}
       </p>
     </li>
   {/each}

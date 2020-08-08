@@ -14,11 +14,20 @@
 </script>
 
 <script>
+	export let metadata;
 	export let post;
 	export let timestamp = new Date(post.timestamp).toLocaleString();
-</script>
 
-<p class="c-label-last-updated">Last updated on {timestamp}</p>
+	console.log({ metadata });
+</script>
+	
+<svelte:head>
+	<title>{post.title} by {post.author}</title>
+</svelte:head>
+  
+<p class="c-label-last-updated">Last updated on {timestamp} by {post.author}</p>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=hola&via=mariomenjr" class="twitter-share-button" data-show-count="false">Tweet</a>
+
 <article class="c-article">
     {@html post.html}
 </article> 
