@@ -3,6 +3,10 @@
   export const experienceYears = today.getFullYear() - 2014;
 </script>
 
+<svelte:head>
+	<title>About | Mario Menjívar</title>
+</svelte:head>
+
 <article class="text-justify">
   <h5 class="text-xs text-gray-500 mb-5">
     Last updated on {today.toLocaleString()}
