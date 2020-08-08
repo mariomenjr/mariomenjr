@@ -21,6 +21,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
+          CLEAN: true
           GITHUB_TOKEN: ${{ secrets.DEPLOY_MARIOMENJR }}
           BRANCH: master
           FOLDER: __sapper__/export
