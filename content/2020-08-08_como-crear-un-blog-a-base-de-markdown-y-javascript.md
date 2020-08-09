@@ -3,6 +3,8 @@ author: "Mario Menjívar"
 slug: "como-crear-un-blog-a-base-de-markdown-y-javascript"
 title: "Cómo crear un blog a base de markdown y javascript"
 timestamp: "2020-08-08T10:23:17.000-07:00"
+brief: "Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear mi blog sin pagar un centavo? En este post te explico una de tantas alternativas."
+keywords: "javascript,svelte,blog,markdown,howto"
 ---
 
 # Cómo crear un blog a base de markdown y JavaScript
