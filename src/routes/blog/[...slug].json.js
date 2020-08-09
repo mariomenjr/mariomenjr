@@ -1,19 +1,12 @@
-import fs from "fs";
-import path from "path";
+
 import marked from "marked";
 import hljs from "highlight.js";
-import grayMatter from "gray-matter";
+import { getPost } from "../../utils/posts";
 
-function getPost(year, month, day, fileName) {
-  return fs.readFileSync(
-    path.resolve("content", `${year}-${month}-${day}_${fileName}.md`),
-    "utf-8"
-  );
-}
-
-export function get(req, res, next) {
+export function get(req, res) {
   let [year, month, day, slug] = req.params.slug;
-  const postMarkdown = getPost(year, month, day, slug);
+  
+  const post = getPost(`${year}-${month}-${day}_${slug}.md`);
   const renderer = new marked.Renderer();
 
   renderer.code = (source, lang) => {
@@ -22,13 +15,11 @@ export function get(req, res, next) {
   };
 
   marked.use({ renderer });
+  const content = marked(post.content);
 
-  const { data, content } = grayMatter(postMarkdown);
-  const html = marked(content);
-
-  if (html) {
+  if (content) {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ html, ...data }));
+    res.end(JSON.stringify({ ...post, content }));
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(JSON.stringify({message: `Not found`}));

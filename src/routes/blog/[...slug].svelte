@@ -1,32 +1,50 @@
 <script context="module">
-	export async function preload({ params }) {
-		let [year, month, day, slug] = params.slug;
-		
-		const res = await this.fetch(`blog/${year}/${month}/${day}/${slug}.json`);
-		const data = await res.json();
+  export async function preload({ params }) {
+    let [year, month, day, slug] = params.slug;
 
-		if (res.status === 200) {
-			return { post: data };
-		} else {
-			this.error(res.status, data.message);
-		}
-	}
+    const res = await this.fetch(`blog/${year}/${month}/${day}/${slug}.json`);
+    const data = await res.json();
+
+    if (res.status === 200) {
+      return { post: data };
+    } else {
+      this.error(res.status, data.message);
+    }
+  }
 </script>
 
 <script>
-	import "highlight.js/styles/github.css";
+  import "highlight.js/styles/github.css";
 
-	export let post;
-	export let timestamp = new Date(post.timestamp).toLocaleString();
+  export let post;
+  export let timestamp = new Date(post.timestamp);
+  export let title = `${post.title} by ${post.author}`;
 </script>
-	
+
 <svelte:head>
-	<title>{post.title} by {post.author}</title>
+  <title>{title}</title>
+
+  <meta name="description" content="{post.brief}" />
+  <meta name="keywords" content="{post.keywords}"/>
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://mariomenjr.com/blog/{post.endpoint}" />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content="{post.brief}" />
+  <!-- {#if post.metadata.thumb}
+  <meta property="twitter:image" content="{post.metadata.thumb}">
+  {/if} -->
 </svelte:head>
-  
-<p class="c-label-last-updated">Last updated on {timestamp} by {post.author}</p>
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=hola&via=mariomenjr" class="twitter-share-button" data-show-count="false">Tweet</a>
+
+<p class="c-label-last-updated">Last updated on {timestamp.toLocaleString()} by {post.author}</p>
+<a
+  href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=hola&via=mariomenjr"
+  class="twitter-share-button"
+  data-show-count="false">
+  Tweet
+</a>
 
 <article class="c-article">
-    {@html post.html}
-</article> 
+  {@html post.content}
+</article>

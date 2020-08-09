@@ -5,15 +5,7 @@
       .then((posts) => ({
         posts: posts.map((post) => {
           const timestamp = new Date(post.timestamp);
-          return {
-            ...post,
-            timestamp,
-            date: {
-              year: timestamp.getFullYear(),
-              month: `${timestamp.getMonth() + 1}`.padStart(2, `0`),
-              day: `${timestamp.getDate()}`.padStart(2, `0`),
-            },
-          };
+          return { ...post, timestamp };
         }),
       }));
   }
@@ -21,22 +13,28 @@
 
 <script>
   export let posts;
+  export let title = `Blog | Mario Menjívar`;
 </script>
 
 <svelte:head>
-	<title>Blog | Mario Menjívar</title>
+  <title>{title}</title>
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://mariomenjr.com/blog" />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content="{posts.length} post(s)" />
+  <!-- {#if post.metadata.thumb}
+  <meta property="twitter:image" content="{post.metadata.thumb}">
+  {/if} -->
 </svelte:head>
 
 <ul>
-  {#each posts as post, index}
+  {#each posts as post}
     <li>
-      <a
-        rel="prefetch"
-        href="blog/{post.date.year}/{post.date.month}/{post.date.day}/{post.slug}">
-        {post.title}
-      </a>
+      <a rel="prefetch" href="blog/{post.endpoint}">{post.title}</a>
       <p class="c-label-last-updated">
-        Posted on {post.timestamp.toLocaleString()} by {post.author}
+        Posteado el {post.timestamp.toLocaleString()} por {post.author}
       </p>
     </li>
   {/each}
