@@ -13,17 +13,18 @@ function getPost(year, month, day, fileName) {
 
 export function get(req, res, next) {
   let [year, month, day, slug] = req.params.slug;
-  
   const postMarkdown = getPost(year, month, day, slug);
   const renderer = new marked.Renderer();
 
   renderer.code = (source, lang) => {
     const { value: highlighted } = hljs.highlight(lang, source);
-    return `<pre class='language-javascriptreact'><code>${highlighted}</code></pre>`;
+    return `<pre class='language-${lang} overflow-x-auto'><code>${highlighted}</code></pre>`;
   };
 
+  marked.use({ renderer });
+
   const { data, content } = grayMatter(postMarkdown);
-  const html = marked(content, { renderer });
+  const html = marked(content);
 
   if (html) {
     res.writeHead(200, { "Content-Type": "application/json" });

@@ -14,11 +14,10 @@
 </script>
 
 <script>
-	export let metadata;
+	import "highlight.js/styles/github.css";
+
 	export let post;
 	export let timestamp = new Date(post.timestamp).toLocaleString();
-
-	console.log({ metadata });
 </script>
 	
 <svelte:head>
