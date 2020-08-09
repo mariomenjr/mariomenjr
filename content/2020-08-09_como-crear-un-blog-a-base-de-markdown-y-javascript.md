@@ -3,7 +3,7 @@ author: "Mario Menjívar"
 slug: "como-crear-un-blog-a-base-de-markdown-y-javascript"
 title: "Cómo crear un blog a base de markdown y javascript"
 timestamp: "2020-08-09T10:23:17.000-07:00"
-brief: "Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear mi blog sin pagar un centavo? En este post te explico una de tantas alternativas."
+brief: "Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear un blog que sea fácil de mantener, sin pagar un centavo? En este post te explico una de tantas alternativas."
 keywords: "javascript,svelte,blog,markdown,howto"
 ---
 
@@ -13,21 +13,19 @@ Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear un blog que sea 
 
 ## Porqué
 
-Otra pregunta que probablemente este en tu cabeza es ¿Por qué markdown y JavaScript? La respuesta es un poco más elaborada.
-
-Para empezar, ¿Qué es markdown? Según Wikipedia, 
+Otra pregunta que probablemente este en tu cabeza es ¿Por qué markdown y JavaScript? La respuesta es un poco más elaborada. Para empezar, ¿Qué es markdown? Según Wikipedia, 
 
 > "Markdown es un lenguaje de marcado ligero que trata de conseguir la máxima legibilidad y facilidad de publicación tanto en su forma de entrada como de salida, inspirándose en muchas convenciones existentes para marcar mensajes de correo electrónico usando texto plano" de [Wikipedia](https://es.wikipedia.org/wiki/Markdown).
 
-Al usar markdown para escribir un post, estamos estructurando nuestro contenido sin necesidad de incluir HTML o CSS en el momento. Esto agiliza la generación de contenido.
+Al usar markdown para escribir un post, estamos estructurando nuestro contenido sin necesidad de incluir HTML o CSS en el momento. Es decir, nos enfocamos enteramente en lo importante: el texto. Esta simplicidad se verá potencializada al incluir _Git_ y _Github_ en la formula, ya que podremos versionar nuestro contenido.
 
-Como mencioné, hay muchas alternativas para lograrlo. Fundamentalmente una página web no es más que HTML, CSS y JavaScript. Herramientas como [_Jekyll_](https://jekyllrb.com/) aprovecha esta regla de oro para ayudarte a generar y administrar posts fácilmente haciendo uso de markdown. Pero, ¿Qué pasa si queremos tomar ventaja de todas las herramientas disponibles en el ecosistema JavaScript que se han establecido en los últimos 10 años?  Para eso tenemos [_Gatsby_](https://www.gatsbyjs.org/), [_Next.js_](https://nextjs.org/) o [_Sapper_](https://sapper.svelte.dev/docs).
+Como mencioné, hay muchas alternativas para lograrlo. Fundamentalmente una página web no es más que HTML, CSS y JavaScript. Herramientas como [_Jekyll_](https://jekyllrb.com/), aprovechan esta regla de oro para ayudarte a generar y administrar posts fácilmente haciendo uso de markdown. Pero, ¿Qué pasa si queremos tomar ventaja de todas las herramientas disponibles en el ecosistema JavaScript que se han establecido en los últimos 10 años?  Para eso tenemos [_Gatsby_](https://www.gatsbyjs.org/), [_Next.js_](https://nextjs.org/) o [_Sapper_](https://sapper.svelte.dev/docs).
 
 _In a nutshell_, estos tres frameworks permiten generar sitios estáticos haciendo uso de herramientas modernas como React o Svelte. En este post nos centraremos en _Sapper_.
 
 ## ¿Por qué _Sapper_?
 
-Svelte es el nuevo chico de la cuadra. Su propuesta insignia es mover el proceso reactivo de la aplicación de mediadores cómo el Virtual DOM al lenguaje, o mejor dicho, al compilador, en contraste con React o Vue. Esto aumenta el desempeño de las aplicaciones y disminuye el tamaño del _bundle_.
+Svelte es el nuevo chico de la cuadra. Su propuesta insignia es mover la reactividad de la UI desde mediadores como el Virtual DOM hacia el lenguaje, o mejor dicho, al compilador, en contraste con React o Vue. Esto aumenta el desempeño de las aplicaciones y disminuye el tamaño del _bundle_.
 
 Puedes echar un vistazo a la [comparativa](https://www.swyx.io/writing/svelte-static/) entre Gatsby y Sapper realizada por [Shawn Wang](https://twitter.com/swyx), un popular desarrollador en [egghead.io](https://egghead.io/). Se muestra una reducción del 93% en el tamaño del _bundle_ con _Sapper_.
 
@@ -280,7 +278,7 @@ Nuestro sitio estático ha sido generado y los archivos están dentro de la carp
 
 Podríamos subir el folder `__sapper__/export` a un nuevo repositorio, activar la opción _Github Pages_ y repetir este proceso manualmente cada vez que actualicemos nuestro sitio con un nuevo post. En mi opinión, hacerlo de manera manual le quita la diversión. Afortunadamente, exite _Github Actions_.
 
-El primer paso es crear dos repositorios en _Github_, uno es el repositorio de nuestro projecto y el otro el repositorio al cuál subiremos nuestro sitio estático. En mi caso, [mariomenjr/mariomenjr](https://github.com/mariomenjr/mariomenjr) y [mariomenjr/mariomenjr.github.io](https://github.com/mariomenjr/mariomenjr.github.io) respectivamente. Una vez hecho esto, creamos los siguientes folders y archivos en el folder del projecto:
+El primer paso es crear dos repositorios en _Github_, el primero es el repositorio de nuestro projecto y el segundo el repositorio al cuál subiremos nuestro sitio estático. En mi caso, [mariomenjr/mariomenjr](https://github.com/mariomenjr/mariomenjr) y [mariomenjr/mariomenjr.github.io](https://github.com/mariomenjr/mariomenjr.github.io) respectivamente. Una vez hecho esto, creamos los siguientes folders y archivos en el folder del projecto:
 
 ```text
 ...
@@ -353,7 +351,7 @@ No olvides copiar el token.
 
 Por último, dirígete al repositorio del projecto para crear la variable de entorno que incluirás en el archivo `deploy.yml`.
 
-![Imgur](https://imgur.com/iuyGLdc.png)
+![Add secret to repository](https://imgur.com/iuyGLdc.png)
 
 ```yml
 ...
@@ -371,5 +369,20 @@ jobs:
           ...
 ```
 
-Listo. Tan pronto cómo hagas push al repositorio del projecto, _Github Actions_ desplegará tu sitio estático.
+Listo. Tan pronto hagas push al repositorio del projecto, _Github Actions_ desplegará tu sitio estático.
 
+![Github Action Deployment](https://imgur.com/fHxzGuf.png)
+
+# Conclusión
+
+Puedes usar WordPress, Ghosts, incluso Jekyll si lo prefieres. El objetivo de este post es mostrarte como todas esas herramientas tienen su origen en cosas básicas que con el tiempo se convierten en herramientas robustas listas para sacarles provecho.
+
+Me decidí a construir este blog, de esta manera, para poner en práctica el concepto [Aprender en Público](https://ricardoerl.com/blog/aprender-en-publico) que presentó [Ricardo](https://ricardoerl.com), un desarrollador salvadoreño, en un charla de [Café Digital](https://twitter.com/cafedigitalsv) y así salir de mi zona de comfort. Creéme cuando te digo que me divertí.
+
+
+# Referencias
+
+- [Building a blog with Svelte, Sapper, and Markdown](https://www.mahmoudashraf.dev/blog/build-a-blog-with-svelte-and-markdown/) 
+- [Sapper docs](https://sapper.svelte.dev/docs#How_it_works)
+- [Static Svelte: JavaScript Blogging with 93% less JavaScript](https://www.swyx.io/writing/svelte-static/)
+- [Markdown](https://es.wikipedia.org/wiki/Markdown)
