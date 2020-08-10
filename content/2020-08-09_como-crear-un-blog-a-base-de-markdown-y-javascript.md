@@ -2,7 +2,7 @@
 author: "Mario Menjívar"
 slug: "como-crear-un-blog-a-base-de-markdown-y-javascript"
 title: "Cómo crear un blog a base de markdown y javascript"
-timestamp: "2020-08-09T10:23:17.000-07:00"
+timestamp: "2020-08-09T20:31:17.000-07:00"
 brief: "Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear un blog que sea fácil de mantener, sin pagar un centavo? En este post te explico una de tantas alternativas."
 keywords: "javascript,svelte,blog,markdown,howto"
 ---
@@ -13,7 +13,7 @@ Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear un blog que sea 
 
 ## Porqué
 
-Otra pregunta que probablemente este en tu cabeza es ¿Por qué markdown y JavaScript? La respuesta es un poco más elaborada. Para empezar, ¿Qué es markdown? Según Wikipedia, 
+Otra pregunta que probablemente este en tu cabeza es ¿Por qué markdown y JavaScript? La respuesta es un poco más elaborada. Para empezar, ¿Qué es markdown? Según Wikipedia:
 
 > "Markdown es un lenguaje de marcado ligero que trata de conseguir la máxima legibilidad y facilidad de publicación tanto en su forma de entrada como de salida, inspirándose en muchas convenciones existentes para marcar mensajes de correo electrónico usando texto plano" de [Wikipedia](https://es.wikipedia.org/wiki/Markdown).
 
@@ -65,6 +65,22 @@ De paso creamos el siguiente directorio y archivo:
   │ ├ routes
 ...
 ```
+
+Con el siguiente contenido:
+
+```text
+---
+author: 'Mario Menjívar'
+slug: 'hola-mundo'
+title: 'Hola Mundo'
+timestamp: '2020-08-08T10:23:17.000-07:00'
+---
+
+# Hola mundo
+
+Hola mundo.
+```
+
 
 Necesitamos instalar los siguientes paquetes:
 
