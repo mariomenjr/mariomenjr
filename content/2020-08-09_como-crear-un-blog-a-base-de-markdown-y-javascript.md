@@ -388,6 +388,12 @@ Listo. Tan pronto hagas push al repositorio del projecto, _Github Actions_ despl
 
 ![Github Action Deployment](https://imgur.com/fHxzGuf.png)
 
+No olvides activar la opción Github Pages en el repositorio al que desplegaste el sitio.
+
+![Settings](https://imgur.com/tkl8wSO.png)
+
+![Github Pages Setting](https://imgur.com/86osvtX.png)
+
 # Conclusión
 
 Puedes usar WordPress, Ghosts, incluso Jekyll si lo prefieres. El objetivo de este post es mostrarte como todas esas herramientas tienen su origen en cosas básicas que con el tiempo se convierten en herramientas robustas listas para sacarles provecho.
