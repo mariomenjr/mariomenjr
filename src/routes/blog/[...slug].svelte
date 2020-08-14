@@ -32,15 +32,24 @@
   <meta property="og:url" content="https://mariomenjr.com/blog/{post.endpoint}">
   <meta property="og:title" content="{title}" >
   <meta property="og:description" content="{post.brief}">
-  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/1946936?s=460&v=4">
+  {#if post.cover}
+    <meta property="og:image" content="{post.cover}">
+  {:else}
+    <meta property="og:image" content="https://avatars3.githubusercontent.com/u/1946936?s=460&v=4">
+  {/if}
+  
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://mariomenjr.com/blog/{post.endpoint}" />
   <meta property="twitter:title" content="{title}" />
   <meta property="twitter:description" content="{post.brief}" />
-  <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/1946936?s=460&v=4">
-  
+
+  {#if post.cover}
+    <meta property="twitter:image" content="{post.cover}">
+  {:else}
+    <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/1946936?s=460&v=4">
+  {/if}
 </svelte:head>
 
 <p class="c-label-last-updated">Última actualización en {timestamp.toLocaleString()} por {post.author}</p>

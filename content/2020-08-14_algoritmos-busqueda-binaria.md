@@ -5,6 +5,7 @@ title: "#Algoritmos: Búsqueda binaria"
 timestamp: "2020-08-14T09:47:12.000-07:00"
 brief: "A qué alguna vez te toco buscar un número de teléfono en aquellos gigantescos directorios teléfonicos, ¿Cómo le hacías, página por página o te tratabas de ahorrar tiempo saltándote páginas?"
 keywords: "algoritmos,computer,science,busqueda,binaria,blog,ciencias,computacion"
+cover: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Binary_search_into_array.png"
 ---
 
 # \#Algoritmos: Búsqueda binaria
