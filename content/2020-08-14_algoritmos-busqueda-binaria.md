@@ -9,7 +9,7 @@ keywords: "algoritmos,computer,science,busqueda,binaria,blog,ciencias,computacio
 
 # \#Algoritmos: Búsqueda binaria
 
-A qué alguna vez te toco buscar un número de teléfono en aquellos gigantescos directorios teléfonicos, ¿Cómo le hacías, página por página o te tratabas de ahorrar tiempo saltándote páginas?
+A qué alguna vez te toco buscar un número de teléfono en aquellos gigantescos directorios teléfonicos, ¿Cómo le hacías, página por página o tratabas de ahorrar tiempo saltándote páginas?
 
 ## La idea
 
