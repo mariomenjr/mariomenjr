@@ -9,9 +9,6 @@
   import Footer from "../containers/Footer.svelte";
 
   export let segment;
-  // export let metadata = writable({ title: "" });
-  
-  // $: metadata.set({ title: `~${segment === undefined ? ``:`/${segment}`}` });
 </script>
 
 <Tailwindcss />
