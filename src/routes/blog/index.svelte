@@ -18,15 +18,9 @@
 
 <svelte:head>
   <title>{title}</title>
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://mariomenjr.com/blog" />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content="{posts.length} post(s)" />
-  <!-- {#if post.metadata.thumb}
-  <meta property="twitter:image" content="{post.metadata.thumb}">
-  {/if} -->
+  
+  <meta name="description" content="Blog by Mario Menjívar" />
+  <meta name="keywords" content="blog,javascript,software,programming,engineering,mariomenjr,mario,menjivar,mario-menjivar"/>
 </svelte:head>
 
 <ul>

@@ -5,7 +5,10 @@
   export let segment;
 
   export const menus = [
-    [{ label: "blog", url: "/blog" }],
+    [
+      { label: "blog", url: "/blog" },
+      { label: "horchatajs", url: "/horchatajs" },
+    ],
     [{ label: "about", url: "/about" }],
   ];
 </script>
@@ -29,7 +32,8 @@
                 class="py-2 px-2 border-gray-900"
                 class:border-b={item.label.toLowerCase() === (segment === undefined ? '/' : segment)}>
                 <a
-                  class="font-light text-sm uppercase tracking-wide text-gray-900 hover:text-black"
+                  class="font-light text-sm uppercase tracking-wide
+                  text-gray-900 hover:text-black"
                   href={item.url}>
                   {item.label}
                 </a>
