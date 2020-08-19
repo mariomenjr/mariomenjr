@@ -17,6 +17,8 @@ jobs:
         run: |
           npm install
           npm run export
+        env:
+          NODE_ENV: production
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
