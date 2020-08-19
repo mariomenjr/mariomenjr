@@ -20,7 +20,7 @@
   <title>{title}</title>
   
   <meta name="description" content="Blog by Mario Menjívar" />
-  <meta name="keywords" content="blog,javascript,software,programming,engineering,mariomenjr,mario,menjivar,mario-menjivar"/>
+  <meta name="keywords" content="blog,javascript,software,aprender programación,,mariomenjr,mario,menjivar,mario menjivar"/>
 </svelte:head>
 
 <ul>
