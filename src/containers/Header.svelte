@@ -5,11 +5,8 @@
   export let segment;
 
   export const menus = [
-    [
-      { label: "blog", url: "/blog" },
-      { label: "horchatajs", url: "/horchatajs" },
-    ],
-    [{ label: "about", url: "/about" }],
+    [{ label: "blog", url: "/blog" }],
+    [{ label: "acerca", url: "/about" }],
   ];
 </script>
 

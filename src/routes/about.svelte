@@ -1,15 +1,18 @@
 <script>
-  const today = new Date();
+  const today = new Date(`2020-08-19T20:39:17.000-07:00`);
   export const experienceYears = today.getFullYear() - 2014;
 </script>
 
 <svelte:head>
-	<title>About | Mario Menjívar</title>
+  <title>Acerca | Mario Menjívar</title>
+  
+  <meta name="description" content="Acerca de Mario Menjívar" />
+  <meta name="keywords" content="acerca de mario menjivar,software,aprender programación,mariomenjr,mario,menjivar,mario menjivar"/>
 </svelte:head>
 
 <article class="text-justify">
   <h5 class="text-xs text-gray-500 mb-5">
-    Last updated on {today.toLocaleString()}
+    Última actualización en {today.toLocaleString()}
   </h5>
   <p class="mb-5">
     ¡Hola! como seguro lo notaste mi nombre es
@@ -23,7 +26,7 @@
   <p class="mb-5">
     <b>A lo largo de mi carrera</b>, he trabajado con una variedad de lenguajes y herramientas, tales como:
     PHP, ActionScript, MySQL, NodeJS, Mongo DB, ReactJS, React-Native, .NET
-    Core, Microsoft SQL y Python.
+    Core Framework, Microsoft SQL y Python.
   </p>
   <p class="mb-5">
     <b>Javascript</b>, uno de mis fuertes, es un lenguaje fantástico y vérsatil, que se ha ganado
