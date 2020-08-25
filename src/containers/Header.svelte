@@ -6,7 +6,10 @@
 
   export const menus = [
     [{ label: "blog", url: "/blog" }],
-    [{ label: "acerca", url: "/acerca" }],
+    [
+      { label: "contacto", url: "/contacto" },
+      { label: "acerca", url: "/acerca" },
+    ],
   ];
 </script>
 
