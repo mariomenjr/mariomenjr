@@ -20,96 +20,234 @@ Todos los desarrolladores de software que trabajan con React, absolutamente todo
 
 Para Jared y compañía había un beneficio en estandarizar los componentes de entrada y cómo los datos fluían a través del Form. Es la razón de ser de Formik.
 
-## Instalación
+## Preparando el ejemplo
 
-Podemos instalar Formik desde:
+Para ser prácticos, vamos a hacer uso del famosísimo toolchain `create-react-app`. Ve a tu línea de comandos y ejecuta:
+
+```bash
+$ npx create-react-app formik-sample
+$ cd formik-sample
+$ npm start
+```
+
+![React App by create-react-app](https://imgur.com/8tQZ4qO.png)
+
+Ahora tenemos la base para trabajar nuestra aplicación React, pero necesitamos un form al cuál validar, para eso instalaremos el siguiente paquete:
+
+```bash
+$ npm install bootstrap reactstrap --save
+```
+Este paquete componetiza la mayoría de utilidades del popular framework CSS Bootstrap, lo cuál acelera nuestra habilidad de construir el layout del formulario. Una vez completa la instalación, copia y pega este código en tu archivo `src/App.js`:
+
+```javascript
+// src/App.js
+
+import React from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Card,
+  CardBody,
+  CardHeader,
+} from "reactstrap";
+
+function Formulario() {
+  return (
+    <Container>
+      <Row>
+        <Col className="p-5">
+          <Card>
+            <CardHeader></CardHeader>
+            <CardBody>
+              <Form>
+                <h1>Form</h1>
+                <FormGroup>
+                  <Label for="name">Name</Label>
+                  <Input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Woody Allen"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="email">Email</Label>
+                  <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="contoso@domain.com"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="password">Password</Label>
+                  <Input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Provide a password"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="selectMulti">Select Multiple</Label>
+                  <Input
+                    type="select"
+                    name="selectMulti"
+                    id="selectMulti"
+                    multiple
+                  >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label for="bio">Text Area</Label>
+                  <Input type="textarea" name="bio" id="bio" />
+                </FormGroup>
+
+                <Button>Submit</Button>
+              </Form>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+export default Formulario;
+```
+
+También, añade está línea en el archivo `src/index.js`:
+
+```javascript
+// src/index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css'; // Importa bootstrap a la React App
+...
+```
+
+Deberías ver un formulario similar al de la imagen:
+
+![Form built with reactstrap](https://imgur.com/Vyv5sl0.png)
+
+Continuemos.
+
+## Formik
+
+Llegados a este punto, ya estamos listos para ver la magia de Formik.
 
 ```bash
 $ npm install formik --save
 ```
 
-ó
-
-```bash
-$ yarn add formik 
-```
-
-Ahora, creemos nuestro primer formulario.r
-
-## Manos a la obra
+Ya que la instalación haya finalizado, vamos a hacer unas modificaciones a nuestro código en `src/App.js`.
 
 ```javascript
+// src/App.js
+
 import React from "react";
-import { Formik } from "formik";
+import { Formik } from "formik"; // Importamos el component <Formik />
+import {
+  Container,
+...
+```
 
-/* Handles the validation process for values in the form */
-function handleValidation(values) {
-  const errors = {};
+Este componente debe encapsular a nuestro formulario, de la siguiente forma:
 
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-  return errors;
-}
+```javascript
+// src/App.js
 
-/* Executes when the form is submitted if validation passed */
-function handleSubmit(values, { setSubmitting }) {
-  setTimeout(() => {
-    alert(JSON.stringify(values, null, 2));
-    setSubmitting(false);
-  }, 400);
-}
-
-function Basic() {
+...
+function Formulario() {
   return (
-    <div>
-      <h1>Anywhere in your app!</h1>
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        validate={handleValidation}
-        onSubmit={handleSubmit}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              name="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
+    <Container>
+      <Row>
+        <Col className="p-5">
+          <Card>
+            <CardHeader></CardHeader>
+            <CardBody>
+              <Formik>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit,
+                  isSubmitting,
+                  /* and other goodies */
+                }) => (
+                  <Form>
+                    <h1>Form</h1>
+                    <FormGroup>
+                      <Label for="name">Name</Label>
+                      <Input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Woody Allen"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="email">Email</Label>
+                      <Input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="contoso@domain.com"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="password">Password</Label>
+                      <Input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Provide a password"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="selectMulti">Select Multiple</Label>
+                      <Input
+                        type="select"
+                        name="selectMulti"
+                        id="selectMulti"
+                        multiple
+                      >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </Input>
+                    </FormGroup>
+                    <FormGroup>
+                      <Label for="bio">Text Area</Label>
+                      <Input type="textarea" name="bio" id="bio" />
+                    </FormGroup>
 
-            {errors.email && touched.email && errors.email}
-
-            <input
-              type="password"
-              name="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-            />
-
-            {errors.password && touched.password && errors.password}
-
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
-          </form>
-        )}
-      </Formik>
-    </div>
+                    <Button>Submit</Button>
+                  </Form>
+                )}
+              </Formik>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
-
-export default Basic;
+...
 ```
