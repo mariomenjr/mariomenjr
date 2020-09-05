@@ -10,7 +10,7 @@ cover: "https://imgur.com/wm6iA0l.png"
 
 # Cómo validar formularios en React, sin lágrimas
 
-Todos los desarrolladores de software que trabajan con React, absolutamente todos, hemos tenido ese tedioso ticket para crear y/o validar un formulario. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik.
+Todos los desarrolladores de software que trabajamos con React, absolutamente todos, hemos tenido ese tedioso ticket para crear y/o validar un formulario. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik.
 
 ## Formik what?
 
@@ -371,7 +371,7 @@ Por último, podemos llenar nuestro formulario y ver que una vez validado, el `c
 
 ## Conclusión
 
-Espero este post te sea de mucha ayuda. En mi experiencia con React, Formik ha facilitado el trabajo con lo que a validar formularios se refiere.
+Espero este post te sea de mucha ayuda. En mi experiencia con React, Formik me ha facilitado el validar formularios al proveerme de métodos que me permiten ajustar a cada momento los valores y las validaciones necesarias. La expresividad del código es de gran valor ya que permite escalar y/o mantener de una forma sencilla sin reinventar la rueda para cada formulario.
 
 ## Referencias
 
