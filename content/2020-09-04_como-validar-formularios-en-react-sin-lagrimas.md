@@ -371,7 +371,7 @@ Por último, podemos llenar nuestro formulario y ver que una vez validado, el `c
 
 ## Conclusión
 
-Espero este post te sea de mucha ayuda. En mi experiencia con React, Formik ha facilitado el trabajo con lo que a validar formularios se refiere.
+Espero este post te sea de mucha ayuda. En mi experiencia con React, Formik ha facilitado el trabajo con lo que a validar formularios se refiere al proveerme de métodos que me permiten ajustar el a cada momento los valores y las validación que necesito. La expresividad del código es de gran valor ya que permite escalar y/o mantener de una forma sencilla sin reinventar la rueda para cada formulario.
 
 ## Referencias
 
