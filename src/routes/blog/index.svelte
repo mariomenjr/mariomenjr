@@ -27,7 +27,7 @@
   {#each posts as post}
     <li>
       <a rel="prefetch" href="blog/{post.endpoint}">{post.title}</a>
-      <p class="c-label-last-updated">
+      <p class="blog-timestamp">
         Posteado en {post.timestamp.toLocaleString()} por {post.author}
       </p>
     </li>
