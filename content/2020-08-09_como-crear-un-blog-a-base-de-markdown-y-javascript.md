@@ -265,7 +265,7 @@ export function get(req, res) {
     >
       {post.title}
     </a>
-    <p class="c-label-last-updated">
+    <p class="blog-timestamp">
       Posted on {post.timestamp.toLocaleString()} by {post.author}
     </p>
   </li>

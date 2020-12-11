@@ -52,7 +52,7 @@
   {/if}
 </svelte:head>
 
-<p class="c-label-last-updated">Última actualización en {timestamp.toLocaleString()} por {post.author}</p>
+<p class="blog-timestamp">Última actualización en {timestamp.toLocaleString()} por {post.author}</p>
 <a
   href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=hola&via=mariomenjr"
   class="twitter-share-button"
@@ -60,6 +60,6 @@
   Tweet
 </a>
 
-<article class="c-article">
+<article class="blog">
   {@html post.content}
 </article>
