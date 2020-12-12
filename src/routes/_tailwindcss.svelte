@@ -3,15 +3,21 @@
   @tailwind components;
 
   .blog h1 {
-    @apply leading-tight text-4xl mb-4;
+    @apply leading-tight;
+    @apply text-4xl;
+    @apply mb-4;
   }
 
   .blog h2 {
-    @apply leading-tight text-2xl mb-4;
+    @apply leading-tight;
+    @apply text-2xl;
+    @apply mb-4;
   }
 
   .blog h3 {
-    @apply leading-tight text-xl mb-4;
+    @apply leading-tight;
+    @apply text-xl; 
+    @apply mb-4;
   }
 
   .blog p {
@@ -23,31 +29,43 @@
   }
 
   .blog ul {
-    @apply list-disc ml-4;
+    @apply list-disc;
+    @apply ml-4;
   }
 
   .blog table {
-    @apply table-auto w-full mx-4;
+    @apply table-auto;
+    @apply w-full;
+    @apply mx-4;
   }
 
   .blog table thead th {
-    @apply px-4 py-2;
+    @apply px-4; 
+    @apply py-2;
   }
 
   .blog table tbody td {
-    @apply border px-4 py-2;
+    @apply border; 
+    @apply px-4;
+    @apply py-2;
   }
 
   .blog pre code {
-    @apply px-5 py-4 m-1;
+    @apply px-5;
+    @apply py-4;
+    @apply m-1;
   }
 
   .blog blockquote {
-    @apply text-gray-600 ml-4 italic; 
+    @apply text-gray-600;
+    @apply ml-4;
+    @apply italic;
   }
 
   .blog-timestamp {
-    @apply text-xs text-gray-600 mb-5;
+    @apply text-xs;
+    @apply text-gray-600;
+    @apply mb-5;
   }
 
   @tailwind utilities;
