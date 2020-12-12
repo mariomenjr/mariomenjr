@@ -20,7 +20,7 @@
 <div class="box-border min-w-screen min-h-screen">
   <div class="flex flex-col justify-between h-100" style="visibility:{visibility};">
     <Header {segment} />
-    <div class="bg-gray-200 px-4">
+    <div class="bg-gray-100 px-4">
       <div class="container mx-auto">
         <div class="grid grid-cols-4 gap-2">
           <div class="col-span-4 sm:col-span-3">
