@@ -15,7 +15,7 @@
 
 <div>
   <header class="px-4">
-    <div class="container mx-auto mt-2 py-4 px-2 sm:py-2 sm:px-1">
+    <div class="container mx-auto mt-2 py-5 px-2 sm:py-3 sm:px-1">
       <div class="flex flex-row items-center justify-between">
         <Hero />
         <Social />
@@ -29,11 +29,10 @@
           <ul class="flex flex-row items-center space-x-8">
             {#each menu as item}
               <li
-                class="py-2 px-2 border-gray-900"
-                class:border-b={item.label.toLowerCase() === (segment === undefined ? '/' : segment)}>
+                class="py-3 px-2 border-gray-900">
                 <a
-                  class="font-light text-sm uppercase tracking-wide
-                  text-gray-900 hover:text-black"
+                  class="font-light text-sm text-gray-900 uppercase tracking-wide  hover:text-black"
+                  class:font-medium={item.label.toLowerCase() === (segment === undefined ? '/' : segment)}
                   href={item.url}>
                   {item.label}
                 </a>
