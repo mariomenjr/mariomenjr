@@ -38,8 +38,8 @@
     @apply border px-4 py-2;
   }
 
-  .blog pre {
-    @apply p-4 m-1;
+  .blog pre code {
+    @apply px-5 py-4 m-1;
   }
 
   .blog blockquote {
