@@ -39,7 +39,7 @@
   }
 
   .blog pre {
-    @apply p-4 m-1 bg-gray-400;
+    @apply p-4 m-1;
   }
 
   .blog blockquote {
