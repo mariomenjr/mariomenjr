@@ -33,7 +33,7 @@ Puedes echar un vistazo a la [comparativa](https://www.swyx.io/writing/svelte-st
 
 Para instalar Sapper, basta con ejecutar los siguientes comandos:
 
-```bash
+```shell
 [user@host ~]$ npx degit "sveltejs/sapper-template#rollup" my-blog
 [user@host ~]$ cd my-blog
 [user@host my-blog]$ npm install
@@ -83,7 +83,7 @@ Hola mundo.
 
 Necesitamos instalar los siguientes paquetes:
 
-```bash
+```shell
 [user@host my-blog]$ npm i gray-matter highlight.js marked
 ```
 
@@ -279,7 +279,7 @@ Listo.
 
 Antes de desplegar nuestro fantástico blog, necesitamos asegurarnos que las páginas estáticas se generaran sin problemas. Para eso necesitamos ejecutar lo siguiente en la línea de comandos:
 
-```bash
+```shell
 [user@host my-blog]$ npm run export
 [user@host my-blog]$ npx serve __sapper__/export
 ```

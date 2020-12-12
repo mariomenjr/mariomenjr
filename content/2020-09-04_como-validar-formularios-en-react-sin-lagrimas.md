@@ -24,7 +24,7 @@ Para Jared y compañía había un beneficio en estandarizar los componentes de e
 
 Para ser prácticos, vamos a hacer uso del famosísimo toolchain `create-react-app`. Ve a tu línea de comandos y ejecuta:
 
-```bash
+```shell
 $ npx create-react-app formik-sample
 $ cd formik-sample
 $ npm start
@@ -34,7 +34,7 @@ $ npm start
 
 Ahora tenemos la base para trabajar nuestra aplicación React, pero necesitamos un form al cuál validar, para eso instalaremos el siguiente paquete:
 
-```bash
+```shell
 $ npm install bootstrap reactstrap --save
 ```
 
@@ -122,7 +122,7 @@ Continuemos.
 
 Llegados a este punto, ya estamos listos para ver la magia de Formik.
 
-```bash
+```shell
 $ npm install formik --save
 ```
 
@@ -324,7 +324,7 @@ Es imprescindible que la propiedad `name` del `<Input>` tenga el mismo nombre a 
 
 De acuerdo a la [documentación](https://formik.org/docs/guides/validation#validationschema) de `Formik`, `Yup` es un ciudadano de primera clase en la librería por lo que posee una `prop` especial en el elemento `<Formik>` llamada `validationSchema`.
 
-```bash
+```shell
 $ npm install yup --save
 ```
 
