@@ -10,6 +10,10 @@
     @apply leading-tight text-2xl mb-4;
   }
 
+  .blog h3 {
+    @apply leading-tight text-xl mb-4;
+  }
+
   .blog p {
     @apply my-5;
   }
@@ -35,7 +39,7 @@
   }
 
   .blog pre {
-    @apply p-4 m-1 bg-gray-400;
+    @apply p-4 m-1;
   }
 
   .blog blockquote {

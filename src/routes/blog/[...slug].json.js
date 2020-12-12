@@ -11,7 +11,7 @@ export function get(req, res) {
 
   renderer.code = (source, lang) => {
     const { value: highlighted } = hljs.highlight(lang, source);
-    return `<pre class='language-${lang} overflow-x-auto'><code>${highlighted}</code></pre>`;
+    return `<pre class='language-${lang}'><code class="hljs">${highlighted}</code></pre>`;
   };
 
   marked.use({ renderer });

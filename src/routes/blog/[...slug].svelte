@@ -14,7 +14,7 @@
 </script>
 
 <script>
-  import "highlight.js/styles/github.css";
+  import "highlight.js/styles/atom-one-dark-reasonable.css";
 
   export let post;
   export let timestamp = new Date(post.timestamp);
