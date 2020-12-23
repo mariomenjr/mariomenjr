@@ -1,7 +1,7 @@
 <script context="module">
 	export async function preload() {
-    	return this.redirect(301, 'https://forms.formium.io/f/5f44b04eb4ec8d0001c46e54')
-  	}
+		return this.redirect(301, 'https://forms.formium.io/f/5fe2551f0f24900001bd7abb')
+	}
 </script>
 
 <svelte:head>
