@@ -1,6 +1,6 @@
 <script>
   const today = new Date();
-  const lastUpdatedOn = new Date(`2020-12-05T21:19:17.000-08:00`);
+  const lastUpdatedOn = new Date(`2021-01-14T12:34:17.000-08:00`);
 
   export const experienceYears = today.getFullYear() - 2014;
 </script>
@@ -20,15 +20,12 @@
     ¡Hola! mi nombre es
     <b>Mario Menjívar</b>. Soy un Ingeniero de Software, originario de El Salvador, viviendo en el
     Sur de California. Tengo {experienceYears} años de experiencia desarrollando
-    aplicaciones para la industria de manufactura, agilizando procesos, con enfoque
-    en rastreabilidad, a la vez que se reducen costos y tiempos. Actualmente soy
-    parte del equipo de desarrollo de software de Rapid Manufacturing, principal
-    encargado de la arquitectura Front-end.
+    aplicaciones para la industria de manufactura, agilizando procesos con enfoque
+    en rastreabilidad. Actualmente soy parte del equipo de desarrollo de software de Rapid Manufacturing.
   </p>  
   <p class="mb-5">
     <b>A lo largo de mi carrera</b>, he trabajado con una variedad de lenguajes y herramientas, tales como:
-    PHP, ActionScript, MySQL, NodeJS, Mongo DB, ReactJS, React-Native, .NET
-    Core Framework, Microsoft SQL y Python.
+    PHP, NodeJS, ReactJS, React-Native, C# .NET (Core) Framework, Python, Mongo DB, MySQL y Microsoft SQL.
   </p>
   <p class="mb-5">
     <b>Javascript</b>, uno de mis fuertes, es un lenguaje fantástico y vérsatil, que se ha ganado
@@ -54,5 +51,4 @@
     es una buena opción. También puedes escribirme un e-mail
     <a href="https://mariomenjr.com/contacto" class="text-blue-500">aquí</a>.
   </p>
-  <p>Happy holidays! 🎅</p>
 </article>
