@@ -20,8 +20,7 @@
     ¡Hola! mi nombre es
     <b>Mario Menjívar</b>. Soy un Ingeniero de Software, originario de El Salvador, viviendo en el
     Sur de California. Tengo {experienceYears} años de experiencia desarrollando
-    aplicaciones para la industria de manufactura, agilizando procesos con enfoque
-    en rastreabilidad. Actualmente soy parte del equipo de desarrollo de software de Rapid Manufacturing.
+    aplicaciones web. Actualmente soy parte del equipo de desarrollo de software en Rapid Manufacturing.
   </p>  
   <p class="mb-5">
     <b>A lo largo de mi carrera</b>, he trabajado con una variedad de lenguajes y herramientas, tales como:
