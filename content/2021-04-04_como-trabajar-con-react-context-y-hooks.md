@@ -5,12 +5,8 @@ title: "Cómo trabajar con React Context y Hooks"
 timestamp: "2021-04-04T09:07:02.000-08:00"
 brief: "Esta mañana, por curiosidad, leía la fechas de lanzamientos de algunas de las herramientas que hoy damos por hecho. React, por ejemplo, fue lanzado el 29 de mayo del año 2013. En estos casi 10 años, hemos visto la evolución de este ecosistema, desde _Class Components_ a _Hooks_. Hoy, te mostraré cómo hacer uso de una de las últimas características añadidas a este popular Framework: el contexto."
 keywords: "react,español,context,cómo usar react context,user,blog,hooks,reemplazar redux,dejar de usar redux,redux,reducer,state"
-cover: "https://imgur.com/wm6iA0l.png"
+cover: "https://imgur.com/5ZmbSG2.png"
 ---
-
-## TODO
-
-- [ ] Find a `cover` image
 
 # Cómo trabajar con React Context y Hooks
 
@@ -272,7 +268,7 @@ Te preguntarás, ¿Por qué consumir el _State_ únicamente en el componente `<C
 
 En nuestro ejemplo, es más importante mantener el componente `<CartList>` reusable, de esta forma, si tenemos que renderizar la lista en otro lado, no dependeremos del contexto que creamos aquí.
 
-Puedes ver la Aplicación resultando abajo:
+Puedes ver la Aplicación resultante abajo:
 
 <iframe src="https://codesandbox.io/embed/boring-pasteur-gx6vs?fontsize=14&hidenavigation=1&moduleview=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
