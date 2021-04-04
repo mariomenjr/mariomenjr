@@ -5,12 +5,8 @@ title: "Cómo trabajar con React Context y Hooks"
 timestamp: "2021-04-04T09:07:02.000-08:00"
 brief: "Esta mañana, por curiosidad, leía la fechas de lanzamientos de algunas de las herramientas que hoy damos por hecho. React, por ejemplo, fue lanzado el 29 de mayo del año 2013. En estos casi 10 años, hemos visto la evolución de este ecosistema, desde _Class Components_ a _Hooks_. Hoy, te mostraré cómo hacer uso de una de las últimas características añadidas a este popular Framework: el contexto."
 keywords: "react,español,context,cómo usar react context,user,blog,hooks,reemplazar redux,dejar de usar redux,redux,reducer,state"
-cover: "https://imgur.com/wm6iA0l.png"
+cover: "https://imgur.com/5ZmbSG2.png"
 ---
-
-## TODO
-
-- [ ] Find a `cover` image
 
 # Cómo trabajar con React Context y Hooks
 
