@@ -268,7 +268,7 @@ Te preguntarás, ¿Por qué consumir el _State_ únicamente en el componente `<C
 
 En nuestro ejemplo, es más importante mantener el componente `<CartList>` reusable, de esta forma, si tenemos que renderizar la lista en otro lado, no dependeremos del contexto que creamos aquí.
 
-Puedes ver la Aplicación resultando abajo:
+Puedes ver la Aplicación resultante abajo:
 
 <iframe src="https://codesandbox.io/embed/boring-pasteur-gx6vs?fontsize=14&hidenavigation=1&moduleview=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
