@@ -10,7 +10,7 @@ cover: "https://imgur.com/5ZmbSG2.png"
 
 # Cómo trabajar con React Context y Hooks
 
-Esta mañana, por curiosidad, leía la fechas de lanzamientos de algunas de las herramientas que hoy damos por hecho. React, por ejemplo, fue lanzado el 29 de mayo del año 2013. En estos casi 10 años, hemos visto la evolución de este ecosistema, desde _Class Components_ a _Hooks_. Hoy, te mostraré cómo hacer uso de una de las últimas características añadidas a este popular Framework: el contexto.
+Esta mañana, por curiosidad, leía la fechas de lanzamientos de algunas de las herramientas que hoy damos por hecho. React, por ejemplo, fue lanzado el 29 de mayo del año 2013. En estos casi 10 años, hemos visto la evolución de este ecosistema, desde _Class Components_ a _Hooks_. Hoy, te mostraré cómo hacer uso de una de las características más útiles de este popular Framework: el contexto.
 
 ## Hold on
 
@@ -98,7 +98,7 @@ Ya que tengo tu atención, vamos a introducir unos cuantos conceptos:
 
 - **_Provider_**: Como su nombre lo sugiere (proveedor en español), es el componente que proveerá los datos a _todos_ sus componentes hijos. Es aquí dónde el _State_ vivirá.
 
-- **_Consumer_**: Con él, cada nodo (o componente) que puede acceder al _State_ que vive en el _Provider_.
+- **_Consumer_**: Con él, cada nodo (o componente) puede acceder al _State_ que vive en el _Provider_.
 
 Estos dos conceptos son fundamentales para entender lo qué sucede al implementar React Context en tu aplicación. Sin embargo, el título de este artículo tiene un "y Hooks" al final. Así que debemos presentar los siguientes Hooks:
 
@@ -111,8 +111,8 @@ Estos dos conceptos son fundamentales para entender lo qué sucede al implementa
 Lo siguiente en nuestra lista es:
 
 - Configurar un Contexto
-- Establece una forma de actualizar
-- Consumirlo
+- Establecer una forma de actualizar el Context
+- Consumir el Contexto
 
 Para eso, necesitamos el siguiente script. Encontrarás comentarios explícativos.
 
