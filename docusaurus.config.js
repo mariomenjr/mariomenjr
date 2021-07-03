@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Mario Menjívar',
   tagline: '@mariomenjr',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://mariomenjr.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -99,7 +99,7 @@ module.exports = {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/mariomenjr/mariomenjr/edit/master/website/blog/',
+            'https://github.com/mariomenjr/mariomenjr/edit/main/',
 
           /**
            * Blog feed.
