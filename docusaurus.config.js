@@ -21,7 +21,7 @@ module.exports = {
       },
       items: [
         {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/contacto', label: 'Contacto', position: 'left'},
+        {to: 'https://forms.formium.io/f/5fe2551f0f24900001bd7abb', label: 'Contacto', position: 'left'},
         {to: '/acerca', label: 'Acerca', position: 'left'},
         {
           href: 'https://github.com/mariomenjr/mariomenjr',
