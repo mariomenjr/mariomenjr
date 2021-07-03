@@ -12,6 +12,16 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'mariomenjr', // Usually your GitHub org/user name.
   projectName: 'mariomenjr', // Usually your repo name.
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es'],
+    localeConfigs: {
+      es: {
+        label: 'Español',
+        direction: 'ltr',
+      },
+    }
+  },
   themeConfig: {
     navbar: {
       title: 'Mario Menjívar',
@@ -21,8 +31,12 @@ module.exports = {
       },
       items: [
         {to: '/blog', label: 'Blog', position: 'left'},
-        {to: 'https://forms.formium.io/f/5fe2551f0f24900001bd7abb', label: 'Contacto', position: 'left'},
-        {to: '/acerca', label: 'Acerca', position: 'left'},
+        {to: 'https://forms.formium.io/f/5fe2551f0f24900001bd7abb', label: 'Contact', position: 'left'},
+        {to: '/acerca', label: 'About', position: 'left'},
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },
         {
           href: 'https://github.com/mariomenjr/mariomenjr',
           label: 'GitHub',
@@ -75,17 +89,29 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/mariomenjr/mariomenjr/edit/master/website/',
-        },
+        // docs: {
+        //   sidebarPath: require.resolve('./sidebars.js'),
+        //   // Please change this to your repo.
+        //   editUrl:
+        //     'https://github.com/mariomenjr/mariomenjr/edit/master/website/',
+        // },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
             'https://github.com/mariomenjr/mariomenjr/edit/master/website/blog/',
+
+          /**
+           * Blog feed.
+           * If feedOptions is undefined, no rss feed will be generated.
+           */
+          feedOptions: {
+            type: 'all', // required. 'rss' | 'feed' | 'all'
+            // title: '', // default to siteConfig.title
+            // description: '', // default to  `${siteConfig.title} Blog`
+            copyright: `Copyright © ${new Date().getFullYear()} Mario Menjívar. Built with Docusaurus.`,
+            language: 'es', // possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
