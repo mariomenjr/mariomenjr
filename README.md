@@ -3,4 +3,8 @@
 
 Curiosity-driven human. Software engineer. Immigrant.
 
-[Follow @mariomenjr](https://twitter.com/mariomenjr) | [Suscribe mariomenjr](https://www.youtube.com/channel/UCj7lTb03SFIz-YMm9AlI-SA)
+<sub><sup><a href="https://twitter.com/mariomenjr?ref_src=twsrc%5Etfw">Follow @mariomenjr</a></sup></sub>
+<sub><sup> | </sup></sub>
+<sub><sup><a href="https://www.youtube.com/user/mariomenjr">Suscribe @mariomenjr</a></sup></sub>
+<sub><sup> | </sup></sub>
+<sub><sup><a href="https://github.com/mariomenjr">Repos by @mariomenjr</a></sup></sub>

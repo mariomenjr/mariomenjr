@@ -16,7 +16,7 @@ jobs:
       - name: Install and build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           npm install
-          npm run export
+          npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
@@ -24,7 +24,7 @@ jobs:
           CLEAN: true
           GITHUB_TOKEN: ${{ secrets.DEPLOY_MARIOMENJR }}
           BRANCH: main
-          FOLDER: __sapper__/export
+          FOLDER: build
           # The base branch of your repository which you would like to checkout prior to deploying. This defaults to the current commit SHA that triggered the build followed by main if it does not exist. This is useful for making deployments from another branch, and also may be necessary when using a scheduled job.
           BASE_BRANCH: main
           # Allows you to speicfy a different repository path so long as you have permissions to push to it. This should be formatted like so: JamesIves/github-pages-deploy-action
