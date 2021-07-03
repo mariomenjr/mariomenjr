@@ -1,16 +1,20 @@
 ---
-author: "Mario Menjívar"
-slug: "algoritmos-busqueda-binaria"
+slug: 2020/08/14/algoritmos-busqueda-binaria
 title: "#Algoritmos: Búsqueda binaria"
-timestamp: "2020-08-14T09:47:12.000-07:00"
-brief: "A qué alguna vez te toco buscar un número de teléfono en aquellos gigantescos directorios teléfonicos, ¿Cómo le hacías, página por página o te tratabas de ahorrar tiempo saltándote páginas?"
-keywords: "algoritmos,computer,science,busqueda,binaria,blog,ciencias,computacion"
-cover: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Binary_search_into_array.png"
+author: Mario Menjívar
+author_title: Software Engineer
+author_url: https://github.com/mariomenjr
+author_image_url: https://avatars3.githubusercontent.com/u/1946936?s=460&v=4
+tags: [algoritmos,computer science,busqueda binaria]
+keywords: [algoritmos,computer,science,busqueda,binaria,blog,ciencias,computacion]
+date: 2020-08-14T09:47:12.000-07:00
+description: "A qué alguna vez te toco buscar un número de teléfono en aquellos gigantescos directorios teléfonicos, ¿Cómo le hacías, página por página o te tratabas de ahorrar tiempo saltándote páginas?"
+image: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Binary_search_into_array.png"
 ---
 
-# \#Algoritmos: Búsqueda binaria
-
 A qué alguna vez te toco buscar un número de teléfono en aquellos gigantescos directorios teléfonicos, ¿Cómo le hacías, página por página o tratabas de ahorrar tiempo saltándote páginas?
+
+<!--truncate-->
 
 ## La idea
 
@@ -95,7 +99,7 @@ console.log(
 
 Es esta dinámica de decidir únicamente entre dos opciones, cada vez que reducimos el área de búsqueda, lo qué le da el nombre algoritmo.
 
-# Conclusión
+## Conclusión
 
 Pudimos simplemente ejecutar el siguiente código:
 
@@ -123,7 +127,7 @@ Comparar cada uno de los `items` en la lista y, cuando lo encontramos, listo. Po
 
 La intención de este post es mostrarte que, si bien es cierto en programación hay muchas formas de resolver un problema, nuestro objetivo conforme avanzamos en nuestra carrera es escogar la más óptima. Cada problema es un mundo y es nuestro trabajo encontrar la mejor solución.
 
-# Referencias
+## Referencias
 
 - [Binary search algorithm from Wikipedia](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 - [Grokking Algorithms: An Illustrated Guide For Programmers and Other Curious People](https://www.goodreads.com/book/show/22847284-grokking-algorithms-an-illustrated-guide-for-programmers-and-other-curio)

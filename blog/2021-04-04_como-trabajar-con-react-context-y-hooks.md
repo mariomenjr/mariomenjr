@@ -1,16 +1,20 @@
 ---
-author: "Mario Menjívar"
-slug: "como-trabajar-con-react-context-y-hooks"
-title: "Cómo trabajar con React Context y Hooks"
-timestamp: "2021-04-04T09:07:02.000-08:00"
-brief: "Esta mañana, por curiosidad, leía la fechas de lanzamientos de algunas de las herramientas que hoy damos por hecho. React, por ejemplo, fue lanzado el 29 de mayo del año 2013. En estos casi 10 años, hemos visto la evolución de este ecosistema, desde _Class Components_ a _Hooks_. Hoy, te mostraré cómo hacer uso de una de las últimas características añadidas a este popular Framework: el contexto."
-keywords: "react,español,context,cómo usar react context,user,blog,hooks,reemplazar redux,dejar de usar redux,redux,reducer,state"
-cover: "https://imgur.com/5ZmbSG2.png"
+slug: 2021/04/04/como-trabajar-con-react-context-y-hooks
+title: Cómo trabajar con React Context y Hooks
+author: Mario Menjívar
+author_title: Software Engineer
+author_url: https://github.com/mariomenjr
+author_image_url: https://avatars3.githubusercontent.com/u/1946936?s=460&v=4
+tags: [react,redux,javascript,react context]
+keywords: [react,español,react context,cómo usar react context,user,blog,hooks,reemplazar redux,reemplazar redux con context,dejar de usar redux,redux,reducer,global state]
+date: 2021-04-04T09:07:02.000-08:00
+description: "Esta mañana, por curiosidad, leía la fechas de lanzamientos de algunas de las herramientas que hoy damos por hecho. React, por ejemplo, fue lanzado el 29 de mayo del año 2013. En estos casi 10 años, hemos visto la evolución de este ecosistema, desde _Class Components_ a _Hooks_. Hoy, te mostraré cómo hacer uso de una de las últimas características añadidas a este popular Framework: el contexto."
+image: "https://imgur.com/5ZmbSG2.png"
 ---
 
-# Cómo trabajar con React Context y Hooks
-
 Esta mañana, por curiosidad, leía la fechas de lanzamientos de algunas de las herramientas que hoy damos por hecho. React, por ejemplo, fue lanzado el 29 de mayo del año 2013. En estos casi 10 años, hemos visto la evolución de este ecosistema, desde _Class Components_ a _Hooks_. Hoy, te mostraré cómo hacer uso de una de las características más útiles de este popular Framework: el contexto.
+
+<!--truncate-->
 
 ## Hold on
 
@@ -270,14 +274,14 @@ En nuestro ejemplo, es más importante mantener el componente `<CartList>` reusa
 
 Puedes ver la Aplicación resultante abajo:
 
-<iframe src="https://codesandbox.io/embed/boring-pasteur-gx6vs?fontsize=14&hidenavigation=1&moduleview=1&theme=dark"
+<!-- <iframe src="https://codesandbox.io/embed/boring-pasteur-gx6vs?fontsize=14&hidenavigation=1&moduleview=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="boring-pasteur-gx6vs"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-<br />
+<br /> -->
 
 ## Conclusión
 

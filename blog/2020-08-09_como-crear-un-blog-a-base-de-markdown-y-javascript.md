@@ -1,15 +1,19 @@
 ---
-author: "Mario Menjívar"
-slug: "como-crear-un-blog-a-base-de-markdown-y-javascript"
-title: "Cómo crear un blog a base de markdown y JavaScript"
-timestamp: "2020-08-09T10:23:17.000-07:00"
-brief: "Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear un blog que sea fácil de mantener, sin pagar un centavo? En este post te explico una de tantas alternativas."
-keywords: "javascript,svelte,blog,markdown,howto"
+slug: 2020/08/09/como-crear-un-blog-a-base-de-markdown-y-javascript
+title: Cómo crear un blog a base de markdown y JavaScript
+author: Mario Menjívar
+author_title: Software Engineer
+author_url: https://github.com/mariomenjr
+author_image_url: https://avatars3.githubusercontent.com/u/1946936?s=460&v=4
+tags: [javascript,svelte,blog,markdown,howto]
+keywords: [javascript,svelte,blog,markdown,howto]
+date: 2020-08-09T10:23:17.000-07:00
+description: "Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear un blog que sea fácil de mantener, sin pagar un centavo? En este post te explico una de tantas alternativas."
 ---
 
-# Cómo crear un blog a base de markdown y JavaScript
-
 Seguramente te haz hecho la siguiente pregunta: ¿Cómo hostear un blog que sea fácil de mantener, sin pagar un centavo? En este post te explico una de tantas alternativas.
+
+<!--truncate-->
 
 ## Porqué
 
@@ -394,14 +398,14 @@ No olvides activar la opción Github Pages en el repositorio al que desplegaste 
 
 ![Github Pages Setting](https://imgur.com/86osvtX.png)
 
-# Conclusión
+## Conclusión
 
 Puedes usar WordPress, Ghosts, incluso Jekyll si lo prefieres. El objetivo de este post es mostrarte como todas esas herramientas tienen su origen en cosas básicas que con el tiempo se convierten en herramientas robustas listas para sacarles provecho.
 
 Me decidí a construir este blog, de esta manera, para poner en práctica el concepto [Aprender en Público](https://ricardoerl.com/blog/aprender-en-publico) que presentó [Ricardo](https://ricardoerl.com), un desarrollador salvadoreño, en un charla de [Café Digital](https://twitter.com/cafedigitalsv) y así salir de mi zona de comfort. Creéme cuando te digo que me divertí.
 
 
-# Referencias
+## Referencias
 
 - [Building a blog with Svelte, Sapper, and Markdown](https://www.mahmoudashraf.dev/blog/build-a-blog-with-svelte-and-markdown/) 
 - [Sapper docs](https://sapper.svelte.dev/docs#How_it_works)
