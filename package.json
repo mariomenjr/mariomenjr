@@ -1,6 +1,7 @@
 {
   "name": "mariomenjr",
-  "version": "0.0.0",
+  "description": "Personal website for Mario Menjívar",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
