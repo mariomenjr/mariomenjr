@@ -17,16 +17,12 @@ module.exports = {
       title: 'Mario Menjívar',
       logo: {
         alt: 'Mario Menjívar Logo',
-        src: 'img/logo.svg',
+        src: 'https://avatars3.githubusercontent.com/u/1946936?s=460&v=4',
       },
       items: [
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'left',
-        //   label: 'Tutorial',
-        // },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/contacto', label: 'Contacto', position: 'left'},
+        {to: '/acerca', label: 'Acerca', position: 'left'},
         {
           href: 'https://github.com/mariomenjr/mariomenjr',
           label: 'GitHub',
@@ -37,29 +33,20 @@ module.exports = {
     footer: {
       style: 'dark',
       links: [
-        // {
-        //   title: 'Docs',
-        //   items: [
-        //     {
-        //       label: 'Tutorial',
-        //       to: '/docs/intro',
-        //     },
-        //   ],
-        // },
         {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/mariomenjr',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/mariomenjr',
-            },
-            {
               label: 'Twitter',
               href: 'https://twitter.com/mariomenjr',
+            },
+            {
+              label: 'YouTube',
+              href: 'https://www.youtube.com/channel/UCj7lTb03SFIz-YMm9AlI-SA',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/mariomenjr',
             },
           ],
         },
@@ -77,7 +64,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with mariomenjr.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Mario Menjívar. Built with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
