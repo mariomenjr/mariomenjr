@@ -3,7 +3,7 @@ name: Build and deploy
 on:
     push:
       branches: 
-        - master
+        - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,9 +23,9 @@ jobs:
         with:
           CLEAN: true
           GITHUB_TOKEN: ${{ secrets.DEPLOY_MARIOMENJR }}
-          BRANCH: master
+          BRANCH: main
           FOLDER: __sapper__/export
-          # The base branch of your repository which you would like to checkout prior to deploying. This defaults to the current commit SHA that triggered the build followed by master if it does not exist. This is useful for making deployments from another branch, and also may be necessary when using a scheduled job.
-          BASE_BRANCH: master
+          # The base branch of your repository which you would like to checkout prior to deploying. This defaults to the current commit SHA that triggered the build followed by main if it does not exist. This is useful for making deployments from another branch, and also may be necessary when using a scheduled job.
+          BASE_BRANCH: main
           # Allows you to speicfy a different repository path so long as you have permissions to push to it. This should be formatted like so: JamesIves/github-pages-deploy-action
           REPOSITORY_NAME: mariomenjr/mariomenjr.github.io
