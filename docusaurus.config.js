@@ -116,6 +116,12 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        gtag: {
+          // You can also use your "G-" Measurement ID here.
+          trackingID: 'UA-174920898-1',
+          // Optional fields.
+          anonymizeIP: true, // Should IPs be anonymized?
+        },
       },
     ],
   ],
