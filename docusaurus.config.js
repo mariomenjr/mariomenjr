@@ -120,13 +120,12 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['@docusaurus/plugin-google-gtag'],
+  // By https://github.com/facebook/docusaurus/issues/3632#issuecomment-747346425
   themeConfig: {
-    gtag: {
-      // You can also use your "G-" Measurement ID here.
+    googleAnalytics: {
       trackingID: 'UA-174920898-1',
       // Optional fields.
       anonymizeIP: true, // Should IPs be anonymized?
-    },
+     },
   },
 };
