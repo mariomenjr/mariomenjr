@@ -84,14 +84,12 @@ module.exports = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
-  },
-  themeConfig: {
     // By https://github.com/facebook/docusaurus/issues/3632#issuecomment-747346425
     gtag: {
       trackingID: 'UA-174920898-1',
       // Optional fields.
       anonymizeIP: true, // Should IPs be anonymized?
-     },
+    },
   },
   presets: [
     [
