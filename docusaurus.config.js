@@ -85,10 +85,21 @@ module.exports = {
       darkTheme: darkCodeTheme,
     },
   },
+  themeConfig: {
+    // By https://github.com/facebook/docusaurus/issues/3632#issuecomment-747346425
+    gtag: {
+      trackingID: 'UA-174920898-1',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
+     },
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
       {
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
         // docs: {
         //   sidebarPath: require.resolve('./sidebars.js'),
         //   // Please change this to your repo.
@@ -113,19 +124,12 @@ module.exports = {
             language: 'es', // possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
           },
         },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          trailingSlash: false,
         },
-        
       },
     ],
   ],
-  // By https://github.com/facebook/docusaurus/issues/3632#issuecomment-747346425
-  themeConfig: {
-    gtag: {
-      trackingID: 'UA-174920898-1',
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
-     },
-  },
 };
