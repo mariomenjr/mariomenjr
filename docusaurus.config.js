@@ -122,7 +122,7 @@ module.exports = {
   ],
   // By https://github.com/facebook/docusaurus/issues/3632#issuecomment-747346425
   themeConfig: {
-    googleAnalytics: {
+    gtag: {
       trackingID: 'UA-174920898-1',
       // Optional fields.
       anonymizeIP: true, // Should IPs be anonymized?
