@@ -517,7 +517,41 @@ Pero aún nos falta responder a un par de preguntas. Primero, ¿Cómo hago para 
 
 ### Bearer token
 
-// TODO
+Como vimos en la sección _Scopes + Clients_, para obtener un `bearer token` basta con ejecutar el endpoint _connect/token_.
+
+<Tabs
+  groupId="demos-mariomenjr-bearer-token"
+  defaultValue="curl"
+  values={[
+    {label: 'cURL', value: 'curl'},
+    {label: 'wget', value: 'wget'},
+  ]
+}>
+<TabItem value="curl">
+
+```
+curl --insecure --location --request POST 'https://localhost:5001/connect/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client_id=testClient' \
+--data-urlencode 'client_secret=testSecret' \
+--data-urlencode 'scope=testApi' \
+--data-urlencode 'grant_type=client_credentials'
+```
+
+</TabItem>
+<TabItem value="wget">
+
+```bash
+wget --no-check-certificate --quiet \
+  --method POST \
+  --timeout=0 \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --body-data 'client_id=testClient&client_secret=testSecret&scope=testApi&grant_type=client_credentials' \
+   'https://localhost:5001/connect/token'
+```
+
+</TabItem>
+</Tabs>
 
 ## Conclusión
 
