@@ -8,7 +8,7 @@ author_image_url: https://avatars3.githubusercontent.com/u/1946936?s=460&v=4
 tags: [oauth2.0,openid,csharp,identity server,nodejs]
 keywords: [oauth en español,oauth 2.0,identity server,bearer token,credentials,openid,español,como proteger api,como proteger api con identity server,como proteger api oauth,como proteger api nodejs]
 date: 2021-07-25T10:21:18.000-07:00
-description: "En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4. En específico cómo proteger tus APIs con en Node.js"
+description: "En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4."
 image: "https://images.unsplash.com/photo-1539039374392-54032a683b1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
 draft: true
 ---
@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 Antes de comenzar debemos hacer una distinción muy importante. Autenticar y autorizar son dos aspectos completamente independientes pero centrales a la seguridad. Auténticar se refiere a confirmar que los usuarios son quienes dicen ser. Autorizar, por otro lado, es dar acceso a los recursos a esos usuarios.
 
-En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4. En específico cómo proteger tus APIs con en Node.js.
+En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4.
 
 <!--truncate-->
 
@@ -32,14 +32,6 @@ Lo más seguro es que en algún momento hayas visto una página como esta:
 </figure>
 
 OAuth 2.0 y OpenID conforman el estándar de la industria para llevar a cabo este importante proceso de auténticar y autorizar usuarios. Más que aplicaciones o servicios que puedan ser instalados, ambos son estándares abiertos de autorización y autenticación que pueden ser implementados por cualquiera.
-
-### Client Credentials
-
-OAuth 2.0 + OpenID nos permite cubrir distintos escenarios de autorización. Estos son conocidas como _Flows_ y son las formas en las que OAuth 2.0 puede proveer un _token_. Por ejemplo, una aplicación pidiendo al usuario confirmación para accesar cierta información, como en la imagen.
-
-En este post, nos enfocaremos en una: _Client Credentials_.
-
-También conocida como autorización server a server, este _Flow_ nos permite autorizar y auténticar un App (mejor conocido como _Client_) en lugar de a un usuario. Para conseguirlo, cada App (o _Client_) utiliza un _Client ID_ y un _Client Secret_ para auténticarse con el servidor y obtener un _Token_.
 
 ## Identity Server 4
 
@@ -143,7 +135,7 @@ Verás el siguiente mensaje.
 </TabItem>
 </Tabs>
 
-Una vez instalado, escogemos la plantilla vacía: `is4empty`.
+Una vez instalado, escogemos la plantilla con `stores` en memoria y usuarios de prueba: `is4inmem`.
 
 <Tabs
   groupId="operating-systems"
@@ -160,15 +152,15 @@ Creamos un nuevo folder para nuestro proyecto.
 md Identity && cd Identity
 ```
 
-Creamos un nuevo proyecto apartir de una de la plantilla vacía.
+Creamos un nuevo proyecto apartir de una de la plantilla con `stores` en memoria y usuarios de prueba.
 
 ```bash
-dotnet new is4empty -n Identity.API
+dotnet new is4inmem -n Identity.API
 ```
 
 El cuál mostrará el siguiente mensaje.
 
-> The template "IdentityServer4 Empty" was created successfully.
+> The template "IdentityServer4 with In-Memory Stores and Test Users" was created successfully.
 
 </TabItem>
 </Tabs>
@@ -235,8 +227,6 @@ Por defecto, la version de .NET Core para la que están configuradas las plantil
 
 Y ya lo tienes. Si ejecutas el proyecto ya deberías ver el [Discovery Document](https://localhost:5001/.well-known/openid-configuration).
 
-// TODO: ¿Qué es un discovery document?
-
 <Tabs
   groupId="operating-systems"
   defaultValue="cli"
@@ -253,6 +243,8 @@ dotnet run --project Identity.API
 </TabItem>
 </Tabs>
 
+// TODO: ¿Qué es un discovery document?
+
 ### Scopes + Clients
 
 Un `scope` es un recurso en tu sistema que quieres proteger. Con Identity Server 4, podemos definir recursos de varias maneras. Desde código hasta bases de datos. En este ejemplo, los definiremos por código.
@@ -264,7 +256,7 @@ public static IEnumerable<ApiScope> ApiScopes =>
     new ApiScope[]
     {
         // highlight-start 
-        new ApiScope("testApi", "Test API")
+        new ApiScope("test-scope", "Test Scope")
         // highlight-end
     };
 // ...
@@ -283,7 +275,7 @@ public static IEnumerable<Client> Clients =>
         // highlight-start 
         new Client
         {
-            ClientId = "testClient",
+            ClientId = "api-client",
 
             // no interactive user, use the clientid/secret for authentication
             AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -291,11 +283,11 @@ public static IEnumerable<Client> Clients =>
             // secret for authentication
             ClientSecrets =
             {
-                new Secret("testSecret".Sha256())
+                new Secret("api-secret".Sha256())
             },
 
             // scopes that client has access to
-            AllowedScopes = { "testApi" }
+            AllowedScopes = { "test-scope" }
         }
         // highlight-end 
     };
@@ -317,9 +309,9 @@ Con esto, ya podemos conseguir un `bearer token` desde nuestro proyecto.
 ```
 curl --insecure --location --request POST 'https://localhost:5001/connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'client_id=testClient' \
---data-urlencode 'client_secret=testSecret' \
---data-urlencode 'scope=testApi' \
+--data-urlencode 'client_id=api-client' \
+--data-urlencode 'client_secret=api-secret' \
+--data-urlencode 'scope=test-scope' \
 --data-urlencode 'grant_type=client_credentials'
 ```
 
@@ -331,24 +323,14 @@ wget --no-check-certificate --quiet \
   --method POST \
   --timeout=0 \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --body-data 'client_id=testClient&client_secret=testSecret&scope=testApi&grant_type=client_credentials' \
+  --body-data 'client_id=api-client&client_secret=api-secret&scope=test-scope&grant_type=client_credentials' \
    'https://localhost:5001/connect/token'
 ```
 
 </TabItem>
 </Tabs>
 
-### Username + Password
-
-// TODO
-
-<!-- ## Cuándo + Porqué
-
-En un mundo dónde existen Amazon Cognito, Okta, Google Cloud Identity, entre otros, ¿Por qué implementaría un Identity Server por mi cuenta? -->
-
-<!-- ## Identity Server 4 License -->
-
-## Preparar un API
+## Asegura el API
 
 Si has llegado hasta aquí, ¡Felicidades! ya tienes un servicio de autenticación funcional. En caso hayas llegado directo hasta aquí, deberías revisar lo de arriba. De todas formas, vamos a empezar lo bueno.
 
@@ -363,7 +345,7 @@ En las siguientes líneas, te muestro como hacer una instalación de ExpressJS y
 Creamos el folder del nuevo proyecto.
 
 ```bash
-md protected-api && cd protected-api
+md api-sample && cd api-sample
 ```
 
 Creamos un nuevo proyecto con NPM.
@@ -452,7 +434,6 @@ const jwksRsa = require("jwks-rsa");
 // Do not commit them to Git.
 // I highly recommend to use the dot-env package.
 const IDENTITY_ISSUER = `https://localhost:5001`;
-const IDENTITY_AUDIENCE = `testApi`; // The API Scope at Identity Server
 
 console.info(`[issuer]: ${IDENTITY_ISSUER}`);
 
@@ -463,7 +444,6 @@ const authorize = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: `${IDENTITY_ISSUER}/.well-known/openid-configuration/jwks`,
   }),
-  audience: `${IDENTITY_AUDIENCE}`,
   issuer: `${IDENTITY_ISSUER}`,
   algorithms: [`RS256`],
 });
@@ -513,11 +493,11 @@ app.listen(port, () => {
   <figcaption>http://localhost:3005/authorization-needed</figcaption>
 </figure>
 
-Pero aún nos falta responder a un par de preguntas. Primero, ¿Cómo hago para hacer llegar el `bearer token` al endpoint `authorization-needed`? y segundo, más importante aún, ¿Cómo obtengo un `bearer token`?
+Aunque hayamos llegado tan lejos, aún nos falta responder a un par de preguntas. Primero, ¿Cómo hago para hacer llegar el `bearer token` al endpoint `authorization-needed`? y segundo, más importante aún, ¿Cómo obtengo un `bearer token`?
 
-### Bearer token
+## Bearer token
 
-Como vimos en la sección _Scopes + Clients_, para obtener un `bearer token` basta con ejecutar el endpoint _connect/token_.
+En la sección [_Scopes + Clients_](#scopes--clients), te mostré como obtener un `bearer token` haciendo uso del _grant_type_ `client_credential`.
 
 <Tabs
   groupId="demos-mariomenjr-bearer-token"
@@ -553,6 +533,392 @@ wget --no-check-certificate --quiet \
 </TabItem>
 </Tabs>
 
+El _grant_type_ `client_credential` está diseñado para permitir la comunicación de máquina a máquina. Es usado cuando aplicaciones requieren de un `access token` pero no hay ninguna intervención del usuario. Imagina un _cron job_ que ejecuta una API para hacer backups de información.
+
+Sin embargo, si quisieramos utilizar nuestro recién creado servicio de autenticación con en una aplicación web, tenemos que ponernos creativos. Para esto existe el _Authorization Code Flow con PKCE_.
+
+### React App + Authorization Code Flow
+
+Vamos a crear una single page application usando el famosisímo `creat-react-app`.
+
+```bash
+npx create-react-app my-app
+```
+
+Ya que estamos en la línea de comando, vamos a instalar un paquete que nos permitirá hacer uso del Identity Server.
+
+```bash
+npm install oidc-client --save
+```
+
+Ahora crearemos dos archivos, un `callback.html` dentro del folder `public` y un `oidcUtils.js` en el folder `src`.
+
+```html title="public/callback.html"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.min.js"></script>
+    <script>
+        new Oidc.UserManager({response_mode:"query"}).signinRedirectCallback().then(function() {
+            window.location = "index.html";
+        }).catch(function(e) {
+            console.error(e);
+        });
+    </script>
+</body>
+</html>
+```
+
+```js title="src/oidcUtils.js"
+import Oidc from "oidc-client";
+
+export const oidcManager = new Oidc.UserManager({
+  authority: "http://localhost:5000",
+  client_id: "js",
+  redirect_uri: "http://localhost:3001/callback.html",
+  response_type: "code",
+  scope: "openid profile test-scope",
+  post_logout_redirect_uri: "http://localhost:3001/index.html",
+});
+
+// Redirecciona a la aplicación una vez auténticado
+export function signinRedirectCallback() {
+  new Oidc.UserManager({ response_mode: "query" })
+    .signinRedirectCallback()
+    .then(function () {
+      window.location.reload();
+    })
+    .catch(function (e) {
+      console.error(e);
+    });
+}
+
+// Redirecciona al IdentityServer para autenticarnos
+export function login() {
+  oidcManager.signinRedirect();
+}
+
+export function callApi() {
+  oidcManager.getUser().then(function (user) {
+    var url = "http://localhost:3005/authorization-needed";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = function () {
+      console.debug({ xhr });
+      log(xhr.status, xhr.responseText);
+    };
+    xhr.setRequestHeader(
+      "Authorization",
+      !!user ? "Bearer " + user.access_token : ``
+    );
+    xhr.send();
+  });
+}
+
+// Invalida nuestro token
+export function logout() {
+  oidcManager.signoutRedirect();
+}
+
+export function log() {
+  document.getElementById("results").innerText = "";
+
+  Array.prototype.forEach.call(arguments, function (msg) {
+    if (msg instanceof Error) {
+      msg = "Error: " + msg.message;
+    } else if (typeof msg !== "string") {
+      msg = JSON.stringify(msg, null, 2);
+    }
+    document.getElementById("results").innerHTML += msg + "\r\n";
+  });
+}
+```
+
+Con esto, reemplaza el contenido de `App.js` por lo siguiente.
+
+```jsx title="App.js"
+import React from "react";
+import './App.css';
+
+import { oidcManager, signinRedirectCallback, log, login, logout } from "./oidcUtils";
+
+function App() {
+  const [isLogged, isLoggedSet] = React.useState(false);
+
+  React.useEffect(() => {
+    if (window.location.pathname === `/callback.html`) signinRedirectCallback();
+    else
+      oidcManager.getUser().then((u) => {
+        isLoggedSet(!!u);
+        
+        if (!!u) log("User logged in", u.profile);
+        else log("User not logged in");
+      });
+  }, []);
+
+  return <div style={{padding: 5}}>
+    {!isLogged && <button onClick={login}>Login</button>}
+    <button>Call API</button>
+    {isLogged && <button onClick={logout}>Logout</button>}
+
+    <div id="results"></div>
+  </div>;
+}
+
+export default App;
+
+```
+
+Seguro notaste que configuramos el `authority` con la dirección _http://localhost:5000_, pero nuestro Identity Server corre sobre `https` y el puerto `5001`. 
+
+También debemos hacer ciertos cambios y adiciones en el Identity Server.
+
+### Identity Server + Authorization Code Flow
+
+Para evitar problemas con Chrome, y mientras estamos en el ambiente de desarrollo, vamos a cambiar esta configuración en el Identity Server.
+
+```csharp title="Identity/Identity.API/Properties/launchSettings.json"
+{
+  "profiles": {
+    "SelfHost": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      // highlight-start
+      // "applicationUrl": "https://localhost:5001"
+      "applicationUrl": "http://localhost:5000"
+      // highlight-end
+    }
+  }
+}
+```
+
+Esto no es suficiente. Al googlear un rato, me topé con esta [respuesta](https://stackoverflow.com/a/61302188/3135446) en _StackOverflow_ y funcionó de maravilla. Primero creamos una extensión al `IServiceCollection`.
+
+```csharp title="Identity.API/SameSiteCookiesServiceCollectionExtensions.cs"
+using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+ 
+namespace Microsoft.Extensions.DependencyInjection
+{
+   public static class SameSiteCookiesServiceCollectionExtensions
+   {
+      private const SameSiteMode Unspecified = (SameSiteMode) (-1);
+ 
+      public static IServiceCollection ConfigureNonBreakingSameSiteCookies(this IServiceCollection services)
+      {
+         services.Configure<CookiePolicyOptions>(options =>
+         {
+            options.MinimumSameSitePolicy = Unspecified;
+            options.OnAppendCookie = cookieContext =>
+               CheckSameSite(cookieContext.Context, cookieContext.CookieOptions);
+            options.OnDeleteCookie = cookieContext =>
+               CheckSameSite(cookieContext.Context, cookieContext.CookieOptions);
+         });
+ 
+         return services;
+      }
+
+      private static void CheckSameSite(HttpContext httpContext, CookieOptions options)
+      {
+         if (options.SameSite == SameSiteMode.None)
+         {
+            var userAgent = httpContext.Request.Headers["User-Agent"].ToString();
+
+            if (DisallowsSameSiteNone(userAgent))
+            {
+               options.SameSite = Unspecified;
+            }
+         }
+      }
+ 
+      private static bool DisallowsSameSiteNone(string userAgent)
+      {
+         if (userAgent.Contains("CPU iPhone OS 12")
+            || userAgent.Contains("iPad; CPU OS 12"))
+         {
+            return true;
+         }
+
+         if (userAgent.Contains("Safari")
+            && userAgent.Contains("Macintosh; Intel Mac OS X 10_14")
+            && userAgent.Contains("Version/"))
+         {
+            return true;
+         }
+
+         if (userAgent.Contains("Chrome/5") || userAgent.Contains("Chrome/6"))
+         {
+            return true;
+         }
+
+         var chromeVersion = GetChromeVersion(userAgent);
+         if (chromeVersion >= 80)
+         {
+            return true;
+         }
+
+         return false;
+      }
+
+      private static int GetChromeVersion(string userAgent)
+      {
+         try
+         {
+            var subStr = Convert.ToInt32(userAgent.Split("Chrome/")[1].Split('.')[0]);
+            return subStr;
+         }
+         catch (Exception)
+         {
+            return 0;
+         }
+      }
+   }
+}
+```
+
+Y luego la implementamos en las configuraciones del `Startup.cs`.
+
+```csharp title="Identity.API/Startup.cs"
+public void ConfigureServices(IServiceCollection services)
+{
+   // ...
+   // highlight-start
+   services.ConfigureNonBreakingSameSiteCookies();
+   // highlight-end
+}
+ // ...
+public void Configure(IApplicationBuilder app)
+{
+   // ...
+   // Add this before any other middleware that might write cookies
+   // highlight-start
+   app.UseCookiePolicy();
+   // highlight-end
+   // ...
+   // This will write cookies, so make sure it's after the cookie policy
+   app.UseAuthentication();
+   // ...
+}
+```
+
+También debemos configurar CORS.
+
+```csharp title="Identity.API/Startup.cs"
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+    // highlight-start
+    services.AddCors(options =>
+    {
+        // this defines a CORS policy called "default"
+        options.AddPolicy("default", policy =>
+        {
+           // El puerto de la React App
+            policy.WithOrigins("http://localhost:3001")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+    });
+    // highlight-end
+}
+// ...
+public void Configure(IApplicationBuilder app)
+{
+    // ...
+    app.UseRouting();
+    // ...
+    // highlight-start
+    app.UseCors("default");
+    // highlight-end
+    // ...
+}
+```
+
+Al ejecutar el project de nuevo, verás que ahora corre en la nueva dirección.
+
+> [21:48:29 Debug] IdentityServer4.Startup <br />
+> Using idsrv as default ASP.NET Core scheme for forbid <br />
+> 
+> [21:48:29 Information] Microsoft.Hosting.Lifetime <br />
+> Now listening on: http://localhost:5000
+
+<Tabs
+  groupId="operating-systems"
+  defaultValue="cli"
+  values={[
+    {label: 'Command Line Interface', value: 'cli'},
+  ]
+}>
+<TabItem value="cli">
+
+```bash 
+dotnet run --project Identity.API
+```
+
+</TabItem>
+</Tabs>
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/2021-07-25/001-authorization-code-flow.gif').default} alt="Authorization Code Flow" />
+  <figcaption>Authorization Code Flow con PKCE en acción.</figcaption>
+</figure>
+
+### API + Bearer Token
+
+Finalmente, consumiremos nuestra API desde la React App haciendo uso del `access token` que acabamos de obtener desde el Identity Server.
+
+```jsx title="src/App.js"
+import React from "react";
+import './App.css';
+
+// highlight-start
+import { oidcManager, signinRedirectCallback, log, login, logout, callApi } from "./oidcUtils";
+// highlight-end
+
+function App() {
+  const [isLogged, isLoggedSet] = React.useState(false);
+
+  React.useEffect(() => {
+    if (window.location.pathname === `/callback.html`) signinRedirectCallback();
+    else
+      oidcManager.getUser().then((u) => {
+        isLoggedSet(!!u);
+        
+        if (!!u) log("User logged in", u.profile);
+        else log("User not logged in");
+      });
+  }, []);
+
+  return <div style={{padding: 5}}>
+    {!isLogged && <button onClick={login}>Login</button>}
+    // highlight-start
+    <button onClick={callApi}>Call API</button>
+    // highlight-end
+    {isLogged && <button onClick={logout}>Logout</button>}
+
+    <div id="results"></div>
+  </div>;
+}
+
+export default App;
+```
+
+Haz click sobre el botón _Call API_ antes de loguearte, notarás que recibes un `UnauthorizedError`. Una vez nos logueamos a través del Identity Server, nuestro _/authorization-needed_ endpoint nos devuelve el mensaje escrito sin problemas.
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/2021-07-25/002-consume-api-bearer.gif').default} alt="Consumiendo un API protegida desde una SPA" />
+  <figcaption>Consumiendo un API protegida desde una SPA.</figcaption>
+</figure>
+
 ## Conclusión
 
 ## Referencias
@@ -562,3 +928,5 @@ wget --no-check-certificate --quiet \
 - [Authentication and Authorization Flows](https://auth0.com/docs/flows)
 - [Identity Server 4: The Big Picture](https://identityserver4.readthedocs.io/en/latest/intro/big_picture.html)
 - [JKWS by IBM](https://www.ibm.com/docs/en/sva/10.0.1?topic=applications-jwks)
+- [Adding a JavaScript client](https://identityserver4.readthedocs.io/en/latest/quickstarts/4_javascript_client.html)
+- [How to prepare your IdentityServer for Chrome's SameSite cookie changes - and how to deal with Safari, nevertheless](https://www.thinktecture.com/en/identity/samesite/prepare-your-identityserver/)
