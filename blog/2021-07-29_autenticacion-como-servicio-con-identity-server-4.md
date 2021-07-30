@@ -7,7 +7,7 @@ author_url: https://github.com/mariomenjr
 author_image_url: https://avatars3.githubusercontent.com/u/1946936?s=460&v=4
 tags: [oauth2.0,openid,csharp,identity server,nodejs]
 keywords: [oauth 2.0,validar bearer token nodejs,openid,español,que es identity server,como proteger api con identity server,como proteger api jwt,como proteger api nodejs,implementar autenticacion jwt react,que es bearer token,autenticando api rest con nodejS y jwt,implementar JSON web token,como implementar autenticacion basada en token,autenticacion y autorizacion,que es jwks]
-date: 2021-07-29T19:31:18.000-07:00
+date: 2021-07-29T16:31:18.000-07:00
 description: "En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4. Te mostraré cómo implementarlo y consumir sus servicios de autorización/autenticación para asegurar una SPA junto con una API en NodeJS."
 image: "https://images.unsplash.com/photo-1532604146921-0e8bd9ab0891?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
 ---
