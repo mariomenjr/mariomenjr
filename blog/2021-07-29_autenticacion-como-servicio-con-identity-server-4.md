@@ -917,7 +917,7 @@ const jwt_decode = require("jwt-decode");
 function identify() {
   return function(req, res, next) {
     req.user = jwt_decode(req.headers.authorization.split(` `)[1]);
-    console.debug({ user: req.user });
+    console.debug({ user: req.user, accessToken: req.headers.authorization.split(` `)[1] });
     next();
   }
 }
@@ -948,7 +948,7 @@ Una vez volvemos a ejecutar nuestra API y loguearnos en nuestra ReactApp, al hac
   <figcaption>En el access token usado para autorizar el uso del API, hay una propiedad llamada sub. Es está propiedad la que identifica al usuario. Es un user ID.</figcaption>
 </figure>
 
-Al imprimir el `access token` en la consola de JavaScript, podemos copiar y pegarlo en el comando cURL de abajo, reemplazando el `<accessToken>`, y al ejecutarlo obtener la información de usuario.
+Al imprimir el `access token` en la consola de JavaScript, podemos copiar y pegarlo en el comando cURL de abajo, reemplazando el `<accessToken>`, y al ejecutarlo obtener la información de usuario. Con esta información, podríamos realizar condicionante en nuestra lógica de negocio que estén basadas en los _claims_ o roles que definamos en nuestros _clientes_ del Identity Server.
 
 ```bash
 curl --location --request GET 'http://localhost:5000/connect/userinfo' \
@@ -966,6 +966,14 @@ curl --location --request GET 'http://localhost:5000/connect/userinfo' \
 Podríamos incorporar esta información en nuestro ciclo de vida del request, pero dejaremos eso para otro post.
 
 ## Conclusión
+
+Una de las principales ventajas al delegar la autorización y auténticación de tus aplicaciones a una implementación del OAuth 2.0 y OpenID es la seguridad. Al ser un estándar avalado por grandes compañías y consorcios podemos estar seguros de su efectividad y fiabilidad.
+
+Desde un punto de vista más enfocado a la arquitectura de nuestra aplicación, es interesante cómo ninguna de las Apps aquí mostradas (piensa el API de Express JS y la SPA de React) tuvo la necesidad de manejar ni el usuario ni la contraseña del usuario. Esto es poderoso. Permite que Apps de terceros trabajen juntas sin necesidad de preocuparse en los mecanismos de autenticación y autorización.
+
+Sin embargo, ningún software es perfecto. Como vimos, OAuth va por su segunda versión y es del otod probable que en el futuro haya una tercera. Lo qué nos queda es nunca para de aprender.
+
+Espero este post te haya servido, si es así, compártelo con tus colegas. Happy coding!
 
 ## Referencias
 
