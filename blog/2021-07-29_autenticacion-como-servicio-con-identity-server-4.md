@@ -897,6 +897,74 @@ Haz click sobre el botón _Call API_ antes de loguearte, notarás que recibes un
   <figcaption>Consumiendo un API protegida desde una SPA.</figcaption>
 </figure>
 
+## Autenticación, ó cómo saber quién está siendo autorizado
+
+Hasta este momento, hemos visto cómo Identity Server nos ha permitido asegurar APIs con un `access token`. Sin embargo, aún no conocemos quién es ese usuario del cuál recibimos el `token`. Recuerda, autorizar no es lo mismo que auténticar.
+
+Vamos a instalar un paquete, crear un nuevo archivo y hacer unas pequeñas modificaciones en nuestra _ExpressJS API_ para lograr identificar a nuestro usuario.
+
+El paquete a instalar es:
+
+```bash
+npm install jwt-decode --save
+```
+
+El nuevo archivo se llamará `identity.middleware` dentro del folder `middlewares`.
+
+```js title="src/middlewares/identity.middleware"
+const jwt_decode = require("jwt-decode");
+
+function identify() {
+  return function(req, res, next) {
+    req.user = jwt_decode(req.headers.authorization.split(` `)[1]);
+    console.debug({ user: req.user });
+    next();
+  }
+}
+
+module.exports = identify;
+```
+
+Y ahora configuramos este middleware en nuestra API. El middleware se encargará de decodificar el `access token` para obtener información del acceso, incluyendo un `user identifier`.
+
+```js title="src/App.js"
+// ...
+const authorize = require("./src/middlewares/auth.middleware");
+// highlight-start
+const identify = require("./src/middlewares/identity.middleware");
+// highlight-end
+
+app.use(cors());
+// highlight-start
+app.use(identify());
+// highlight-end
+// ...
+```
+
+Una vez volvemos a ejecutar nuestra API y loguearnos en nuestra ReactApp, al hacer click en el botón _Call API_
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/2021-07-25/004-sub-in-token.png').default} alt="Consumiendo un API protegida desde una SPA" />
+  <figcaption>En el access token usado para autorizar el uso del API, hay una propiedad llamada sub. Es está propiedad la que identifica al usuario. Es un user ID.</figcaption>
+</figure>
+
+Al imprimir el `access token` en la consola de JavaScript, podemos copiar y pegarlo en el comando cURL de abajo, reemplazando el `<accessToken>`, y al ejecutarlo obtener la información de usuario.
+
+```bash
+curl --location --request GET 'http://localhost:5000/connect/userinfo' \
+--header 'Authorization: Bearer <accessToken>'
+```
+
+> { <br />
+>   "name": "Bob Smith", <br />
+>   "given_name": "Bob", <br />
+>   "family_name": "Smith", <br />
+>   "website": "http://bob.com", <br />
+>   "sub": "88421113" <br />
+> } <br />
+
+Podríamos incorporar esta información en nuestro ciclo de vida del request, pero dejaremos eso para otro post.
+
 ## Conclusión
 
 ## Referencias
