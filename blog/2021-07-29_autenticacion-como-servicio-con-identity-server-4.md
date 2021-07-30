@@ -219,7 +219,11 @@ dotnet run --project Identity.API
 </TabItem>
 </Tabs>
 
-// TODO: ¿Qué es un discovery document?
+### Discovery Document
+
+El _Discovery Document_ (o documento de descubrimiento, en español) no es más que un documento JSON que contiene la información sobre los _endpoints_, material clave y características de tu Identity Server.
+
+También es conocido como el _well-known document_. Est documento permite a los clientes del servicio configurarse a sí mismos para poder autorizar/auténticar usuarios.
 
 ### Scopes + Clients
 
