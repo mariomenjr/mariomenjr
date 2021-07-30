@@ -45,7 +45,7 @@ _In a nutshell_, Identity Server 4 es un framework de OAuth 2.0 y OpenID para AS
 - Código abierto maduro
 - Soporte comercial y gratuito
 
-Puedes probar un demo online ahora mismo en [identity.mariomenjr.com](https://identity.mariomenjr.com). Para obtener un `bearer token` basta con ejecutar el siguiente comando en una línea de comandos, por ejemplo.
+Puedes probar un demo online ahora mismo en [identity.mariomenjr.com](https://identity.mariomenjr.com) (soporta únicamente el client-credentials grant, por el momento). Para obtener un `bearer token` basta con ejecutar el siguiente comando en una línea de comandos, por ejemplo.
 
 <Tabs
   groupId="demos-mariomenjr-bearer-token"
@@ -108,34 +108,10 @@ Una forma fácil de empezar es instalando localmente las distintas plantillas pr
 dotnet new -i IdentityServer4.Templates
 ```
 
-Verás el siguiente mensaje.
-
-
-> Welcome to .NET 5.0! <br />
-> \--------------------- <br />
-> SDK Version: 5.0.204  <br />
-> 
-> \---------------- <br />
-> Installed an ASP.NET Core HTTPS development certificate. <br />
-> To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only).  <br />
-> Learn about HTTPS: https://aka.ms/dotnet-https <br />
-> \---------------- <br />
-> Write your first app: https://aka.ms/dotnet-hello-world  <br />
-> Find out what's new: https://aka.ms/dotnet-whats-new  <br />
-> Explore documentation: https://aka.ms/dotnet-docs  <br />
-> Report issues and find source on GitHub: https://github.com/dotnet/core  <br />
-> Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli  <br />
-> \-------------------------------------------------------------------------------------- <br />
-> Getting ready...  <br />
->   Determining projects to restore...  <br />
->   Restored /home/mariomenjr/.templateengine/dotnetcli/v5.0.204/scratch/restore.csproj  <br />
-> (in 5.32 sec).
-
-
 </TabItem>
 </Tabs>
 
-Una vez instalado, escogemos la plantilla con `stores` en memoria y usuarios de prueba: `is4inmem`.
+Una vez instaladas, escogeremos la plantilla con `stores` en memoria y usuarios de prueba: `is4inmem`. 
 
 <Tabs
   groupId="operating-systems"
@@ -250,7 +226,6 @@ dotnet run --project Identity.API
 Un `scope` es un recurso en tu sistema que quieres proteger. Con Identity Server 4, podemos definir recursos de varias maneras. Desde código hasta bases de datos. En este ejemplo, los definiremos por código.
 
 ```csharp title="Identity.API/Config.cs"
-
 // ...
 public static IEnumerable<ApiScope> ApiScopes =>
     new ApiScope[]
@@ -262,12 +237,11 @@ public static IEnumerable<ApiScope> ApiScopes =>
 // ...
 ```
 
-Lo siguiente en la lista es una aplicación cliente que consuma nuestro servicio de autenticación.
+Lo siguiente en la lista es registrar una aplicación cliente que consuma nuestro servicio de autenticación.
 
-En este aso, el cliente no tendrá un uso interactivo por parte del usuario sino que se autenticará usando el flow _Client Credentials_ con Identity Server.
+Hasta este momento, nuestro cliente no necesita ser interactivo para el usuario. Se autenticará usando el _Client Credentials Flow_ con Identity Server.
 
 ```csharp title="Identity.API/Config.cs"
-
 // ...
 public static IEnumerable<Client> Clients =>
     new Client[] 
@@ -398,16 +372,16 @@ Y ahora podemos arrancar el API.
 npm run dev
 ```
 
->  \> protected-api@1.0.0 dev /home/mariomenjr/Samples/protected-api <br />
+>  \> api-sample@1.0.0 dev /home/mariomenjr/Samples/api-sample <br />
 >  \> node app.js
 >
 >  App listening at http://localhost:3005
 
 ### JWKS
 
-Un JSON Web Key Set (ó Conjunto de llaves JSON Web, en español) es un conjunto de llaves que contienen la llave pública que debe ser usada para verificar cualquier JSON  Web Token (`JWT`, ó `bearer token`) que fue emitido por un servidor de autorización y firmado por uno de los algoritmos RSA o ECDSA.
+Un JSON Web Key Set (ó Conjunto de llaves JSON Web, en español) es un conjunto de llaves que contiene a la llave pública que debe ser usada para verificar cualquier JSON  Web Token (`JWT`, ó `bearer token`) que fue emitido por un servidor de autorización y firmado por uno de los algoritmos RSA o ECDSA.
 
-En palabras más simples, lo anterior nos dice que una de las formas para auténticar que nuestro `bearer token` es legítimo es hacer uso de un `JWKS`. Nuestra instalación de Identity Server ya nos provee un endpoint para conseguir uno: [https://localhost:5001/.well-known/openid-configuration/jwks](https://localhost:5001/.well-known/openid-configuration/jwks).
+En palabras más simples, lo anterior nos dice que una de las formas para verificar que nuestro `bearer token` es legítimo, y podemos usarlo para autorizar al usuario, es hacer uso de un `JWKS`. Nuestra instalación de Identity Server ya nos provee un endpoint para conseguir uno: [https://localhost:5001/.well-known/openid-configuration/jwks](https://localhost:5001/.well-known/openid-configuration/jwks).
 
 Para hacer uso de él desde nuestra API en nodejs, vamos a instalar los siguientes paquetes:
 
@@ -415,7 +389,7 @@ Para hacer uso de él desde nuestra API en nodejs, vamos a instalar los siguient
 npm install express-jwt jwks-rsa --save
 ```
 
-Una vez instalados, es hora de crear un middleware para ayudarnos a autenticar nuestra API.
+Una vez instalados, es hora de crear un middleware para ayudarnos a asegurar nuestra API.
 
 Creamos el archivo `auth.middleware.js` dentro del folder `src/middlewares`.
 
@@ -423,7 +397,7 @@ Creamos el archivo `auth.middleware.js` dentro del folder `src/middlewares`.
 md src/middlewares && cd src/middlewares && touch auth.middleware.js
 ```
 
-En este archivo, configuraremos los paquetes `express-jwt` y `jwks-rsa` para obtener una función que nos permita auténticar rutas específicas.
+En este archivo, configuraremos los paquetes `express-jwt` y `jwks-rsa` para obtener una función que nos permita asegurar rutas específicas.
 
 ```js title="src/middlewares/auth.middleware.js"
 const jwt = require("express-jwt");
@@ -481,7 +455,7 @@ app.listen(port, () => {
 })
 ```
 
-¡Genial! Ahora si accedemos a esos endpoints desde el navegador, veremos que únicamente `/allow-anonymous` nos devuelve el mensaje que hemos escrito mientras que `/authorization-needed` nos devuelve un `UnauthorizedError`.
+¡Genial! Al ejecutar el proyecto de nuevo y acceder a esos endpoints desde el navegador, veremos que únicamente `/allow-anonymous` nos devuelve el mensaje que hemos escrito mientras que `/authorization-needed` nos devuelve un `UnauthorizedError`.
 
 <figure class="md-captioned-image">
   <img src={require('../static/img/blog/2021-07-25/002-api-allow-anonymous.png').default} alt="Allow Anonymous Endpoint" />
@@ -533,13 +507,13 @@ wget --no-check-certificate --quiet \
 </TabItem>
 </Tabs>
 
-El _grant_type_ `client_credential` está diseñado para permitir la comunicación de máquina a máquina. Es usado cuando aplicaciones requieren de un `access token` pero no hay ninguna intervención del usuario. Imagina un _cron job_ que ejecuta una API para hacer backups de información.
+El _grant_type_ `client_credential` está diseñado para permitir la comunicación de máquina a máquina. Es usado cuando aplicaciones requieren de un `access token` pero no hay ninguna intervención del usuario. Por ejemplo, un _cron job_ que ejecuta una API para hacer backups de información.
 
-Sin embargo, si quisieramos utilizar nuestro recién creado servicio de autenticación con en una aplicación web, tenemos que ponernos creativos. Para esto existe el _Authorization Code Flow con PKCE_.
+Sin embargo, si quisieramos utilizar nuestro recién creado servicio de autorización con en una aplicación web, tenemos que ponernos creativos. Para esto existe el _Authorization Code Flow con PKCE_.
 
 ### React App + Authorization Code Flow
 
-Vamos a crear una single page application usando el famosisímo `creat-react-app`.
+Vamos a crear una Single Page Application usando el famosisímo `creat-react-app`.
 
 ```bash
 npx create-react-app my-app
@@ -676,7 +650,7 @@ export default App;
 
 Seguro notaste que configuramos el `authority` con la dirección _http://localhost:5000_, pero nuestro Identity Server corre sobre `https` y el puerto `5001`. 
 
-También debemos hacer ciertos cambios y adiciones en el Identity Server.
+Bien, debemos hacer ciertos cambios y adiciones en el Identity Server.
 
 ### Identity Server + Authorization Code Flow
 
@@ -799,12 +773,12 @@ public void ConfigureServices(IServiceCollection services)
 public void Configure(IApplicationBuilder app)
 {
    // ...
-   // Add this before any other middleware that might write cookies
+   // Añade esta línea antes de cualquier `middleware` que pueda escribir `cookies`
    // highlight-start
    app.UseCookiePolicy();
    // highlight-end
    // ...
-   // This will write cookies, so make sure it's after the cookie policy
+   // Esto escribirá `cookies`, asegúrate que se añada después de la política de `cookies`
    app.UseAuthentication();
    // ...
 }
@@ -819,7 +793,7 @@ public void ConfigureServices(IServiceCollection services)
     // highlight-start
     services.AddCors(options =>
     {
-        // this defines a CORS policy called "default"
+        // Esto define una política de CORS llamada "default"
         options.AddPolicy("default", policy =>
         {
            // El puerto de la React App
