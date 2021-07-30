@@ -8,7 +8,7 @@ author_image_url: https://avatars3.githubusercontent.com/u/1946936?s=460&v=4
 tags: [oauth2.0,openid,csharp,identity server,nodejs]
 keywords: [oauth en español,oauth 2.0,identity server,bearer token,credentials,openid,español,como proteger api,como proteger api con identity server,como proteger api oauth,como proteger api nodejs]
 date: 2021-07-29T21:27:18.000-07:00
-description: "En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4."
+description: "En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4. Te mostraré cómo implementarlo y consumir sus servicios de autorización/autenticación para asegurar una SPA junto con una API en NodeJS."
 image: "https://images.unsplash.com/photo-1539039374392-54032a683b1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
 draft: true
 ---
@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 Antes de comenzar debemos hacer una distinción muy importante. Autenticar y autorizar son dos aspectos completamente independientes pero centrales a la seguridad. Auténticar se refiere a confirmar que los usuarios son quienes dicen ser. Autorizar, por otro lado, es dar acceso a los recursos a esos usuarios.
 
-En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4.
+En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4. Te mostraré cómo implementarlo y consumir sus servicios de autorización/autenticación para asegurar una SPA junto con una API en NodeJS.
 
 <!--truncate-->
 
