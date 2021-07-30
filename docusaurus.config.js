@@ -83,6 +83,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      additionalLanguages: [`csharp`],
     },
     // By https://github.com/facebook/docusaurus/issues/3632#issuecomment-747346425
     gtag: {

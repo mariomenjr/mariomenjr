@@ -24,6 +24,18 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-html[data-theme='dark'] .docusaurus-highlight-code-line {
+html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* For markdown */
+
+.md-captioned-image {
+  margin: 0em 0em 1em 0em;
+}
+
+.md-captioned-image > figcaption {
+  margin: 0em 0.75em;
+  font-size: 0.85em;
+  font-style: italic;
 }
