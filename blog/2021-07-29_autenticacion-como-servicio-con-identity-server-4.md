@@ -27,7 +27,7 @@ En esta entrada, hablaremos de quizá la más conocida implementación de los pr
 Lo más seguro es que en algún momento hayas visto una página como esta:
 
 <figure class="md-captioned-image">
-  <img src={require('../static/img/blog/2021-07-25/001-google-oauth.png').default} alt="Google OAuth Sample" />
+  <img src={require('../static/img/blog/2021-07-29/001-google-oauth.png').default} alt="Google OAuth Sample" />
   <figcaption>Este es un ejemplo de una implementación de OAuth y OpenID que tiene como objetivo permitir que Medium pueda utilizar tu cuenta de Google para loguearte. Sin embargo, para lograrlo, Medium debe pedirte permiso para acceder a ciertos datos de tu perfil de Google con los cuáles puede identificar tu cuenta.</figcaption>
 </figure>
 
@@ -462,12 +462,12 @@ app.listen(port, () => {
 ¡Genial! Al ejecutar el proyecto de nuevo y acceder a esos endpoints desde el navegador, veremos que únicamente `/allow-anonymous` nos devuelve el mensaje que hemos escrito mientras que `/authorization-needed` nos devuelve un `UnauthorizedError`.
 
 <figure class="md-captioned-image">
-  <img src={require('../static/img/blog/2021-07-25/002-api-allow-anonymous.png').default} alt="Allow Anonymous Endpoint" />
+  <img src={require('../static/img/blog/2021-07-29/002-api-allow-anonymous.png').default} alt="Allow Anonymous Endpoint" />
   <figcaption>http://localhost:3005/allow-anonymous</figcaption>
 </figure>
 
 <figure class="md-captioned-image">
-  <img src={require('../static/img/blog/2021-07-25/003-api-authorization-needed.png').default} alt="Authorization Needed Endpoint" />
+  <img src={require('../static/img/blog/2021-07-29/003-api-authorization-needed.png').default} alt="Authorization Needed Endpoint" />
   <figcaption>http://localhost:3005/authorization-needed</figcaption>
 </figure>
 
@@ -846,7 +846,7 @@ dotnet run --project Identity.API
 </Tabs>
 
 <figure class="md-captioned-image">
-  <img src={require('../static/img/blog/2021-07-25/001-authorization-code-flow.gif').default} alt="Authorization Code Flow" />
+  <img src={require('../static/img/blog/2021-07-29/001-authorization-code-flow.gif').default} alt="Authorization Code Flow" />
   <figcaption>Authorization Code Flow con PKCE en acción.</figcaption>
 </figure>
 
@@ -893,7 +893,7 @@ export default App;
 Haz click sobre el botón _Call API_ antes de loguearte, notarás que recibes un `UnauthorizedError`. Una vez nos logueamos a través del Identity Server, nuestro _/authorization-needed_ endpoint nos devuelve el mensaje escrito sin problemas.
 
 <figure class="md-captioned-image">
-  <img src={require('../static/img/blog/2021-07-25/002-consume-api-bearer.gif').default} alt="Consumiendo un API protegida desde una SPA" />
+  <img src={require('../static/img/blog/2021-07-29/002-consume-api-bearer.gif').default} alt="Consumiendo un API protegida desde una SPA" />
   <figcaption>Consumiendo un API protegida desde una SPA.</figcaption>
 </figure>
 
@@ -944,7 +944,7 @@ app.use(identify());
 Una vez volvemos a ejecutar nuestra API y loguearnos en nuestra ReactApp, al hacer click en el botón _Call API_
 
 <figure class="md-captioned-image">
-  <img src={require('../static/img/blog/2021-07-25/004-sub-in-token.png').default} alt="Consumiendo un API protegida desde una SPA" />
+  <img src={require('../static/img/blog/2021-07-29/004-sub-in-token.png').default} alt="Consumiendo un API protegida desde una SPA" />
   <figcaption>En el access token usado para autorizar el uso del API, hay una propiedad llamada sub. Es está propiedad la que identifica al usuario. Es un user ID.</figcaption>
 </figure>
 
