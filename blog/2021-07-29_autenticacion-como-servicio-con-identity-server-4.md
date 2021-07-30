@@ -10,7 +10,6 @@ keywords: [oauth 2.0,validar bearer token nodejs,openid,español,que es identity
 date: 2021-07-29T23:31:18.000-07:00
 description: "En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4. Te mostraré cómo implementarlo y consumir sus servicios de autorización/autenticación para asegurar una SPA junto con una API en NodeJS."
 image: "https://images.unsplash.com/photo-1532604146921-0e8bd9ab0891?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
-draft: true
 ---
 
 import Tabs from '@theme/Tabs';
