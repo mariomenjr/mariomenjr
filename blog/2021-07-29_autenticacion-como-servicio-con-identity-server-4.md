@@ -9,7 +9,7 @@ tags: [oauth2.0,openid,csharp,identity server,nodejs]
 keywords: [oauth 2.0,validar bearer token nodejs,openid,español,que es identity server,como proteger api con identity server,como proteger api jwt,como proteger api nodejs,implementar autenticacion jwt react,que es bearer token,autenticando api rest con nodejS y jwt,implementar JSON web token,como implementar autenticacion basada en token,autenticacion y autorizacion,que es jwks]
 date: 2021-07-29T16:31:18.000-07:00
 description: "En esta entrada, hablaremos de quizá la más conocida implementación de los protocolos OpenID Connect y OAuth 2.0 para .NET Core: Identity Server 4. Te mostraré cómo implementarlo y consumir sus servicios de autorización/autenticación para asegurar una SPA junto con una API en NodeJS."
-image: "https://images.unsplash.com/photo-1532604146921-0e8bd9ab0891?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
+image: "https://images.unsplash.com/photo-1532604146921-0e8bd9ab0891?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,17 +34,9 @@ OAuth 2.0 y OpenID conforman el estándar de la industria para llevar a cabo est
 
 ## Identity Server 4
 
-_In a nutshell_, Identity Server 4 es un framework de OAuth 2.0 y OpenID para ASP.NET Core. Está certificado por la [OpenID Foundation](https://openid.net/). Es quizá la más conocida implementación de OAuth 2.0 y OpenID para .NET Core, permite las siguientes features:
+_In a nutshell_, Identity Server 4 es un framework de OAuth 2.0 y OpenID para ASP.NET Core. Está certificado por la [OpenID Foundation](https://openid.net/). Es quizá la más conocida implementación de OAuth 2.0 y OpenID para .NET Core.
 
-- Autenticación como servicio
-- Single Sign-on/Sign-out
-- Control de acceso para APIs
-- Federation Gateaway
-- Enfoque en personalización
-- Código abierto maduro
-- Soporte comercial y gratuito
-
-Puedes probar un demo online ahora mismo en [identity.mariomenjr.com](https://identity.mariomenjr.com) (soporta únicamente el client-credentials grant, por el momento). Para obtener un `bearer token` basta con ejecutar el siguiente comando en una línea de comandos, por ejemplo.
+Puedes probar un demo online con Client Credentials ahora mismo en [identity.mariomenjr.com](https://identity.mariomenjr.com). Para obtener un `bearer token`ejecuta el siguiente comando en una línea de comandos, por ejemplo.
 
 <Tabs
   groupId="demos-mariomenjr-bearer-token"
@@ -222,7 +214,7 @@ dotnet run --project Identity.API
 
 El _Discovery Document_ (o documento de descubrimiento, en español) no es más que un documento JSON que contiene la información sobre los _endpoints_, material clave y características de tu Identity Server.
 
-También es conocido como el _well-known document_. Est documento permite a los clientes del servicio configurarse a sí mismos para poder autorizar/auténticar usuarios.
+También es conocido como el _well-known document_. Este documento permite a los clientes del servicio configurarse a sí mismos para poder autorizar/auténticar usuarios.
 
 ### Scopes + Clients
 
@@ -317,7 +309,7 @@ Si no tienes nodejs en tu computadora, puedes descargar el instalador desde aqu�
 
 ### ExpressJS
 
-En las siguientes líneas, te muestro como hacer una instalación de ExpressJS y a levantar una API en menos de 5 minutos.
+Veamos cómo levantar una API con ExpressJS en menos de 5 minutos.
 
 Creamos el folder del nuevo proyecto.
 
