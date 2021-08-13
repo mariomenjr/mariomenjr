@@ -140,7 +140,75 @@ Si todo salió bien, deberías ver las siguientes líneas:
 > mongo-express_1  | Server is open to allow connections from anyone (0.0.0.0) <br />
 > mongo-express_1  | basicAuth credentials are "admin:pass", it is recommended(...) <br />
 
-## Colecciones
+Si llevas tiempo desarrollando software, seguro recordarás a PhpMyAdmin. La instalación de Docker provee un servicio muy parecido llamado `Mongo Express`, solo dirígete a [http://localhost:8081](http://localhost:8081) para acceder.
+
+## Base de datos
 
 Dependiendo de la opción que hayas elegido arriba, llegaste hasta aquí rápido o muy rápido. De todas formas, sigamos con la diversión.
 
+Al acceder a _Mongo Express_, lo primero que debemos hacer es crear una base de datos.
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/007/007-mongo-express.png').default} alt="Mongo Express" />
+  <figcaption>Locally running instance of Mongo Express.</figcaption>
+</figure>
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/007/007-db-created.png').default} alt="DB Created" />
+  <figcaption>Database created.</figcaption>
+</figure>
+
+Ahora creamos una collección.
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/007/007-collection-created.png').default} alt="Collection Createds" />
+  <figcaption>Creating Collection.</figcaption>
+</figure>
+
+Y por último el primer documento, siguiendo un esquema sencillo. Únicamente una propiedad: `username`.
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/007/007-new-document.png').default} alt="Collection Createds" />
+  <figcaption>Nuevo documento creado.</figcaption>
+</figure>
+
+## .NET API
+
+Lo siguiente que haremos será crear una API en .NET para poder consumir la base de datos a través de endpoints. En realidad podría ser un proyecto de consola, una librería, o lo qué tu quieras.
+
+<Tabs
+	groupId="dotnet-webapi"
+	defaultValue="linux"
+	values={[
+		{label: 'Linux', value: 'linux'},
+		{label: 'macOs', value: 'macos'},
+		{label: 'Windows', value: 'windows'}
+	]}>
+
+<TabItem value="linux">
+
+Primero creamos el directorio de la solución.
+
+```bash
+mkdir ~/Samples/dotnet-webapi/Sample.API && cd ~/Samples/dotnet-webapi/Sample.API
+```
+
+Una vez ahí, creamos el proyecto API de `dotnet`.
+
+```bash
+dotnet new webapi
+```
+
+</TabItem>
+<TabItem value="macos">
+
+// TODO
+
+</TabItem>
+<TabItem value="windows">
+
+// TODO
+
+</TabItem>
+
+</Tabs>
