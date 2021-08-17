@@ -406,7 +406,7 @@ mkdir Sample.DAL/Mongo/Extensions && mkdir Sample.DAL/Mongo/Connections \
 
 Empezamos por la configuración, el par de archivos `IMongoSettings.cs` y `MongoSettings.cs` nos ayudará a contener el nombre de la base de datos y la cadena de conección.
 
-```csharp title="Sample.DAL/Mongo/IMongoSettings.cs"
+```csharp title="Sample.DAL/Mongo/Connection/IMongoSettings.cs"
 namespace Identity.DAL.Mongo.Connection
 {
     public interface IMongoSettings
@@ -417,7 +417,7 @@ namespace Identity.DAL.Mongo.Connection
 }
 ```
 
-```csharp title="Sample.DAL/Mongo/MongoSettings.cs"
+```csharp title="Sample.DAL/Mongo/Connection/MongoSettings.cs"
 namespace Identity.DAL.Mongo.Connection
 {
     public class MongoSettings : IMongoSettings
@@ -467,7 +467,7 @@ namespace Identity.DAL.Entidades
 
 Una pieza crítica del patrón de repositorio es el poder definir una plantilla de los métodos y propiedades que serán necesarios para poder consultar o persistir datos en cada colección de MongoDB. Para eso, definimos la interfaz `IMongoRepository<TDocument>`. En ella, daremos forma a nuestro repositorio de datos.
 
-```csharp title="Sample.DAL/Mongo/MongoSettings.cs"
+```csharp title="Sample.DAL/Mongo/Connection/IMongoRepository.cs"
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -479,6 +479,7 @@ namespace Identity.DAL.Mongo.Connection
 {
     public interface IMongoRepository<TDocument> where TDocument : IDocument
     {
+        // highlight-start
         IQueryable<TDocument> AsQueryable();
 
         IEnumerable<TDocument> FilterBy(
@@ -523,6 +524,253 @@ namespace Identity.DAL.Mongo.Connection
         void DeleteMany(Expression<Func<TDocument, bool>> filterExpression);
 
         Task DeleteManyAsync(Expression<Func<TDocument, bool>> filterExpression);
+        // highlight-end
+    }
+}
+```
+
+Ya que tenemos la plantilla, es hora de implementarla. Vamos a empezar por el `constructor` que es dónde configuraremos la conexión a la base de datos.
+
+```csharp title="Sample.DAL/Mongo/Connection/MongoRepository.cs"
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using Identity.DAL.Mongo.Settings;
+using Identity.Entities.Mongo;
+using Identity.Entities.Utils.Attributes;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Conventions;
+using MongoDB.Driver;
+
+namespace Identity.DAL.Mongo.Repository
+{
+    public class MongoRepository<TDocument> : IMongoRepository<TDocument> where TDocument : IDocument
+    {
+        // highlight-start
+        private readonly IMongoCollection<TDocument> _collection;
+
+        /* 
+         * Setups connection to MongoDB
+         *
+         **/
+        public MongoRepository(IMongoSettings settings)
+        {
+            // Aplica la nomenclatura `camelCase` al momento de parsear el Modelo
+            ConventionRegistry.Register("camelCase", new ConventionPack {new CamelCaseElementNameConvention()}, t => true);
+            
+            // Configura un MongoClient y la conección a la base de datos
+            var client = new MongoClient(settings.ConnectionString);  // mongodb://mariomenjr:mariomenjr@localhost:27017/sample
+            var database = client.GetDatabase(settings.DatabaseName); // sample
+            
+            // Configura el manejador de la colección
+            var collectionName = this.GetCollectionName(typeof(TDocument));
+            this._collection = database.GetCollection<TDocument>(collectionName);
+        }
+
+        /* 
+         * Gets the collection name from a Model
+         *
+         **/
+        private protected string GetCollectionName(Type documentType)
+        {
+            return ((BsonCollectionAttribute) documentType.GetCustomAttributes(
+                    typeof(BsonCollectionAttribute),
+                    true)
+                .FirstOrDefault())?.CollectionName;
+        }
+        // highlight-end
+        // ...
+    }
+}
+```
+
+Una vez tenemos la conexión configurada, es hora de cubrir los métodos de interacción con la base de datos. Nos referimos al CRUD. Crear, leer, actualizar y eliminar, por sus siglas en inglés.
+
+```csharp title="Sample.DAL/Mongo/Connection/MongoRepository.cs"
+        // ...
+        // highlight-start
+        public virtual IQueryable<TDocument> AsQueryable()
+        {
+            return _collection.AsQueryable();
+        }
+
+        public virtual IEnumerable<TDocument> FilterBy(
+            Expression<Func<TDocument, bool>> filterExpression)
+        {
+            return _collection.Find(filterExpression).ToEnumerable();
+        }
+
+        public virtual IEnumerable<TProjected> FilterBy<TProjected>(
+            Expression<Func<TDocument, bool>> filterExpression,
+            Expression<Func<TDocument, TProjected>> projectionExpression)
+        {
+            return _collection.Find(filterExpression).Project(projectionExpression).ToEnumerable();
+        }
+
+        public virtual TDocument FindOne(Expression<Func<TDocument, bool>> filterExpression)
+        {
+            return _collection.Find(filterExpression).FirstOrDefault();
+        }
+
+        public virtual Task<TDocument> FindOneAsync(Expression<Func<TDocument, bool>> filterExpression)
+        {
+            return Task.Run(() => _collection.Find(filterExpression).FirstOrDefaultAsync());
+        }
+
+        public virtual TDocument FindById(string id)
+        {
+            var objectId = new ObjectId(id);
+            var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
+            return _collection.Find(filter).SingleOrDefault();
+        }
+
+        public virtual Task<TDocument> FindByIdAsync(string id)
+        {
+            return Task.Run(() =>
+            {
+                var objectId = new ObjectId(id);
+                var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
+                return _collection.Find(filter).SingleOrDefaultAsync();
+            });
+        }
+
+        public virtual IEnumerable<TDocument> Find()
+        {
+            return _collection.Find(Builders<TDocument>.Filter.Empty).ToList();
+        }
+
+        public virtual Task<IEnumerable<TDocument>> FindAsync()
+        {
+            return Task.Run(() =>
+            {
+                return _collection.Find(Builders<TDocument>.Filter.Empty).ToListAsync().ContinueWith(task => task.Result.AsEnumerable());
+            });
+        }
+
+        public virtual void InsertOne(TDocument document)
+        {
+            _collection.InsertOne(document);
+        }
+
+        public virtual Task InsertOneAsync(TDocument document)
+        {
+            return Task.Run(() => _collection.InsertOneAsync(document));
+        }
+
+        public void InsertMany(ICollection<TDocument> documents)
+        {
+            _collection.InsertMany(documents);
+        }
+
+        public virtual async Task InsertManyAsync(ICollection<TDocument> documents)
+        {
+            await _collection.InsertManyAsync(documents);
+        }
+
+        public void ReplaceOne(TDocument document)
+        {
+            var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, document.Id);
+            _collection.FindOneAndReplace(filter, document);
+        }
+
+        public virtual async Task ReplaceOneAsync(TDocument document)
+        {
+            var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, document.Id);
+            await _collection.FindOneAndReplaceAsync(filter, document);
+        }
+
+        public void DeleteOne(Expression<Func<TDocument, bool>> filterExpression)
+        {
+            _collection.FindOneAndDelete(filterExpression);
+        }
+
+        public Task DeleteOneAsync(Expression<Func<TDocument, bool>> filterExpression)
+        {
+            return Task.Run(() => _collection.FindOneAndDeleteAsync(filterExpression));
+        }
+
+        public void DeleteById(string id)
+        {
+            var objectId = new ObjectId(id);
+            var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
+            _collection.FindOneAndDelete(filter);
+        }
+
+        public Task DeleteByIdAsync(string id)
+        {
+            return Task.Run(() =>
+            {
+                var objectId = new ObjectId(id);
+                var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
+                _collection.FindOneAndDeleteAsync(filter);
+            });
+        }
+
+        public void DeleteMany(Expression<Func<TDocument, bool>> filterExpression)
+        {
+            _collection.DeleteMany(filterExpression);
+        }
+
+        public Task DeleteManyAsync(Expression<Func<TDocument, bool>> filterExpression)
+        {
+            return Task.Run(() => _collection.DeleteManyAsync(filterExpression));
+        }
+        // highlight-end
+    }
+}
+```
+
+Con esto, tenemos listo el esqueleto de nuestro repositorio de datos. El siguiente paso es aplicarlo a cada colección.
+
+## IService y Manager
+
+Para terminar de configurar nuestro repositorio basta con aplicar lo qué ya escribimos en el archivo `Sample.DAL/Mongo/Connection/MongoRepository.cs` a cada colección. Es aquí dónde definiremos métodos de acceso o modificación de datos muy específicos. Cómo buena práctica, crearemos para cada colección una plantilla y una implementación, o en otras palabras un `IService` y un `Manager`.
+
+En nuestra base de datos de MongoDB solo tenemos una colección, por lo qué será muy sencillo implementar este par.
+
+```csharp title="Sample.DAL/Repository/IServices/IUserService.cs"
+using Identity.DAL.Mongo.Repository;
+using Identity.DAL.Entidades;
+
+namespace Identity.DAL.Repository.IServices
+{
+    public interface IUserService : IMongoRepository<User>
+    {}
+}
+```
+
+```csharp title="Sample.DAL/Repository/Managers/UsersManager.cs"
+using Identity.DAL.Mongo.Repository;
+using Identity.DAL.Mongo.Settings;
+using Identity.DAL.Repository.Services;
+using Identity.DAL.Entidades;
+
+namespace Identity.DAL.Repository.Managers
+{
+    public class UserManager : MongoRepository<User>, IUserService
+    {
+        public UserManager(IMongoSettings settings) : base(settings)
+        {}
+    }
+}
+```
+
+### Entidades
+
+Por último, debemos crear el modelo de la colección para completar las piezas de repositorio.
+
+```csharp title="Sample.DAL/Entidades/User.cs"
+using System.Collections.Generic;
+using MongoDB.Bson;
+
+namespace Identity.DAL.Entities
+{
+    [BsonCollection("users")]
+    public partial class User : Document
+    {
+        public string Username { get; set; }
     }
 }
 ```
