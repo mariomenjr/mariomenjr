@@ -406,8 +406,8 @@ mkdir Sample.DAL/Mongo/Extensions && mkdir Sample.DAL/Mongo/Connections \
 
 Empezamos por la configuración, el par de archivos `IMongoSettings.cs` y `MongoSettings.cs` nos ayudará a contener el nombre de la base de datos y la cadena de conección.
 
-```csharp title="Sample.DAL/Mongo/Connection/IMongoSettings.cs"
-namespace Identity.DAL.Mongo.Connection
+```csharp title="Sample.DAL/Mongo/Connections/IMongoSettings.cs"
+namespace Sample.DAL.Mongo.Connections
 {
     public interface IMongoSettings
     {
@@ -417,8 +417,8 @@ namespace Identity.DAL.Mongo.Connection
 }
 ```
 
-```csharp title="Sample.DAL/Mongo/Connection/MongoSettings.cs"
-namespace Identity.DAL.Mongo.Connection
+```csharp title="Sample.DAL/Mongo/Connections/MongoSettings.cs"
+namespace Sample.DAL.Mongo.Connections
 {
     public class MongoSettings : IMongoSettings
     {
@@ -437,7 +437,7 @@ using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Identity.DAL.Entidades
+namespace Sample.DAL.Entidades
 {
     public interface IDocument
     {
@@ -454,7 +454,7 @@ namespace Identity.DAL.Entidades
 using System;
 using MongoDB.Bson;
 
-namespace Identity.DAL.Entidades
+namespace Sample.DAL.Entidades
 {
     public abstract class Document : IDocument 
     {
@@ -467,15 +467,16 @@ namespace Identity.DAL.Entidades
 
 Una pieza crítica del patrón de repositorio es el poder definir una plantilla de los métodos y propiedades que serán necesarios para poder consultar o persistir datos en cada colección de MongoDB. Para eso, definimos la interfaz `IMongoRepository<TDocument>`. En ella, daremos forma a nuestro repositorio de datos.
 
-```csharp title="Sample.DAL/Mongo/Connection/IMongoRepository.cs"
+```csharp title="Sample.DAL/Mongo/Connections/IMongoRepository.cs"
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Identity.Entities.Mongo;
 
-namespace Identity.DAL.Mongo.Connection
+using Sample.DAL.Entidades;
+
+namespace Sample.DAL.Mongo.Connections
 {
     public interface IMongoRepository<TDocument> where TDocument : IDocument
     {
@@ -529,22 +530,42 @@ namespace Identity.DAL.Mongo.Connection
 }
 ```
 
-Ya que tenemos la plantilla, es hora de implementarla. Vamos a empezar por el `constructor` que es dónde configuraremos la conexión a la base de datos.
+Antes de implementar la plantilla, crearemos un atributo que nos permitirá definir el nombre de la colección para nuestro repositorio.
 
-```csharp title="Sample.DAL/Mongo/Connection/MongoRepository.cs"
+```csharp
+using System;
+
+namespace Sample.DAL.Mongo.Connections
+{
+    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
+    public class BsonCollectionAttribute : Attribute
+    {
+        public string CollectionName { get; }
+
+        public BsonCollectionAttribute(string collectionName)
+        {
+            this.CollectionName = collectionName;
+        }
+    }
+}
+```
+
+Ya que tenemos este atributo y la plantilla, es hora de implementarla. Vamos a empezar por el `constructor` que es dónde configuraremos la conexión a la base de datos.
+
+```csharp title="Sample.DAL/Mongo/Connections/MongoRepository.cs"
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Identity.DAL.Mongo.Settings;
-using Identity.Entities.Mongo;
+using Sample.DAL.Mongo.Settings;
+
 using Identity.Entities.Utils.Attributes;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 
-namespace Identity.DAL.Mongo.Repository
+namespace Sample.DAL.Mongo.Connections
 {
     public class MongoRepository<TDocument> : IMongoRepository<TDocument> where TDocument : IDocument
     {
@@ -588,7 +609,7 @@ namespace Identity.DAL.Mongo.Repository
 
 Una vez tenemos la conexión configurada, es hora de cubrir los métodos de interacción con la base de datos. Nos referimos al CRUD. Crear, leer, actualizar y eliminar, por sus siglas en inglés.
 
-```csharp title="Sample.DAL/Mongo/Connection/MongoRepository.cs"
+```csharp title="Sample.DAL/Mongo/Connections/MongoRepository.cs"
         // ...
         // highlight-start
         public virtual IQueryable<TDocument> AsQueryable()
@@ -724,17 +745,34 @@ Una vez tenemos la conexión configurada, es hora de cubrir los métodos de inte
 
 Con esto, tenemos listo el esqueleto de nuestro repositorio de datos. El siguiente paso es aplicarlo a cada colección.
 
-## IService y Manager
+### Entidades
 
-Para terminar de configurar nuestro repositorio basta con aplicar lo qué ya escribimos en el archivo `Sample.DAL/Mongo/Connection/MongoRepository.cs` a cada colección. Es aquí dónde definiremos métodos de acceso o modificación de datos muy específicos. Cómo buena práctica, crearemos para cada colección una plantilla y una implementación, o en otras palabras un `IService` y un `Manager`.
+Para poder crear un repositorio, necesitamos los modelos. En nuestro caso, solo tenemos una colección por lo qué solo crearemos un modelo.
+
+```csharp title="Sample.DAL/Entidades/User.cs"
+using Sample.DAL.Mongo.Connections;
+
+namespace Sample.DAL.Entidades
+{
+    [BsonCollection("users")]
+    public partial class User : Document
+    {
+        public string Username { get; set; }
+    }
+}
+```
+
+### IService y Manager
+
+Para terminar de configurar nuestro repositorio basta con aplicar lo qué ya escribimos en el archivo `Sample.DAL/Mongo/Connections/MongoRepository.cs` a cada colección. Es aquí dónde definiremos el cómo accederemos o modificaremos la base de datos. Cómo buena práctica, crearemos para cada colección una plantilla y una implementación, o en otras palabras un `IService` y un `Manager`.
 
 En nuestra base de datos de MongoDB solo tenemos una colección, por lo qué será muy sencillo implementar este par.
 
 ```csharp title="Sample.DAL/Repository/IServices/IUserService.cs"
-using Identity.DAL.Mongo.Repository;
-using Identity.DAL.Entidades;
+using Sample.DAL.Entidades;
+using Sample.DAL.Mongo.Connections;
 
-namespace Identity.DAL.Repository.IServices
+namespace Sample.DAL.Repository.IServices
 {
     public interface IUserService : IMongoRepository<User>
     {}
@@ -742,12 +780,11 @@ namespace Identity.DAL.Repository.IServices
 ```
 
 ```csharp title="Sample.DAL/Repository/Managers/UsersManager.cs"
-using Identity.DAL.Mongo.Repository;
-using Identity.DAL.Mongo.Settings;
-using Identity.DAL.Repository.Services;
-using Identity.DAL.Entidades;
+using Sample.DAL.Entidades;
+using Sample.DAL.Mongo.Connections;
+using Sample.DAL.Repository.IServices;
 
-namespace Identity.DAL.Repository.Managers
+namespace Sample.DAL.Repository.Managers
 {
     public class UserManager : MongoRepository<User>, IUserService
     {
@@ -757,23 +794,152 @@ namespace Identity.DAL.Repository.Managers
 }
 ```
 
-### Entidades
+## Dependency Injection
 
-Por último, debemos crear el modelo de la colección para completar las piezas de repositorio.
+Antes de configurar la inyección de dependencias tenemos que instalar un paquete de extensiones para la configuración. El paquete se encuentra en el repositorio de NuGet. Revisa cuál es la última versión disponible en este [enlace](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) y ejecuta el siguiente comando. 
 
-```csharp title="Sample.DAL/Entidades/User.cs"
-using System.Collections.Generic;
-using MongoDB.Bson;
+```bash
+dotnet add Sample.DAL/Sample.DAL.csproj package Microsoft.Extensions.Options.ConfigurationExtensions --version {VERSION}
+```
 
-namespace Identity.DAL.Entities
+Llegó la hora de crear una extensión propia de nuestro paquete. Dejaremos toda la complejidad aquí, y en nuestra API simplemente llamaremos a un método.
+
+```csharp title="Sample.DAL/Mongo/Extensions/MongoExtension.cs"
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Sample.DAL.Mongo.Connections;
+using Sample.DAL.Repository.IServices;
+using Sample.DAL.Repository.Managers;
+
+namespace Sample.DAL.Mongo.Extensions
 {
-    [BsonCollection("users")]
-    public partial class User : Document
+    public static class MongoExtension
     {
-        public string Username { get; set; }
+        public static IServiceCollection AddMongoDb(this IServiceCollection services, IConfigurationSection mongoSettings)
+        {
+            services.Configure<MongoSettings>(mongoSettings);
+            
+            services.AddSingleton<IMongoSettings>(srvProvider =>
+                srvProvider.GetRequiredService<IOptions<MongoSettings>>().Value);
+            
+            services.AddTransient<IUserService, UserManager>();
+
+            return services;
+        }
     }
 }
 ```
+
+Y en nuestra API,configuramos lo siguiente:
+
+```csharp title="Sample.API/Startup.cs"
+    // ...
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // highlight-start
+        services.AddMongoDb(Configuration.GetSection("MongoSettings"));
+        // highlight-end
+        // ...
+```
+
+Para que lo anterior tenga sentido, agregamos esto al archivo `appsettings.json`.
+
+```json
+  // ...
+  // highlight-start
+  "MongoSettings": {
+    "ConnectionString": "mongodb://mariomenjr:mariomenjr@localhost:27017/sample",
+    "DatabaseName": "sample"
+  }
+  // highlight-end
+```
+
+> Por ningún motivo debemos compartir estas credenciales en algún controlador de version público. Para un proyecto, recomiendo leer sobre [`secrets.json`](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-5.0)
+
+Por último, inyectamos la dependencia en el API.
+
+```csharp title="Sample.API/Controllers/ApiController.cs"
+// ...
+namespace Sample.API.Controllers
+{
+    [Route("[controller]")]
+    [ApiController]
+    public class ApiController : ControllerBase
+    {
+        // highlight-start
+        private readonly IUserService _userService;
+        
+        public ApiController(IUserService userService)
+        {
+            this._userService = userService;
+        }
+        // highlight-end
+        // ...
+```
+
+## CRUD
+
+Una vez hemos implementado el patrón de repositorio para acceder y persistir datos, un CRUD es tan sencillo como lo siguiente.
+
+```csharp
+        // ...
+        // highlight-start
+        [HttpGet, Route("[action]")]
+        public JsonResult GetUsers()
+        {
+            return new JsonResult(this._userService.Find());
+            // highlight-end
+
+            // Este es el código que nos permitió consultar la lista de usuario al inicio del Post.
+            // Ya no lo necesitamos y podemos borrarlo.
+
+            var client = new MongoClient("mongodb://mariomenjr:mariomenjr@localhost:27017/sample");
+            var database = client.GetDatabase("sample");
+            
+            var users = database.GetCollection<object>("users");
+            
+            return new JsonResult(users.AsQueryable().Select(s => s));
+            // highlight-start
+        }
+
+        [HttpPost, Route("[action]")]
+        public JsonResult AddUser(string username)
+        {
+            var newUser = new User {Username = username};
+            this._userService.InsertOne(newUser);
+            
+            return new JsonResult(newUser);
+        }
+        
+        [HttpPut, Route("[action]")]
+        public JsonResult UpdateUser(string oldUsername, string newUsername)
+        {
+            var user = this._userService.FindOne(x => x.Username == oldUsername);
+            user.Username = newUsername;
+            
+            this._userService.ReplaceOne(user);
+            
+            return new JsonResult(user);
+        }
+        
+        [HttpDelete, Route("[action]")]
+        public JsonResult DeleteUser(string username)
+        {
+            this._userService.DeleteOne(x => x.Username == username);
+            
+            return new JsonResult(username);
+        }
+        // highlight-end
+        //...
+```
+
+Listo, ya tenemos una interfaz para consultar y persistir datos en la colección _Users_.
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/007/007-crud.png').default} alt="CRUD" />
+  <figcaption>CRUD para colección Users</figcaption>
+</figure>
 
 ## Conclusión
 
