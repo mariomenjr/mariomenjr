@@ -24,11 +24,7 @@ En esta entrada, te mostraré como implementar una capa de datos siguiendo el pa
 
 ## MongoDB
 
-Para empezar esta entrada vamos a crear una pequeña base de datos usando MongoDB. Para esto, podemos usar un servicio online llamado `MongoDB Atlas` o una imagen de `Docker` con todo lo necesario para ejecutar nuestra base de datos localmente.
-
-### MongoDB Atlas
-
-// TODO
+Para empezar esta entrada vamos a crear una pequeña base de datos usando MongoDB. Para esto, podemos usar un servicio online llamado `MongoDB Atlas` o una imagen de `Docker` con todo lo necesario para ejecutar nuestra base de datos localmente. Veamos cómo hacerlo con Docker.
 
 ### Contenedor de Docker
 
@@ -80,8 +76,10 @@ sudo pacman -S docker-compose
 <TabItem value="macos">
 
 ```bash
-brew install docker
+brew install docker docker-compose docker-machine xhyve docker-machine-driver-xhyve
 ```
+
+Más detalles [aquí](https://pilsniak.com/how-to-install-docker-on-mac-os-using-brew).
 
 </TabItem>
 <TabItem value="windows">
@@ -94,9 +92,9 @@ Sigue las siguientes [instrucciones](https://docs.docker.com/docker-for-windows/
 
 Ya que Docker está listo, el siguiente paso es instalar y ejecutar un contenedor que tenga todo lo necesario para alojar una base de datos MongoDB. 
 
-Por suerte para nosotros, existe una [`imagen` oficial](https://hub.docker.com/_/mongo) que cumple con esas características. 
+Por suerte, existe una [imagen oficial](https://hub.docker.com/_/mongo) que cumple con esas características. 
 
-Para hacer uso de ella, siguiendo los pasos en la documentación oficial vamos a crear el siguiente archivo en el directorio que prefieras.
+Para hacer crear un contenedor apartir de esta imagen, seguiremos los pasos en la documentación oficial. Crearemos el siguiente archivo en el directorio que prefieras.
 
 ```yml title="~/Samples/docker-mongo/docker-compose.yml"
 # Usa root/password como usuario/contraseña
@@ -124,13 +122,13 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:password@mongo:27017/
 ```
 
-Una vez creado, es hora de ejecutar Docker. Para eso, nos posicionamos en el directorio.
+Una vez creado, es hora de construir nuestro contendor. Para eso, nos posicionamos en el directorio.
 
 ```bash
 cd ~/Samples/docker-mongo
 ```
 
-Y ejecutamos `docker-compose`:
+Y ejecutamos `docker-compose up`:
 
 ```bash
 docker-compose up
@@ -142,27 +140,25 @@ Si todo salió bien, deberías ver las siguientes líneas:
 > mongo-express_1  | Server is open to allow connections from anyone (0.0.0.0) <br />
 > mongo-express_1  | basicAuth credentials are "admin:pass", it is recommended(...) <br />
 
-Si llevas tiempo desarrollando software, seguro recordarás a PhpMyAdmin. La instalación de Docker provee un servicio muy parecido llamado `Mongo Express`, solo dirígete a [http://localhost:8081](http://localhost:8081) para acceder.
+Si llevas tiempo desarrollando software, seguro recordarás a PhpMyAdmin. La imagen oficial de _MongoDB_ provee un servicio muy parecido llamado `Mongo Express`, dirígete a [http://localhost:8081](http://localhost:8081) para acceder.
 
 ## Preparando el ejemplo
 
 ### Base de datos
 
-Dependiendo de la opción que hayas elegido arriba, llegaste hasta aquí rápido o muy rápido. De todas formas, sigamos con la diversión.
-
-Al acceder a _Mongo Express_, lo primero que debemos hacer es crear una base de datos.
+Al acceder a _Mongo Express_, lo primero que haremos será crear una base de datos.
 
 <figure class="md-captioned-image">
   <img src={require('../static/img/blog/007/007-mongo-express.png').default} alt="Mongo Express" />
-  <figcaption>Locally running instance of Mongo Express.</figcaption>
+  <figcaption>Instancia local de Mongo Express.</figcaption>
 </figure>
 
 <figure class="md-captioned-image">
   <img src={require('../static/img/blog/007/007-db-created.png').default} alt="DB Created" />
-  <figcaption>Database created.</figcaption>
+  <figcaption>Base de datos creada.</figcaption>
 </figure>
 
-Ahora creamos una collección.
+En el siguiente paso crearemos una collección.
 
 <figure class="md-captioned-image">
   <img src={require('../static/img/blog/007/007-collection-created.png').default} alt="Collection Created" />
@@ -184,14 +180,12 @@ Lo siguiente que haremos será crear una API en .NET para poder consumir la base
 
 <Tabs
 	groupId="dotnet-webapi"
-	defaultValue="linux"
+	defaultValue="cli"
 	values={[
-		{label: 'Linux', value: 'linux'},
-		{label: 'macOs', value: 'macos'},
-		{label: 'Windows', value: 'windows'}
+		{label: '.NET CLI', value: 'cli'},
 	]}>
 
-<TabItem value="linux">
+<TabItem value="cli">
 
 Primero creamos el directorio de la solución.
 
@@ -229,16 +223,6 @@ dotnet run --project Sample.API
 Deberías ver una lista JSON en ese enlace: [https://localhost:5001/WeatherForecast](https://localhost:5001/WeatherForecast).
 
 </TabItem>
-<TabItem value="macos">
-
-// TODO
-
-</TabItem>
-<TabItem value="windows">
-
-// TODO
-
-</TabItem>
 
 </Tabs>
 
@@ -252,7 +236,7 @@ dotnet add Sample.API/Sample.API.csproj package MongoDB.Driver -v {VERSION}
 
 Una vez instalado, crearemos un nuevo endpoint para conectarnos a MongoDB y validar la instalación.
 
-Creamos un controlador llamado `ApiController`.
+El primer paso es crear un controlador llamado `ApiController`.
 
 ```bash
 touch Sample.API/Controllers/ApiController.cs
@@ -329,7 +313,7 @@ return new JsonResult(datos);
 // ...
 ```
 
-Podrías argumentar que esta pieza de código _hace el trabajo_, ¿Por qué querría abstraerlo? Claro, es una pregunta válida. Hay muchas razones por las qué conviene más a ti y a tu equipo el tener una capa dedicada al acceso a datos. 
+Podrías argumentar que esta pieza de código _hace el trabajo_, ¿Por qué querríamos abstraerlo? Claro, es una pregunta válida. Hay muchas razones por las qué nos conviene más tener una capa dedicada al acceso a datos que repetir código por todos lados.
 
 <figure class="md-captioned-image">
   <img src={require('../static/img/blog/007/007-repository-diagram.png').default} alt="Repository Diagram" />
@@ -376,7 +360,7 @@ dotnet add Sample.API/Sample.API.csproj reference Sample.DAL/Sample.DAL.csproj
 
 ### Estructura del paquete DAL
 
-Nuestro paquete _DAL_ tendrá la siguiente estructura. En el folder `Mongo`, escribiremos código necesario para conectarnos a la base de datos y para proveer un ancla en nuestro proyecto, el API. Por otro lado, el folder `Repository` albergará código necesario por consumir datos de cada colección.
+Nuestro paquete _DAL_ tendrá la siguiente estructura. En el directorio `Mongo`, escribiremos código necesario para conectarnos a la base de datos y para proveer un ancla en nuestro proyecto, el API. Por otro lado, el directorio `Repository` albergará código necesario por consumir datos de cada colección.
 
 ```
 ├ Sample.DAL
@@ -386,10 +370,10 @@ Nuestro paquete _DAL_ tendrá la siguiente estructura. En el folder `Mongo`, esc
 │ ├ Repository
 | | ├ Managers
 | | ├ IServices
-| ├ Entidades // Podríamos crear un tercer proyecto apartir de este folder, por simplicidad lo dejaremos aquí.
+| ├ Entidades // Podríamos crear un tercer proyecto apartir de este directorio, por simplicidad lo dejaremos aquí.
 ```
 
-Empecemos por crear los dos folder con mayor jerarquía en este proyecto.
+Empecemos por crear los dos directorios con mayor jerarquía en este proyecto.
 
 ```bash
 mkdir Sample.DAL/Mongo && mkdir Sample.DAL/Repository && mkdir Sample.DAL/Entidades
@@ -402,7 +386,7 @@ mkdir Sample.DAL/Mongo/Extensions && mkdir Sample.DAL/Mongo/Connections \
 && mkdir Sample.DAL/Repository/Managers && mkdir Sample.DAL/Repository/IServices
 ```
 
-### MongoDB Connección e Interfaz
+### MongoDB, Connección e Interfaz
 
 Empezamos por la configuración, el par de archivos `IMongoSettings.cs` y `MongoSettings.cs` nos ayudará a contener el nombre de la base de datos y la cadena de conección.
 
@@ -831,7 +815,7 @@ namespace Sample.DAL.Mongo.Extensions
 }
 ```
 
-Y en nuestra API,configuramos lo siguiente:
+Y en nuestra API, configuramos lo siguiente:
 
 ```csharp title="Sample.API/Startup.cs"
     // ...
@@ -943,8 +927,13 @@ Listo, ya tenemos una interfaz para consultar y persistir datos en la colección
 
 ## Conclusión
 
+Espero que este post te haya sido de mucha ayuda. Después de implementar el patrón de repositorio, es muy sencillo escalar cualquier consulta a la base de datos. No necesitamos conocer ningún detalle de conección, ya que eso es manejado propiamente por esta nueva capa.
+
+La ventaja de esto es que si la base de datos sufre algún cambio, no debemos ir a cada parte de la aplicación para implementarlos. Únicamente nuestro paquete DAL sufrirá los cambios. Reduciendo ambos el tiempo de programación y pruebas.
+
 ## Referencias
 
+- [MongoDB C#/.NET Driver](https://docs.mongodb.com/drivers/csharp/)
 - [The WHY Series: Why should you use the repository pattern?](https://makingloops.com/why-should-you-use-the-repository-pattern/)
 - [Quick Start: C# and MongoDB - Read Operations](https://www.mongodb.com/blog/post/quick-start-c-and-mongodb--read-operations)
 - [Tutorial: Create a .NET class library using Visual Studio Code](https://docs.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio-code)
