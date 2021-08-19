@@ -172,8 +172,6 @@ Y por último el primer documento, siguiendo un esquema sencillo. Únicamente un
   <figcaption>Nuevo documento creado.</figcaption>
 </figure>
 
-// TODO: Crear usuario if Docker
-
 ### API en .NET
 
 Lo siguiente que haremos será crear una API en .NET para poder consumir la base de datos a través de endpoints. En realidad podría ser un proyecto de consola, una librería, o lo qué tu quieras.
