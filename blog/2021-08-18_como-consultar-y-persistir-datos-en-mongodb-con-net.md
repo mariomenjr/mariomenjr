@@ -172,6 +172,13 @@ Y por último el primer documento, siguiendo un esquema sencillo. Únicamente un
   <figcaption>Nuevo documento creado.</figcaption>
 </figure>
 
+> En este ejemplo, tenemos que crear un usuario distinto a `root` para poder consultar y persistir datos desde la aplicación a través MongoDB.Driver para .NET. La forma más sencilla de logralo es a través de [Robo 3T](https://robomongo.org/).
+
+<figure class="md-captioned-image">
+  <img src={require('../static/img/blog/007/007-create-user.png').default} alt="Sample->Users" />
+  <figcaption>Click derecho en Sample->Users.</figcaption>
+</figure>
+
 ### API en .NET
 
 Lo siguiente que haremos será crear una API en .NET para poder consumir la base de datos a través de endpoints. En realidad podría ser un proyecto de consola, una librería, o lo qué tu quieras.
