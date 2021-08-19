@@ -370,7 +370,7 @@ Nuestro paquete _DAL_ tendrá la siguiente estructura. En el directorio `Mongo`,
 ├ Sample.DAL
 │ ├ Mongo
 | | ├ Extensions
-| | ├ Connection
+| | ├ Connections
 │ ├ Repository
 | | ├ Managers
 | | ├ IServices
@@ -392,7 +392,7 @@ mkdir Sample.DAL/Mongo/Extensions && mkdir Sample.DAL/Mongo/Connections \
 
 ### MongoDB, Connección e Interfaz
 
-Empezamos por la configuración, el par de archivos `IMongoSettings.cs` y `MongoSettings.cs` nos ayudará a contener el nombre de la base de datos y la cadena de conección.
+Empezamos por la configuración, el par de archivos `IMongoSettings.cs` y `MongoSettings.cs` nos ayudará a contener el nombre de la base de datos y la cadena de conexión.
 
 ```csharp title="Sample.DAL/Mongo/Connections/IMongoSettings.cs"
 namespace Sample.DAL.Mongo.Connections
@@ -569,7 +569,7 @@ namespace Sample.DAL.Mongo.Connections
             // Aplica la nomenclatura `camelCase` al momento de parsear el Modelo
             ConventionRegistry.Register("camelCase", new ConventionPack {new CamelCaseElementNameConvention()}, t => true);
             
-            // Configura un MongoClient y la conección a la base de datos
+            // Configura un MongoClient y la conexión a la base de datos
             var client = new MongoClient(settings.ConnectionString);  // mongodb://mariomenjr:mariomenjr@localhost:27017/sample
             var database = client.GetDatabase(settings.DatabaseName); // sample
             
@@ -931,7 +931,7 @@ Listo, ya tenemos una interfaz para consultar y persistir datos en la colección
 
 ## Conclusión
 
-Espero que este post te haya sido de mucha ayuda. Después de implementar el patrón de repositorio, es muy sencillo escalar cualquier consulta a la base de datos. No necesitamos conocer ningún detalle de conección, ya que eso es manejado propiamente por esta nueva capa.
+Espero que este post te haya sido de mucha ayuda. Después de implementar el patrón de repositorio, es muy sencillo escalar cualquier consulta a la base de datos. No necesitamos conocer ningún detalle de conexión, ya que eso es manejado propiamente por esta nueva capa.
 
 La ventaja de esto es que si la base de datos sufre algún cambio, no debemos ir a cada parte de la aplicación para implementarlos. Únicamente nuestro paquete DAL sufrirá los cambios. Reduciendo ambos el tiempo de programación y pruebas.
 
