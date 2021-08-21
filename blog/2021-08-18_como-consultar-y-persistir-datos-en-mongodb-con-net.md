@@ -390,7 +390,7 @@ mkdir Sample.DAL/Mongo/Extensions && mkdir Sample.DAL/Mongo/Connections \
 && mkdir Sample.DAL/Repository/Managers && mkdir Sample.DAL/Repository/IServices
 ```
 
-### MongoDB, Connección e Interfaz
+### MongoDB, Conexión e Interfaz
 
 Empezamos por la configuración, el par de archivos `IMongoSettings.cs` y `MongoSettings.cs` nos ayudará a contener el nombre de la base de datos y la cadena de conexión.
 
