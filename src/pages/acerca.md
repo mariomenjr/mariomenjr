@@ -18,12 +18,10 @@ description: "¡Hola! mi nombre es Mario Menjívar. Soy un Ingeniero de Software
 
 # It's me, Mario
 
-¡Hola! mi nombre es **Mario Menjívar**. Soy un Ingeniero de Software, originario de El Salvador, viviendo en el Sur de California. Tengo 7 años de experiencia desarrollando aplicaciones web. Actualmente soy parte del equipo de desarrollo de software en Rapid Manufacturing.
+¡Hola mundo! Soy un desarrollador de software viviendo en el sur de California. Actualmente soy parte del equipo de desarrollo de software en Industrias Melang. Tengo 7 años de experiencia en el desarrollo de aplicaciones, desde la creación de bases de datos, servicios, APIs y front-end. Recientemente he tenido la oportunidad de liderar equipos de trabajo.
 
-**A lo largo de mi carrera**, he trabajado con una variedad de lenguajes y herramientas, tales como: PHP, NodeJS, ReactJS, React-Native, C# .NET (Core) Framework, Python, Mongo DB, MySQL y Microsoft SQL.
+He tenido la oportunidad de trabajar con una variedad de lenguajes y herramientas tales como: PHP, JavaScript (Vanilla, React, Node), C# (.NET Core), Python, Microsoft SQL, MySQL y MongoDB. En los últimos 5 años, me he vuelto un experto en JavaScript, C# y SQL al ser los lenguajes con los que he trabajado a diario.
 
-Javascript, uno de mis fuertes, es un lenguaje fantástico y vérsatil, que se ha ganado su lugar en ambientes de producción alrededor del mundo. En combinación con la solidez de **C#** y el **.NET Core Framework**, hacen de mi experiencia de desarrollo increíble. Sin mencionar el talentoso equipo al que pertenezco.
+Aparte de programar, entre mis pasatiempos están leer; ver documentales, en especial si hablan de historia y humanidades; y también me gusta conocer nuevos lugares junto a mi novia, ya hemos visitado varias ciudades de California y Nevada.
 
-Entre **las cosas que me gustan** están leer; ver documentales, en especial si hablan de historia y humanidades; y también me gusta conocer nuevos lugares junto a mi novia, hemos visitado ya varias ciudades de la unión americana.
-
-Para contactarme, mi cuenta de twitter [@mariomenjr](https://twitter.com/mariomenjr) es una buena opción. También puedes escribirme un e-mail [aquí](https://forms.formium.io/f/5fe2551f0f24900001bd7abb).
+Puedes contactarme en twitter, mi nombre de usuario es [@mariomenjr](https://twitter.com/mariomenjr), o también puedes escribirme un e-mail [aquí](https://forms.formium.io/f/5fe2551f0f24900001bd7abb). Me encantaría recibir feedback de cualquier proyecto que tengo en mi perfil de [github](https://github.com/mariomenjr).
