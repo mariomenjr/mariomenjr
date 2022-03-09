@@ -20,8 +20,8 @@ description: "¡Hola! mi nombre es Mario Menjívar. Soy un Ingeniero de Software
 
 ¡Hola mundo! Soy un desarrollador de software viviendo en el sur de California. Actualmente soy parte del equipo de desarrollo de software en Industrias Melang. Tengo 7 años de experiencia en el desarrollo de aplicaciones, desde la creación de bases de datos, servicios, APIs y front-end. Recientemente he tenido la oportunidad de liderar equipos de trabajo.
 
-He tenido la oportunidad de trabajar con una variedad de lenguajes y herramientas tales como: PHP, JavaScript (Vanilla, React, Node), C# (.NET Core), Python, Microsoft SQL, MySQL y MongoDB. En los últimos 5 años, me he vuelto un experto en JavaScript, C# y SQL al ser los lenguajes con los que he trabajado a diario.
+He tenido la oportunidad de trabajar con una variedad de lenguajes y herramientas tales como: PHP, JavaScript (Vanilla, React, Node), C# (.NET Core), Python, Microsoft SQL, MySQL y MongoDB. En los últimos 5 años, me he vuelto un experto en JavaScript, C# y SQL al ser los lenguajes con los que trabajo a diario.
 
-Aparte de programar, entre mis pasatiempos están leer; ver documentales, en especial si hablan de historia y humanidades; y también me gusta conocer nuevos lugares junto a mi novia, ya hemos visitado varias ciudades de California y Nevada.
+Además de programar, también me gusta dedicarme a mis pasatiempos, entre ellos están leer, ver documentales (en especial si hablan de historia y humanidades), me gusta conocer nuevos lugares junto a mi novia (ya hemos visitado varias ciudades de California y Nevada) y, por lo general, invierto tiempo a aprender nuevas habilidades.
 
 Puedes contactarme en twitter, mi nombre de usuario es [@mariomenjr](https://twitter.com/mariomenjr), o también puedes escribirme un e-mail [aquí](https://forms.formium.io/f/5fe2551f0f24900001bd7abb). Me encantaría recibir feedback de cualquier proyecto que tengo en mi perfil de [github](https://github.com/mariomenjr).
