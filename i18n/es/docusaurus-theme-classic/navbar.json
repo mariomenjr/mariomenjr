@@ -1,14 +1,14 @@
 {
   "title": {
-    "message": "Mario Menjívar",
+    "message": "mariomenjr.com",
     "description": "The title in the navbar"
   },
   "item.label.Blog": {
     "message": "Blog",
     "description": "Navbar item with label Blog"
   },
-  "item.label.Contact": {
-    "message": "Contacto",
+  "item.label.Resume": {
+    "message": "Resume",
     "description": "Navbar item with label Contact"
   },
   "item.label.About": {
