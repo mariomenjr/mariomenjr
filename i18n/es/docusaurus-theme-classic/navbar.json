@@ -9,7 +9,7 @@
   },
   "item.label.Resume": {
     "message": "Resume",
-    "description": "Navbar item with label Contact"
+    "description": "Navbar item with label Resume"
   },
   "item.label.About": {
     "message": "Acerca",
@@ -18,5 +18,13 @@
   "item.label.GitHub": {
     "message": "GitHub",
     "description": "Navbar item with label GitHub"
+  },
+  "item.label.Email": {
+    "message": "Email",
+    "description": "Navbar item with label Email"
+  },
+  "item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "Navbar item with label LinkedIn"
   }
 }
