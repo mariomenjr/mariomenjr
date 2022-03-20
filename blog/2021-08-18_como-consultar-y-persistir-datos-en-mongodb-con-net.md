@@ -15,7 +15,7 @@ image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixid=MnwxMj
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem"; 
 
-Se ha escrito muchísimo acerca de las ventajas (y desventajas) de las bases de datos NoSQL frente a las SQL. Vagamente, podemos describir a cada uno de estos tipos de bases de datos con una palabra. Flexible, para NoSQL, y Fijo, para SQL. Sin embargo, el tiempo nos ha enseñado que ambas son meras herramientas que son preferidas para casos específicos.
+Se ha escrito muchísimo acerca de las ventajas (y desventajas) de las bases de datos NoSQL frente a las SQL. Sin embargo, el tiempo nos ha enseñado que ambas son meras herramientas que son preferidas para casos específicos.
 
 En esta entrada, te mostraré como implementar una capa de datos siguiendo el patrón repositorio para consultar y persistir datos a una instalación de MongoDB haciendo uso de C# y el .NET Core Framework.
 
