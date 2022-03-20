@@ -7,6 +7,7 @@ module.exports = {
   tagline: '@mariomenjr',
   url: 'https://mariomenjr.com',
   baseUrl: '/',
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -126,7 +127,6 @@ module.exports = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-          trailingSlash: false,
         },
       },
     ],
