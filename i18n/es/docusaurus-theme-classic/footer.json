@@ -17,7 +17,7 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/mariomenjr/mariomenjr"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/mariomenjr"
   },
   "link.item.label.Blog": {
     "message": "Blog",
@@ -26,5 +26,17 @@
   "copyright": {
     "message": "Copyright © 2021 Mario Menjívar. Hecho con Docusaurus.",
     "description": "The footer copyright"
+  },
+  "link.item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "The label of footer link with label=LinkedIn linking to https://linkedin.com/in/mariomenjr"
+  },
+  "link.item.label.Resume": {
+    "message": "Resume",
+    "description": "The label of footer link with label=Resume linking to /resume"
+  },
+  "link.item.label.Email": {
+    "message": "Email",
+    "description": "The label of footer link with label=Email linking to mailto:mariomenjr@gmail.com?subject=mariomenjr.com"
   }
 }
