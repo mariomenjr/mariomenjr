@@ -32,7 +32,6 @@ module.exports = {
       },
       items: [
         { to: "/blog", label: "Blog", position: "left" },
-        { to: "/resume", label: "Resume", position: "left" },
         {
           href: "mailto:mariomenjr@gmail.com?subject=mariomenjr.com",
           label: "Email",
@@ -83,7 +82,7 @@ module.exports = {
             },
             {
               label: "Resume",
-              to: "/resume"
+              href: "https://docs.google.com/document/d/1EjOqIIqDXXIl7ms5COV55TbI8xFFvzZHD_7QwmTcqT4/edit?usp=sharing"
             },
             {
               label: "Email",
