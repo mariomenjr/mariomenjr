@@ -33,11 +33,6 @@ module.exports = {
       items: [
         { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "mailto:mariomenjr@gmail.com?subject=mariomenjr.com",
-          label: "Email",
-          position: "left",
-        },
-        {
           type: "localeDropdown",
           position: "right",
         },
