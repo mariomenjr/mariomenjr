@@ -12,7 +12,7 @@ description: "Históricamente, validar un formulario en React requiere de una ca
 image: "https://imgur.com/wm6iA0l.png"
 ---
 
-Todos los desarrolladores de software que trabajamos con React, absolutamente todos, hemos tenido ese tedioso ticket para crear y/o validar un formulario. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik.
+Todos los desarrolladores de software que trabajamos con React, absolutamente todos, hemos tenido ese tedioso ticket para crear y/o validar un formulario en React. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik.
 
 <!--truncate-->
 
