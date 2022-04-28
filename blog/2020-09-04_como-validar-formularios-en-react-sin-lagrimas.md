@@ -6,13 +6,13 @@ author_title: Software Engineer
 author_url: https://github.com/mariomenjr
 author_image_url: https://avatars3.githubusercontent.com/u/1946936?s=460&v=4
 tags: [formik,react,javascript]
-keywords: [formik,español,react,cómo,validar formularios react,formulario html,formulario react,validar formularios javascript,validar formularios]
+keywords: [formik,español,react,cómo,validar formulario react,formulario html,formulario react,validar formulario javascript,validar formulario]
 date: 2020-09-04T07:08:02.000-07:00
 description: "Históricamente, validar un formulario en React requiere de una cantidad impresionante de boilerplate que añade complejidad innecesaria. Veamos cómo librarnos de eso."
 image: "https://imgur.com/wm6iA0l.png"
 ---
 
-Todos los desarrolladores de software que trabajamos con React, absolutamente todos, hemos tenido ese tedioso ticket para crear y/o validar un formulario en React. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik.
+Todos los desarrolladores de software que trabajamos con React, absolutamente todos, hemos tenido ese tedioso ticket para crear y/o validar un formulario. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik.
 
 <!--truncate-->
 
@@ -142,7 +142,7 @@ import {
 // ...
 ```
 
-Este componente debe encapsular a nuestro formulario, cómo se muestra abajo. Formik se mantiene al tanto del estado del formulario y te provee valores, métodos reusables y manejadores de eventos a través de `props`.
+Este componente debe encapsular nuestro formulario, cómo se muestra abajo. Formik se mantiene al tanto del estado del formulario y te provee valores, métodos reusables y manejadores de eventos a través de `props`.
 
 Además, Formik sigue una regla básica para simplificar el proceso de validación. Para que la librería puede relacionar un `initialValues` a un `<Input>` específico, tanto la propiedad como el `name` de `<Input>` deben tener el mismo nombre. En el ejemplo de abajo, hemos definido 5 controles: `name`, `email`, `password`, `bio`, and `multiple`.
 
@@ -375,7 +375,7 @@ Por último, podemos llenar nuestro formulario y ver que una vez validado, el `c
 
 ## Conclusión
 
-Espero este post te sea de mucha ayuda. En mi experiencia con React, Formik me ha facilitado el validar formularios al proveerme de métodos que me permiten ajustar a cada momento los valores y las validaciones necesarias. La expresividad del código es de gran valor ya que permite escalar y/o mantener de una forma sencilla sin reinventar la rueda para cada formulario.
+Espero este post te sea de mucha ayuda. En mi experiencia con React, Formik me ha facilitado el validar formularios en React al proveerme de métodos que me permiten ajustar a cada momento los valores y las validaciones necesarias. La expresividad del código es de gran valor ya que permite escalar y/o mantener de una forma sencilla sin reinventar la rueda para cada formulario.
 
 ## Referencias
 
