@@ -1,7 +1,7 @@
 {
   "name": "mariomenjr",
   "description": "A blog by Mario Menjívar",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
