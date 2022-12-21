@@ -1,7 +1,7 @@
 
 # 👋 It's me, Mario.
 
-Curiosity-driven human. Software Developer. Immigrant.
+Curiosity-driven human. Computer scientist. Immigrant.
 
 ---
 
