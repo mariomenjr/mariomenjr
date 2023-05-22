@@ -2,11 +2,12 @@
 
 colorScheme = "slate"
 
-homepage.layout = "profile"
-homepage.showRecent = true
+[homepage]
+  layout = "profile"
+  showRecent = true
 
-article.showEdit = true
-article.editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/"
-article.showTableOfContents = true
-article.showBreadcrumbs = true
-#   article.showComments = true
+[article]
+  showEdit = true
+  editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/"
+  showTableOfContents = true
+  showBreadcrumbs = true
