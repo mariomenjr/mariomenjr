@@ -1,0 +1,14 @@
+# config/_default/languages.es.toml
+
+title = "mariomenjr"
+
+[author]
+name = "Mario Menjívar"
+image = "img/author.jpg"
+headline = "Curiosity-driven human. Computer scientist. Immigrant."
+bio = "Curiosity-driven human. Computer scientist. Immigrant."
+links = [
+  { twitter = "https://twitter.com/mariomenjr" },
+  { github = "https://github.com/mariomenjr" },
+  { linkedin = "https://linkedin.com/in/mariomenjr" }
+]

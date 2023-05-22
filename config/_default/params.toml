@@ -1,0 +1,12 @@
+# config/_default/params.toml
+
+colorScheme = "slate"
+
+homepage.layout = "profile"
+homepage.showRecent = true
+
+article.showEdit = true
+article.editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/"
+article.showTableOfContents = true
+article.showBreadcrumbs = true
+#   article.showComments = true
