@@ -515,7 +515,7 @@ Para evitar problemas con Chrome, y mientras estamos en el ambiente de desarroll
 
 Esto no es suficiente. Al googlear un rato, me topé con esta [respuesta](https://stackoverflow.com/a/61302188/3135446) en _StackOverflow_ y funcionó de maravilla. Primero creamos una extensión al `IServiceCollection` en el archivo `Identity.API/SameSiteCookiesServiceCollectionExtensions.cs`.
 
-```csharp {linenos=false,hl_lines=[]}
+```csharp {linenos=false}
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -718,7 +718,7 @@ npm install jwt-decode --save
 
 El nuevo archivo se llamará `identity.middleware` dentro del folder `middlewares`.
 
-```js {linenos=false,hl_lines=[]}
+```js {linenos=false}
 const jwt_decode = require("jwt-decode");
 
 function identify() {
