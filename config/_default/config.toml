@@ -4,3 +4,4 @@ baseURL = "https://mariomenjr.com/"
 languageCode = "es"
 defaultContentLanguage = "es"
 timeout="5m"
+googleAnalytics = 'UA-174920898-1'
