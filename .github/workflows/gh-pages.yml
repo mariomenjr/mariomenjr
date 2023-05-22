@@ -22,20 +22,17 @@ jobs:
       - name: Setup Hugo 🔧
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.111.3"
+          hugo-version: "latest"
           extended: true
 
       - name: Build 🔧
         run: hugo --minify
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
-          CLEAN: true
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_MARIOMENJR }}
-          BRANCH: main
-          FOLDER: public
-          # The base branch of your repository which you would like to checkout prior to deploying. This defaults to the current commit SHA that triggered the build followed by main if it does not exist. This is useful for making deployments from another branch, and also may be necessary when using a scheduled job.
-          BASE_BRANCH: main
-          # Allows you to speicfy a different repository path so long as you have permissions to push to it. This should be formatted like so: JamesIves/github-pages-deploy-action
-          REPOSITORY_NAME: mariomenjr/mariomenjr.github.io
+          github_token: ${{ secrets.DEPLOY_MARIOMENJR }}
+          external_repository: mariomenjr/mariomenjr.github.io
+          publish_branch: main
+          publish_dir: ./public
