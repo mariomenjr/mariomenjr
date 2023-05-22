@@ -1,0 +1,45 @@
+# config/_default/menus.en.toml
+
+[[main]]
+  name = "Blog"
+  pageRef = "blog"
+  weight = 10
+
+[[main]]
+  name = "Tags"
+  pageRef = "tags"
+  weight = 20
+
+# [[main]]
+#   name = "About"
+#   pageRef = "about"
+#   weight = 25
+
+# [[main]]
+#   name = "GitHub"
+#   url = "https://github.com/mariomenjr"
+#   weight = 30
+#   [main.params]
+#     icon = "github"
+#     showName = false
+#     target = "_blank"
+
+[[main]]
+  name = "LinkedIn"
+  url = "https://linkedin.com/in/mariomenjr"
+  weight = 30
+  [main.params]
+    icon = "linkedin"
+    showName = false
+    target = "_blank"
+
+# [[main]]
+#   identifier = "search"
+#   weight = 99
+#   [main.params]
+#     action = "search"
+#     icon = "search"
+
+# [[footer]]
+#   name = "Resume"
+#   url = "https://go.mariomenjr.com/resume"
