@@ -1,6 +1,14 @@
 # config/_default/languages.es.toml
 
-title = "mariomenjr"
+languageCode = "es"
+languageName = "Español"
+weight = 1
+
+title = "mariomenjr.com"
+
+[params]
+  isoCode = "es"
+  displayName = "ES"
 
 [author]
   name = "Mario Menjívar"
@@ -8,7 +16,10 @@ title = "mariomenjr"
   headline = "Curiosity-driven human. Computer scientist. Immigrant."
   bio = "Curiosity-driven human. Computer scientist. Immigrant."
   links = [
-    { twitter = "https://twitter.com/mariomenjr" },
+    { linkedin = "https://linkedin.com/in/mariomenjr" },
+    { email = "mailto:mariomenjr@gmail.com" },
     { github = "https://github.com/mariomenjr" },
-    { linkedin = "https://linkedin.com/in/mariomenjr" }
+    { youtube = "https://youtube.com/mariomenjr" },
+    { twitter = "https://twitter.com/mariomenjr" },
+    { instagram = "https://instagram.com/mariomenjr" },
   ]

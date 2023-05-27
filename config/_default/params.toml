@@ -1,6 +1,7 @@
 # config/_default/params.toml
 
 colorScheme = "slate"
+enableCodeCopy = true
 
 [homepage]
   layout = "profile"
@@ -11,3 +12,9 @@ colorScheme = "slate"
   editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/content"
   showTableOfContents = true
   showBreadcrumbs = true
+  # showWordCount = true
+  # showTableOfContents = false
+  sharingLinks = ["facebook", "twitter", "mastodon", "pinterest", "reddit", "linkedin", "email"]
+  
+[footer]
+  showAppearanceSwitcher = true
