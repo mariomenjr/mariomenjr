@@ -2,6 +2,7 @@
 
 colorScheme = "slate"
 enableCodeCopy = true
+robots = "noarchive"
 
 [homepage]
   layout = "profile"
@@ -18,3 +19,6 @@ enableCodeCopy = true
   
 [footer]
   showAppearanceSwitcher = true
+
+[verification]
+  google="NspysIBon3Yhy_TQbJtYWM7ffCfRAC2ncngp4s8-hLI"
