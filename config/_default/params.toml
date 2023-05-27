@@ -8,6 +8,6 @@ colorScheme = "slate"
 
 [article]
   showEdit = true
-  editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/"
+  editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/content"
   showTableOfContents = true
   showBreadcrumbs = true
