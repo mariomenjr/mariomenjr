@@ -15,7 +15,7 @@ robots = "noarchive"
   showBreadcrumbs = true
   # showWordCount = true
   # showTableOfContents = false
-  sharingLinks = ["facebook", "twitter", "mastodon", "pinterest", "reddit", "linkedin", "email"]
+  sharingLinks = ["facebook", "twitter", "mastodon", "reddit", "linkedin"]
   
 [footer]
   showAppearanceSwitcher = true
