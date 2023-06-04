@@ -5,3 +5,6 @@ defaultContentLanguage = "es"
 
 enableRobotsTXT = true
 googleAnalytics = 'G-X53362RTQ8'
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

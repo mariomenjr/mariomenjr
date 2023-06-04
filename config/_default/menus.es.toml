@@ -5,11 +5,6 @@
   pageRef = "blog"
   weight = 10
 
-# [[main]]
-#   name = "Tags"
-#   pageRef = "tags"
-#   weight = 20
-
 [[main]]
   name = "sobre mí"
   pageRef = "about"
@@ -24,13 +19,9 @@
 #     showName = false
 #     target = "_blank"
 
-# [[main]]
-#   identifier = "search"
-#   weight = 40
-#   [main.params]
-#     action = "search"
-#     icon = "search"
-
-# [[footer]]
-#   name = "Resume"
-#   url = "https://go.mariomenjr.com/resume"
+[[main]]
+  identifier = "search"
+  weight = 40
+  [main.params]
+    action = "search"
+    icon = "search"

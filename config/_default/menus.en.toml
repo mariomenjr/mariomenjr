@@ -19,9 +19,9 @@
 #     showName = false
 #     target = "_blank"
 
-# [[main]]
-#   identifier = "search"
-#   weight = 40
-#   [main.params]
-#     action = "search"
-#     icon = "search"
+[[main]]
+  identifier = "search"
+  weight = 40
+  [main.params]
+    action = "search"
+    icon = "search"
