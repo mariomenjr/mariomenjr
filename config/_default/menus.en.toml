@@ -1,0 +1,27 @@
+# config/_default/menus.en.toml
+
+[[main]]
+  name = "Blog"
+  pageRef = "blog"
+  weight = 10
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 20
+
+[[main]]
+  name = "LinkedIn"
+  url = "https://linkedin.com/in/mariomenjr"
+  weight = 30
+  [main.params]
+    icon = "linkedin"
+    showName = false
+    target = "_blank"
+
+[[main]]
+  identifier = "search"
+  weight = 40
+  [main.params]
+    action = "search"
+    icon = "search"

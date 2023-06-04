@@ -4,7 +4,7 @@ title: "#Algoritmos: Búsqueda binaria"
 date: 2020-08-14T09:47:12.000-07:00
 description: "¿Qué es búsqueda binaria?"
 summary: "La búsqueda binaria es un algoritmo eficiente para encontrar un elemento en una lista ordenada de elementos. "
-coverCaption: "La búsqueda binaria es un algoritmo eficiente para encontrar un elemento en una lista ordenada de elementos. "
+coverCaption: Photo by [Delia Giandeini](https://unsplash.com/@dels?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/QndYCQc_a3g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 tags: ["algoritmos", "computer science", "busqueda binaria"]
 ---
 

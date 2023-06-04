@@ -1,4 +1,4 @@
 ---
 title: "Blog"
-description: "Un blog dónde compartir algo de vez en vez."
+description: "El resultado directo de mi aprendizaje hecho público."
 ---

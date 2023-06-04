@@ -1,14 +1,15 @@
 # config/_default/languages.es.toml
 
-languageCode = "es"
-languageName = "Español"
-weight = 1
+languageCode = "en"
+languageName = "English"
+weight = 2
 
 title = "mariomenjr.com"
 
 [params]
-  isoCode = "es"
-  displayName = "🇸🇻"
+  isoCode = "en"
+  displayName = "🇺🇸"
+  mainSections = []
 
 [author]
   name = "Mario Menjívar"

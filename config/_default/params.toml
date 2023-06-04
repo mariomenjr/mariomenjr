@@ -12,7 +12,7 @@ robots = "noarchive"
 
 [homepage]
   layout = "profile"
-  showRecent = true
+  showRecent = false
 
 [article]
   showEdit = true
