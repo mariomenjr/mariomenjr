@@ -1,4 +1,4 @@
 ---
 title: "Blog"
-description: "Posteo regular y no tan regularmente."
+description: "Un blog dónde compartir algo de vez en vez."
 ---

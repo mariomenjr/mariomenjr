@@ -5,15 +5,15 @@
   pageRef = "blog"
   weight = 10
 
-[[main]]
-  name = "Tags"
-  pageRef = "tags"
-  weight = 20
-
 # [[main]]
-#   name = "About"
-#   pageRef = "about"
-#   weight = 25
+#   name = "Tags"
+#   pageRef = "tags"
+#   weight = 20
+
+[[main]]
+  name = "Sobre mí"
+  pageRef = "about"
+  weight = 20
 
 [[main]]
   name = "LinkedIn"
@@ -24,12 +24,12 @@
     showName = false
     target = "_blank"
 
-# [[main]]
-#   identifier = "search"
-#   weight = 99
-#   [main.params]
-#     action = "search"
-#     icon = "search"
+[[main]]
+  identifier = "search"
+  weight = 40
+  [main.params]
+    action = "search"
+    icon = "search"
 
 # [[footer]]
 #   name = "Resume"

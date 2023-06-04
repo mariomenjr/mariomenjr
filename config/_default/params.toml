@@ -2,7 +2,11 @@
 
 colorScheme = "slate"
 enableCodeCopy = true
+enableSearch = true
 robots = "noarchive"
+
+[header]
+  layout = "hybrid"
 
 [homepage]
   layout = "profile"
@@ -13,8 +17,6 @@ robots = "noarchive"
   editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/content"
   showTableOfContents = true
   showBreadcrumbs = true
-  # showWordCount = true
-  # showTableOfContents = false
   sharingLinks = ["facebook", "twitter", "mastodon", "reddit", "linkedin"]
   
 [footer]
