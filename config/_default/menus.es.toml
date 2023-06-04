@@ -15,21 +15,21 @@
   pageRef = "about"
   weight = 20
 
-[[main]]
-  name = "linkedin"
-  url = "https://linkedin.com/in/mariomenjr"
-  weight = 30
-  [main.params]
-    icon = "linkedin"
-    showName = false
-    target = "_blank"
+# [[main]]
+#   name = "linkedin"
+#   url = "https://linkedin.com/in/mariomenjr"
+#   weight = 30
+#   [main.params]
+#     icon = "linkedin"
+#     showName = false
+#     target = "_blank"
 
-[[main]]
-  identifier = "search"
-  weight = 40
-  [main.params]
-    action = "search"
-    icon = "search"
+# [[main]]
+#   identifier = "search"
+#   weight = 40
+#   [main.params]
+#     action = "search"
+#     icon = "search"
 
 # [[footer]]
 #   name = "Resume"

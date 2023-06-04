@@ -2,7 +2,7 @@
 
 colorScheme = "slate"
 
-enableSearch = true
+# enableSearch = true
 enableCodeCopy = true
 
 robots = "noarchive"

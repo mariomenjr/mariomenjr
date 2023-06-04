@@ -9,7 +9,6 @@ title = "mariomenjr.com"
 [params]
   isoCode = "en"
   displayName = "🇺🇸"
-  mainSections = []
 
 [author]
   name = "Mario Menjívar"
