@@ -1,17 +1,17 @@
 # config/_default/menus.en.toml
 
 [[main]]
-  name = "Blog"
+  name = "blog"
   pageRef = "blog"
   weight = 10
 
 [[main]]
-  name = "About"
+  name = "about"
   pageRef = "about"
   weight = 20
 
 [[main]]
-  name = "LinkedIn"
+  name = "linkedin"
   url = "https://linkedin.com/in/mariomenjr"
   weight = 30
   [main.params]
