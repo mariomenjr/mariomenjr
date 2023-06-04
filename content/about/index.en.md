@@ -8,7 +8,7 @@ keywords: ["mariomenjr.com", "mariomenjr"]
 showEdit: false
 ---
 
-{{< figure src="/about.jpg" title="Mario Menjivar" caption="De visita al Gran Cañón. Enero, 2023.">}}
+{{< figure src="about.jpg" title="Mario Menjivar" caption="De visita al Gran Cañón. Enero, 2023.">}}
 
 My name is **Mario Menjívar** (n. 1993), and I am a curiosity-driven human, computer scientist, and immigrant. I am originally from El Salvador where I lived two thirds of my life, I currently reside in Southern California. I am learning French.
 
