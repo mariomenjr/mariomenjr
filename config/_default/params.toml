@@ -1,8 +1,10 @@
 # config/_default/params.toml
 
 colorScheme = "slate"
-enableCodeCopy = true
+
 enableSearch = true
+enableCodeCopy = true
+
 robots = "noarchive"
 
 [header]
