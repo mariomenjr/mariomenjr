@@ -10,7 +10,7 @@ showEdit: false
 
 {{< figure src="about.jpg" title="Mario Menjivar" caption="De visita al Gran Cañón. Enero, 2023.">}}
 
-My name is **Mario Menjívar** (n. 1993), and I am a curiosity-driven human, computer scientist, and immigrant. I am originally from El Salvador where I lived two thirds of my life, I currently reside in Southern California. I am learning French.
+My name is **Mario Menjívar** (b. 1993), and I am a curiosity-driven human, computer scientist, and immigrant. I am originally from El Salvador where I lived two thirds of my life, I currently reside in Southern California. I am learning French.
 
 I work building software to automate and streamline industrial processes, generally in C# and JavaScript. I also dedicate a good amount of time to read history, watch documentaries, and walk.
 
