@@ -14,7 +14,7 @@ My name is **Mario Menjívar** (b. 1993), and I am a curiosity-driven human, com
 
 I work building software to automate and streamline industrial processes, generally in C# and JavaScript. I also dedicate much time to reading history, watching documentaries, and walking.
 
-In terms of education, I hold a Bachelor's degree in Computer Science from **Western Governors University**. My first exposure to this science happened in my country at the **Instituto Técnico Ricaldone**.
+In terms of education, I hold a Bachelor's degree in Computer Science from **Western Governors University**. My first exposure to this science happened in my country at **Instituto Técnico Ricaldone**.
 
 Most of the content you'll find on this page is the direct result of my learning journey, I generally write it for myself. I thought it was a good idea to make it available to the public in case it helps.
 
