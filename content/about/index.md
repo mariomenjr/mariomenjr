@@ -12,7 +12,7 @@ showEdit: false
 
 Mi nombre es **Mario Menjívar** (n. 1993), y soy una persona impulsada por la curiosidad, científico de la computación e inmigrante. Soy originario de El Salvador, donde viví dos tercios de mi vida, y actualmente resido en el sur de California.
 
-Trabajo desarrollando software para automatizar y agilizar procesos industriales, generalmente en C# y JavaScript. También dedico una buena cantidad de tiempo a leer historia, ver documentales y caminar. Estoy aprendiendo francés.
+Trabajo desarrollando software para automatizar y agilizar procesos industriales, generalmente en C# y JavaScript. También dedico una buena cantidad de tiempo a leer historia, ver documentales, caminar y aprender francés.
 
 En cuanto a mi educación, tengo una licenciatura en Ciencias de la Computación de la **Western Governors University**. Mi primera exposición a esta ciencia ocurrió en mi país, en el **Instituto Técnico Ricaldone**.
 
