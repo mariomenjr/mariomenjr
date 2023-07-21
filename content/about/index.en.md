@@ -12,7 +12,7 @@ showEdit: false
 
 My name is **Mario Menjívar** (b. 1993), and I am a curiosity-driven human, computer scientist, and immigrant. I am originally from El Salvador where I lived two-thirds of my life, I currently reside in Southern California.
 
-I work building software to automate and streamline industrial processes, generally in C# and JavaScript. I also dedicate much time to reading history, watching documentaries, and walking. I am learning French.
+I work building software to automate and streamline industrial processes, generally in C# and JavaScript. I also dedicate much time to reading history, watching documentaries, walking, and learning French.
 
 In terms of education, I hold a Bachelor's degree in Computer Science from **Western Governors University**. My first exposure to this science happened in my country at **Instituto Técnico Ricaldone**.
 
