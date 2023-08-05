@@ -2,6 +2,7 @@
 slug: about
 title: "Sobre mí"
 date: 2023-06-03T11:36:12.000-07:00
+lastmod: 2023-08-05T00:36:12.000-07:00
 description: "sobre mí"
 summary: "It's me, Mario."
 keywords: ["mariomenjr.com", "mariomenjr"]

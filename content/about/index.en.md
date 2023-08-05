@@ -2,6 +2,7 @@
 slug: about
 title: "About"
 date: 2023-06-03T11:36:12.000-07:00
+lastmod: 2023-08-05T00:36:12.000-07:00
 description: "about me"
 summary: "It's me, Mario."
 keywords: ["mariomenjr.com", "mariomenjr"]
@@ -10,7 +11,7 @@ showEdit: false
 
 {{< figure src="about.jpg" title="Mario Menjivar" caption="At the Grand Canyon. January 2023.">}}
 
-My name is **Mario Menjívar** (b. 1993), and I am a curiosity-driven human, computer scientist, and immigrant. I am originally from El Salvador where I lived two-thirds of my life, I currently reside in Southern California.
+My name is **Mario Menjívar** (b. 1993), and I am a curiosity-driven human, computer scientist, and immigrant. I am originally from El Salvador where I lived two-thirds of my life; I currently reside in Southern California.
 
 I work building software to automate and streamline industrial processes, generally in C# and JavaScript. I also dedicate much time to reading history, watching documentaries, walking, and learning French.
 

@@ -1,7 +1,7 @@
 ---
 slug: about
 title: "Sur moi"
-date: 2023-06-03T11:36:12.000-07:00
+date: 2023-08-05T00:36:12.000-07:00
 description: "about me"
 summary: "C'est moi, Mario."
 keywords: ["mariomenjr.com", "mariomenjr"]
