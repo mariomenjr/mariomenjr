@@ -1,0 +1,25 @@
+# config/_default/languages.es.toml
+
+languageCode = "fr"
+languageName = "Français"
+weight = 1
+
+title = "mariomenjr.com"
+
+[params]
+  isoCode = "fr"
+  displayName = "FR"
+
+[author]
+  name = "Mario Menjívar"
+  image = "img/author.jpg"
+  headline = "Humain curieux. Développeur de logiciels. Immigrant."
+  bio = "Humain curieux. Développeur de logiciels. Immigrant."
+  links = [
+    { linkedin = "https://linkedin.com/in/mariomenjr" },
+    { email = "mailto:mariomenjr@gmail.com" },
+    { github = "https://github.com/mariomenjr" },
+    { youtube = "https://youtube.com/mariomenjr" },
+    { twitter = "https://twitter.com/mariomenjr" },
+    { mastodon = "https://mastodon.social/@mariomenjr" },
+  ]
