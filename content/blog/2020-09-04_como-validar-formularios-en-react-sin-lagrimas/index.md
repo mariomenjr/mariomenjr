@@ -2,7 +2,7 @@
 slug: 2020/09/04/como-validar-formularios-en-react-sin-lagrimas
 title: "Cómo validar formularios en React, sin lágrimas"
 date: 2020-09-04T07:08:02.000-07:00
-description: "Todo desarrollador de software que trabaja en React ha tenido ese fastidioso ticket para validar un formulario. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik."
+description: "Cualquier desarrollador que haya trabajado con React ha tenido ese ticket fastidioso para validar un formulario. Afortunadamente para ti, hoy te mostraré la forma más sencilla de cerrarlo: Formik."
 coverCaption: Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/wDghq14BBa4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 keywords: ["formik","español","react","cómo","validar formulario react","formulario html","formulario react","validar formulario javascript","validar formulario"]
 tags: ["formik", "react", "javascript"]
