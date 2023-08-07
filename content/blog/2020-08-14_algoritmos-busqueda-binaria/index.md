@@ -12,15 +12,15 @@ tags: ["algoritmos", "computer science", "busqueda binaria"]
 
 Imagina que tienes en las manos un directorio teléfonico de los años 90 y debes buscar el número de teléfono de un amigo. Es importante tener en cuenta que los contactos están ordenados alfabéticamente. Este será nuestro enfoque en la entrada de hoy.
 
-Suponiendo que buscamos el número teléfonico de **Juan**, ¿Tiene sentido empezar desde las primeras páginas dónde se encuentran Alberto o Alejandra? Claro que no, será muchísimo más fácil identificar en cuál parte el directorio se listan esos contactos cuyos nombres inician con **J**. Sin embargo, siguen siendo muchos contactos y encontrar esta letra específicamente podría tomarnos una, dos, o n intentos.
+Suponiendo que buscamos el número teléfonico de **Juan**, ¿Tiene sentido empezar desde las primeras páginas dónde se encuentran Alberto o Alejandra? Claro que no, será muchísimo más fácil identificar en cuál parte el directorio se listan esos contactos cuyos nombres inician con **J**. Sin embargo, siguen siendo muchos y encontrar esta letra específicamente podría tomarnos uno, dos, o *n* intentos.
 
-Una mejor manera de abordarlo sería abrir este directorio justo por la mitad, ya que los contactos están ordenados, podemos identificar si nuestra letra objetivo estará a la izquierda o a la derecha. Suponiendo que a la mitad de este directorio se encuentra la letra *M*, hemos reducido nuestro espacio de búsqueda efectivamente a la mitad a la izquierda. Esta idea puede aplicarse una vez encontremos la sección de las *J*s, y así sucesivamente hasta encontrar a *Juan*.
+Una mejor manera de abordarlo sería abrir este directorio justo por la mitad y, ya que los contactos están ordenados, identificar si nuestra letra objetivo está a la izquierda o a la derecha. Suponiendo que a la mitad de este directorio se encuentra la letra *M*, hemos reducido nuestro espacio de búsqueda efectivamente a la mitad. Esta misma idea puede aplicarse una vez encontremos la sección de las *J*s, y así sucesivamente hasta encontrar a *Juan*.
 
 ## Quiero ver código
 
-Han pasado años desde la última vez que ví un directorio teléfonico, sino es en películas de los 90s, así que vamos a ver un ejemplo más acorde a lo que sabemos hacer aquí. Para ello, validaremos si un número `X` está incluído dentro de una lista de `N` elementos.
+Han pasado años desde la última vez que ví un directorio teléfonico, así que vamos a ver un ejemplo más acorde a lo que sabemos hacer aquí. Para ello, validaremos si un número `X` está incluído dentro de una lista de `N` elementos.
 
-En el ejemplo, mencionamos que el aspecto más importante era que los contactos estén ordenados. Esto es así, porque es la única forma en la que podemos reducir nuestro espacio de búsqueda por la mitad teniendo la certeza de que todos los valores a la derecha y a la izquierda serán mayores y menores, respectivamente, al valor que decidimos usar como referencia (la *mitad*).
+En el ejemplo, mencionamos que el aspecto más importante era que los contactos estén ordenados. Esta es la única forma en la cual podemos reducir nuestro espacio de búsqueda por la mitad, teniendo la certeza de que todos los valores a la derecha y a la izquierda serán mayores y menores, respectivamente, al valor que decidimos usar como referencia.
 
 Esta será nuestra lista de trabajo:
 
@@ -112,9 +112,9 @@ console.log(
 );
 ```
 
-Comparar cada uno de los `items` en la lista y, cuando lo encontramos, listo. Podrías pensar que es enfoque es muchísimo más fácil y rápido de programar, y tienes razón. Pero, ¿Qué pasa cuando nuestra lista no contiene 8 `items` sino 1,000,000?
+Comparar cada uno de los `items` en la lista y, cuando lo encontremos, terminar la ejecución. Podrías pensar que este enfoque es muchísimo más fácil y rápido de programar, y tienes razón. Pero, ¿Qué pasa cuando nuestra lista no contenga 8 `items` sino 1,000,000?
 
-La intención de este post es mostrarte que, si bien es cierto en programación hay muchas formas de resolver un problema, nuestro objetivo conforme avanzamos en nuestra carrera es escogar la más óptima. Cada problema es un mundo y es nuestro trabajo encontrar la mejor solución.
+La intención de este post es mostrarte que, si bien es cierto en programación hay muchas formas de resolver un problema, nuestro objetivo conforme avanzamos en nuestra carrera es escoger la más óptima. Cada problema es un mundo y es nuestro trabajo encontrar la mejor solución.
 
 ## Referencias
 
