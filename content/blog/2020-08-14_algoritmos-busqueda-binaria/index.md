@@ -10,9 +10,9 @@ tags: ["algoritmos", "computer science", "busqueda binaria"]
 
 ## Directorio teléfonico
 
-Imagina que tienes en las manos un directorio teléfonico de los años 90 y tienes que buscar el número de teléfono de un amigo. Es importante tener en cuenta que los contactos están ordenados alfabéticamente en estos casos. Es este hecho es el enfoque de nuestra entrada hoy.
+Imagina que tienes en las manos un directorio teléfonico de los años 90 y debes buscar el número de teléfono de un amigo. Es importante tener en cuenta que los contactos están ordenados alfabéticamente. Este será nuestro enfoque en la entrada de hoy.
 
-Suponiendo que buscamos el número teléfonico de **Juan**, ¿Tiene sentido empezar desde las primeras páginas dónde estarán los números de personas cómo Alberto o Alejandra? Claro que no, será muchísimo más fácil identificar en qué parte el directorio se listan esos contactos cuyos nombres inician con **J**. sin embargo, siguen siendo muchos contactos y encontrar esta letra específicamente podría tomarnos una, dos, o n intentos.
+Suponiendo que buscamos el número teléfonico de **Juan**, ¿Tiene sentido empezar desde las primeras páginas dónde se encuentran Alberto o Alejandra? Claro que no, será muchísimo más fácil identificar en cuál parte el directorio se listan esos contactos cuyos nombres inician con **J**. Sin embargo, siguen siendo muchos contactos y encontrar esta letra específicamente podría tomarnos una, dos, o n intentos.
 
 Una mejor manera de abordarlo sería abrir este directorio justo por la mitad, ya que los contactos están ordenados, podemos identificar si nuestra letra objetivo estará a la izquierda o a la derecha. Suponiendo que a la mitad de este directorio se encuentra la letra *M*, hemos reducido nuestro espacio de búsqueda efectivamente a la mitad a la izquierda. Esta idea puede aplicarse una vez encontremos la sección de las *J*s, y así sucesivamente hasta encontrar a *Juan*.
 
