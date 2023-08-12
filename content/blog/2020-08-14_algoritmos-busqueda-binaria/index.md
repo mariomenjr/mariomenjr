@@ -14,7 +14,7 @@ Imagina que tienes en las manos un directorio teléfonico de los años 90 y debe
 
 Suponiendo que buscamos el número teléfonico de **Juan**, ¿Tiene sentido empezar desde las primeras páginas dónde se encuentran Alberto o Alejandra? Claro que no, será muchísimo más fácil identificar en cuál parte el directorio se listan esos contactos cuyos nombres inician con **J**. Sin embargo, siguen siendo muchos y encontrar esta letra específicamente podría tomarnos uno, dos, o *n* intentos.
 
-Una mejor manera de abordarlo sería abrir este directorio justo por la mitad y, ya que los contactos están ordenados, identificar si nuestra letra objetivo está a la izquierda o a la derecha. Suponiendo que a la mitad de este directorio se encuentra la letra *M*, hemos reducido nuestro espacio de búsqueda efectivamente a la mitad. Esta misma idea puede aplicarse una vez encontremos la sección de las *J*s, y así sucesivamente hasta encontrar a *Juan*.
+Una mejor manera de abordarlo sería abrir este directorio justo por la mitad y, ya que los contactos están ordenados, identificar si nuestra letra objetivo está a la izquierda o a la derecha. Suponiendo que a la mitad de este directorio se encuentra la letra *M*, hemos reducido nuestro espacio de búsqueda efectivamente a la mitad. Esta misma idea puede aplicarse una vez encontremos la sección de las **J**s, y así sucesivamente hasta encontrar a *Juan*.
 
 ## Quiero ver código
 
