@@ -12,13 +12,13 @@ tags: ["algoritmos", "computer science", "busqueda binaria"]
 
 Imagina que tienes en las manos un directorio teléfonico de los años 90 y debes buscar el número de teléfono de un amigo. Es importante tener en cuenta que los contactos están ordenados alfabéticamente. Este será nuestro enfoque en la entrada de hoy.
 
-Suponiendo que buscamos el número teléfonico de **Juan**, ¿Tiene sentido empezar desde las primeras páginas dónde se encuentran Alberto o Alejandra? Claro que no, será muchísimo más fácil identificar en cuál parte el directorio se listan esos contactos cuyos nombres inician con **J**. Sin embargo, siguen siendo muchos y encontrar esta letra específicamente podría tomarnos uno, dos, o *n* intentos.
+Suponiendo que buscamos el número teléfonico de **Juan**, ¿Empezarías por las primeras páginas dónde se encuentran Alberto o Alejandra? Claro que no. Sería muchísimo más fácil identificar dónde se listan esos contactos cuyos nombres inician con **J**. Sin embargo, seguiría siendo dificil encontrar esta letra específicamente. Podría tomarnos uno, dos, o *n* intentos.
 
-Una mejor manera de abordarlo sería abrir este directorio justo por la mitad y, ya que los contactos están ordenados, identificar si nuestra letra objetivo está a la izquierda o a la derecha. Suponiendo que a la mitad de este directorio se encuentra la letra *M*, hemos reducido nuestro espacio de búsqueda efectivamente a la mitad. Esta misma idea puede aplicarse una vez encontremos la sección de las **J**s, y así sucesivamente hasta encontrar a *Juan*.
+Una mejor manera de abordar esta situación sería abrir el directorio justo por la mitad y, ya que los contactos están ordenados, identificar si nuestra letra objetivo está a la izquierda o a la derecha. Suponiendo que a la mitad de este directorio se encuentra la letra *M*, hemos reducido nuestro espacio de búsqueda efectivamente a la mitad. Esta misma idea puede aplicarse una vez encontremos la sección de las **J**s, y así sucesivamente hasta encontrar a *Juan*.
 
 ## Quiero ver código
 
-Han pasado años desde la última vez que ví un directorio teléfonico, así que vamos a ver un ejemplo más acorde a lo que sabemos hacer aquí. Para ello, validaremos si un número `X` está incluído dentro de una lista de `N` elementos.
+Han pasado años desde la última vez que ví un directorio teléfonico, así que vamos a ver un ejemplo más acorde a lo que sabemos hacer aquí. Para ello, validaremos si un número `X` está incluído dentro de una lista de `n` elementos.
 
 En el ejemplo, mencionamos que el aspecto más importante era que los contactos estén ordenados. Esta es la única forma en la cual podemos reducir nuestro espacio de búsqueda por la mitad, teniendo la certeza de que todos los valores a la derecha y a la izquierda serán mayores y menores, respectivamente, al valor que decidimos usar como referencia.
 
@@ -90,7 +90,7 @@ Es esta dinámica de decidir únicamente entre dos opciones, cada vez que reduci
 
 ## Conclusión
 
-Podríamos haber simplemente ejecutado el siguiente código:
+Podríamos haber ejecutado simplemente el siguiente código:
 
 ```javascript
 const find = 17;
