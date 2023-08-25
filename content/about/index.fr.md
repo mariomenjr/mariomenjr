@@ -1,6 +1,6 @@
 ---
 slug: about
-title: "Sur moi"
+title: "À propos"
 date: 2023-08-05T00:36:12.000-07:00
 description: "about me"
 summary: "C'est moi, Mario."
