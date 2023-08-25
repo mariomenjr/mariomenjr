@@ -6,7 +6,7 @@
 #   weight = 10
 
 [[main]]
-  name = "sur moi"
+  name = "à propos"
   pageRef = "about"
   weight = 20
 
