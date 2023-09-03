@@ -1,9 +1,9 @@
 # config/_default/menus.en.toml
 
-# [[main]]
-#   name = "blog"
-#   pageRef = "blog"
-#   weight = 10
+[[main]]
+  name = "blog"
+  pageRef = "blog"
+  weight = 10
 
 [[main]]
   name = "à propos"
