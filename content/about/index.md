@@ -11,7 +11,7 @@ showEdit: false
 
 {{< figure src="about.jpg" title="Mario Menjivar" caption="De visita al Gran Cañón. Enero, 2023.">}}
 
-Mi nombre es **Mario Menjívar** (nacido en 1993), y soy un ser humano curioso, científico de la computación e inmigrante. Nací en El Salvador, donde viví durante dos tercios de mi vida, y actualmente resido en el sur de California.
+Mi nombre es **Mario Menjívar** (nacido en 1993), y soy un humano curioso, científico de la computación e inmigrante. Nací en El Salvador, donde viví durante dos tercios de mi vida, y actualmente resido en el sur de California.
 
 Trabajo desarrollando software para automatizar y agilizar procesos industriales, generalmente en C# y JavaScript. También dedico mucho tiempo a leer historia, ver documentales, caminar y aprender francés.
 
