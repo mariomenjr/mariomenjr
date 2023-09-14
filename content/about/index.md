@@ -2,7 +2,7 @@
 slug: about
 title: "Sobre mí"
 date: 2023-06-03T11:36:12.000-07:00
-lastmod: 2023-08-05T00:36:12.000-07:00
+lastmod: 2023-09-13T22:13:12.000-07:00
 description: "sobre mí"
 summary: "It's me, Mario."
 keywords: ["mariomenjr.com", "mariomenjr"]
@@ -11,7 +11,7 @@ showEdit: false
 
 {{< figure src="about.jpg" title="Mario Menjivar" caption="De visita al Gran Cañón. Enero, 2023.">}}
 
-Mi nombre es **Mario Menjívar** (n. 1993), y soy un humano curioso, científico de la computación e inmigrante. Soy originario de El Salvador, donde viví dos tercios de mi vida, y actualmente resido en el Sur de California.
+Mi nombre es **Mario Menjívar** (nacido en 1993), y soy un ser humano curioso, científico de la computación e inmigrante. Nací en El Salvador, donde viví durante dos tercios de mi vida, y actualmente resido en el sur de California.
 
 Trabajo desarrollando software para automatizar y agilizar procesos industriales, generalmente en C# y JavaScript. También dedico mucho tiempo a leer historia, ver documentales, caminar y aprender francés.
 
