@@ -93,7 +93,7 @@ $ go run main.go
 1 + 2 = 3
 ```
 
-### Install a dependency
+### Instalar una dependencia
 
 Ya que hemos creado nuestra primera aplicación, es hora de mejorarla. Para ello, instalaremos un módulo externo.
 
