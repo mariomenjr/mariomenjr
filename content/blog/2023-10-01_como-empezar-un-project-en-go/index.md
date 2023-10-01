@@ -4,8 +4,8 @@ title: "Cómo empezar un proyecto en Go"
 date: 2023-10-01T10:57:02.000-07:00
 description: "Empecemos un proyecto en Go."
 coverCaption: Del [The Go Blog](https://go.dev/blog/go-brand).
-keywords: ["react","español","react context","cómo usar react context","user","blog","hooks","reemplazar redux","reemplazar redux con context","dejar de usar redux","redux","reducer","global state","estado global"]
-tags: ["react","redux","javascript","react context"]
+keywords: ["golang","español","gopath","cómo empezar un proyecto en go","google go","package go","go.mod","go mod init","go get","mariomenjr handlr","dependencias"]
+tags: ["go","golang"]
 ---
 
 {{< param "description" >}}
