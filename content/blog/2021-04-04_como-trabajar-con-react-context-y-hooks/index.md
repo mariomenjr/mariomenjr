@@ -10,7 +10,7 @@ tags: ["react","redux","javascript","react context"]
 
 {{< param "description" >}}
 
-## Ante de empezar
+## Antes de empezar
 
 Estoy asumiendo que:
 

@@ -14,7 +14,7 @@ tags: ["react","redux","javascript","react context"]
 
 Go, o Golang, es un lenguaje de programación introducido por Google en Noviembre de 2009. Su característica distintiva es su enfoque a la concurrencia de procesos. Es utilizado principalmente en el desarrollo de la nube, herramientas de terminal, desarrollo web y devops.
 
-Como nos comentan nuestros amigos de JetBrains, Go está dentro de los 10 primeros lenguages por uso profesional, con un porcentaje del 7%, y se posiciona como un jugador importante en la industria financiera y la nube. Muchas de las herramientas de infraestructura de software como Docker, Kubernetes y Vault, por nombrar algunas de las más importantes, están escritan en Go.
+Como nos comentan nuestros amigos de JetBrains, Go está dentro de los 10 primeros lenguages por uso profesional, con un porcentaje del 7%, y se posiciona como un jugador importante en la industria financiera y la nube. Muchas de las herramientas de infraestructura de software como Docker, Kubernetes y Vault, por nombrar algunas de las más importantes, están escritas en Go.
 
 ## Instalar Go
 
