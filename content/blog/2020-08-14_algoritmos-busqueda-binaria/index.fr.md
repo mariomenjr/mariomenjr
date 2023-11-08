@@ -1,5 +1,5 @@
 ---
-slug: 2020/08/14/algorithmes-la-recherche-binaire
+slug: 2023/09/03/algorithmes-la-recherche-binaire
 title: "#Algorithmes: La recherche binaire"
 date: 2023-09-03T01:47:12.000-07:00
 description: "Qu’est-ce que la recherche binaire ?"
