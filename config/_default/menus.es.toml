@@ -25,3 +25,9 @@
   [main.params]
     action = "search"
     icon = "search"
+
+[[main]]
+  identifier = "locale"
+  weight = 75
+  [main.params]
+    action = "locale"
