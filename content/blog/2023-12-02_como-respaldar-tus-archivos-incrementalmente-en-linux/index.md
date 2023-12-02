@@ -123,7 +123,7 @@ Cada opción cumple una función que se explica a continuación:
 
 7. Al final, y sin ser estricamente parte de las opciones de `rsync`, redirigimos la salida estándar y de error al archivo de registro especificado por la variable `$log_file`.
 
-### TL;DR
+## TL;DR
 
 El `script` resultante.
 
