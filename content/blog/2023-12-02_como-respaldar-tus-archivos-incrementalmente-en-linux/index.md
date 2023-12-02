@@ -3,7 +3,7 @@ slug: 2023/12/02/como-respaldar-tus-archivos-incrementalmente-en-linux
 title: "Cómo respaldar tus archivos offline"
 date: 2023-12-02T10:12:02.000-08:00
 description: "Fácil y rápido."
-coverCaption: Del [The Go Blog](https://go.dev/blog/go-brand).
+coverCaption: Photo by [Maksym Kaharlytskyi](https://unsplash.com/photos/file-cabinet-Q9y3LRuuxmg).
 keywords: ["repaldo","rsync","offline","cómo respaldar tus archivos offline", "sincronizar"]
 tags: ["rsync","sync"]
 ---
