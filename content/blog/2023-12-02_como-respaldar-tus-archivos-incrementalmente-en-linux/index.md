@@ -2,13 +2,14 @@
 slug: 2023/12/02/como-respaldar-tus-archivos-incrementalmente-en-linux
 title: "Cómo respaldar tus archivos offline"
 date: 2023-12-02T10:12:02.000-08:00
+lastmod: 2023-12-27 11:43:12 -0800
 description: "Fácil y rápido."
 coverCaption: Photo by [Maksym Kaharlytskyi](https://unsplash.com/photos/file-cabinet-Q9y3LRuuxmg).
 keywords: ["repaldo","rsync","offline","cómo respaldar tus archivos offline", "sincronizar"]
 tags: ["rsync","sync"]
 ---
 
-{{< alert >}} Atención: Esta entrada sobre respaldos con `rsync` se proporciona con fines informativos. Ten precaución, comprende los comandos y verifica las rutas para evitar pérdida de datos. El autor no se hace responsable de posibles problemas. Realiza pruebas en datos sin importancia primero. Tú eres responsable de la seguridad e integridad de tus datos. {{< /alert >}}
+{{< alert >}} Atención: Esta entrada sobre respaldos con `rsync` se proporciona con fines informativos. Ten precaución, comprende los comandos y verifica las rutas para evitar pérdida de datos. El autor no se hace responsable de posibles problemas. Realiza primero pruebas en datos sin importancia. Tú eres responsable de la seguridad e integridad de tus datos. {{< /alert >}}
 
 ## Rsync
 
