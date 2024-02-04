@@ -10,7 +10,7 @@ title = "mariomenjr.com"
   isoCode = "fr"
   displayName = "FR"
 
-[author]
+[params.author]
   name = "Mario Menjívar"
   image = "img/author.jpg"
   headline = "Humain curieux. Développeur de logiciels. Immigrant."
