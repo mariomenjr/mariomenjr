@@ -17,7 +17,6 @@ title = "mariomenjr.com"
   bio = "Humano curioso. Desarrollador de software. Inmigrante."
   links = [
     { linkedin = "https://linkedin.com/in/mariomenjr" },
-    { email = "mailto:mariomenjr@gmail.com" },
     { github = "https://github.com/mariomenjr" },
     { youtube = "https://youtube.com/mariomenjr" },
     { twitter = "https://twitter.com/mariomenjr" },
