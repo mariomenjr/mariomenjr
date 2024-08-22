@@ -4,6 +4,9 @@ colorScheme = "slate"
 
 enableSearch = true
 enableCodeCopy = true
+enableImageLazyLoading = true
+enableImageWebp = true
+enableQuicklink = true
 
 robots = "noarchive"
 
@@ -21,7 +24,21 @@ robots = "noarchive"
   showTableOfContents = true
   showBreadcrumbs = true
   sharingLinks = ["facebook", "twitter", "mastodon", "reddit", "linkedin"]
-  
+
+[list]
+  showBreadcrumbs = true
+  showSummary = false
+  showTableOfContents = true
+  showTaxonomies = false
+  groupByYear = false
+  paginationWidth = 1
+
+[sitemap]
+  excludedKinds = ["taxonomy", "term"]
+
+[taxonomy]
+  showTermCount = true
+
 [footer]
   showAppearanceSwitcher = true
 
