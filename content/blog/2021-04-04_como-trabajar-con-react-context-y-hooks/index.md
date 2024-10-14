@@ -203,7 +203,7 @@ function CartForm({ cart, user }) {
 }
 ```
 ```jsx {linenos=inline,hl_lines=[1, 3, "5-7", "12-14"],linenostart=24}
-function CartForm()) {
+function CartForm() {
 
   const [state, dispatch] = useConsumer();
 
