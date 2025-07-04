@@ -75,10 +75,14 @@ jobs:
         with:
           name: github-pages
           path: ./public
-      - name: Check artifact exists
+      - name: Check public directory exists
         run: |
           if [ ! -d ./public ]; then
-            echo "Build artifact not found!"
+            echo "Hugo build failed: ./public directory not found!"
+            exit 1
+          fi 
+          if [ -z "$(ls -A ./public)" ]; then
+            echo "Hugo build failed: ./public directory is empty!"
             exit 1
           fi
       - name: Deploy to GitHub Pages
