@@ -1,6 +1,11 @@
 # config/_default/menus.en.toml
 
 [[main]]
+  name = "proyectos"
+  pageRef = "projects"
+  weight = 5
+
+[[main]]
   name = "blog"
   pageRef = "blog"
   weight = 10
