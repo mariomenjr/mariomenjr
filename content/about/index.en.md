@@ -19,7 +19,7 @@ Beyond my primary engineering work, I serve as a **Subject Matter Expert (SME)**
 
 Outside of the IDE, my curiosity is fueled by:
 * **Languages:** I am a dedicated student of the French language and enjoy the challenge of becoming a polyglot.
-* **Community:** I believe in using technology for social impact, such as developing [Pins](/fr/projects/#pins), an open-source web mapping platform to visualize community-reported data.
+* **Community:** I believe in using technology for social impact, such as developing [Pins](/en/projects/#pins), an open-source web mapping platform to visualize community-reported data.
 * **Exploration:** I find balance in reading history, watching documentaries, and exploring the intersection of culture and technology.
 
 I don't write here as much as I used to, but feel free to look at my [blog](/blog) (in Spanish)—I hope it helps.
