@@ -22,6 +22,6 @@ Fuera del código, mi curiosidad se nutre de:
 * **Comunidad:** Creo en el uso de la tecnología para el impacto social, como el desarrollo de [Pins](/projects/#pins), una plataforma de mapeo de código abierto para visualizar datos reportados por la comunidad.
 * **Exploración:** Encuentro equilibrio leyendo historia, viendo documentales y explorando la intersección entre la cultura y la tecnología.
 
-Ya no escribo aquí tanto como antes, pero te invito a echar un vistazo a mi [blog](/projects) — espero que te sea de ayuda.
+Ya no escribo aquí tanto como antes, pero te invito a echar un vistazo a mi [blog](https://mariomenjr.com/blog) — espero que te sea de ayuda.
 
 Cualquier comentario es bienvenido; tienes mis datos de contacto al final de esta página.
