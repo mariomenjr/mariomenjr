@@ -19,9 +19,9 @@ Au-delà de mes activités d'ingénierie, j'interviens en tant qu'**Expert en la
 
 En dehors du code, ma curiosité se nourrit de :
 * **Langues :** J'étudie passionnément le français et j'apprécie le défi de devenir polyglotte.
-* **Communauté :** Je crois en l'usage de la technologie pour l'impact social, comme le développement de plateformes de cartographie open-source pour visualiser les données communautaires.
+* **Communauté :** Je crois en l'usage de la technologie pour l'impact social, comme le développement de [Pins](/fr/projects/#pins), une plateforme de cartographie open-source pour visualiser les données communautaires.
 * **Exploration :** Je trouve mon équilibre dans la lecture de l'histoire, le visionnage de documentaires et l'exploration des intersections entre culture et technologie.
 
-Je n’écris plus ici aussi souvent qu'avant, mais n'hésitez pas à consulter mon [blog](/projects/) (en espagnol) — j'espère que cela pourra vous être utile.
+Je n’écris plus ici aussi souvent qu'avant, mais n'hésitez pas à consulter mon [blog](/fr/blog) (en espagnol) — j'espère que cela pourra vous être utile.
 
 Vos commentaires sont les bienvenus ; vous trouverez mes coordonnées au bas de cette page.
