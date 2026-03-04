@@ -19,9 +19,9 @@ Más allá de mi trabajo principal en ingeniería, me desempeño como **Experto 
 
 Fuera del código, mi curiosidad se nutre de:
 * **Idiomas:** Soy un estudiante dedicado del idioma francés y disfruto del reto de convertirme en políglota.
-* **Comunidad:** Creo en el uso de la tecnología para el impacto social, como el desarrollo de plataformas de mapeo de código abierto para visualizar datos reportados por la comunidad.
+* **Comunidad:** Creo en el uso de la tecnología para el impacto social, como el desarrollo de [Pins](/projects/#pins), una plataforma de mapeo de código abierto para visualizar datos reportados por la comunidad.
 * **Exploración:** Encuentro equilibrio leyendo historia, viendo documentales y explorando la intersección entre la cultura y la tecnología.
 
-Ya no escribo aquí tanto como antes, pero te invito a echar un vistazo a mi [blog](/projects/) — espero que te sea de ayuda.
+Ya no escribo aquí tanto como antes, pero te invito a echar un vistazo a mi [blog](/projects) — espero que te sea de ayuda.
 
 Cualquier comentario es bienvenido; tienes mis datos de contacto al final de esta página.
