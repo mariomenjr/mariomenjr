@@ -1,7 +1,8 @@
 # config/_default/languages.es.toml
 
-languageCode = "es"
-languageName = "Español"
+locale = "es"
+label = "Español"
+direction = "ltr"
 weight = 1
 
 title = "mariomenjr.com"
@@ -9,6 +10,7 @@ title = "mariomenjr.com"
 [params]
   isoCode = "es"
   displayName = "ES"
+  mainSections = ["blog"]
 
 [params.author]
   name = "Mario Menjívar"
@@ -18,6 +20,6 @@ title = "mariomenjr.com"
   links = [
     { github = "https://github.com/mariomenjr" },
     { youtube = "https://youtube.com/mariomenjr" },
-    { twitter = "https://twitter.com/mariomenjr" },
+    { x-twitter = "https://twitter.com/mariomenjr" },
     { mastodon = "https://mastodon.social/@mariomenjr" },
   ]

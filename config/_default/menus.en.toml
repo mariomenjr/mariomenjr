@@ -31,3 +31,12 @@
   weight = 100
   [main.params]
     action = "locale"
+
+[[footer]]
+  name = "rss"
+  url = "/en/index.xml"
+  weight = 10
+  [footer.params]
+    icon = "rss"
+    showName = false
+    target = "_blank"

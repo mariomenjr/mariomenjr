@@ -1,6 +1,8 @@
 # config/_default/params.toml
 
-colorScheme = "slate"
+colorScheme = "ocean"
+defaultAppearance = "dark"
+autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
@@ -23,7 +25,7 @@ robots = "noarchive"
   editURL = "https://github.com/mariomenjr/mariomenjr/edit/main/content"
   showTableOfContents = true
   showBreadcrumbs = true
-  sharingLinks = ["facebook", "twitter", "mastodon", "reddit", "linkedin"]
+  sharingLinks = ["x-twitter", "mastodon", "reddit", "linkedin"]
 
 [list]
   showBreadcrumbs = true

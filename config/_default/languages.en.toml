@@ -1,7 +1,8 @@
-# config/_default/languages.es.toml
+# config/_default/languages.en.toml
 
-languageCode = "en"
-languageName = "English"
+locale = "en"
+label = "English"
+direction = "ltr"
 weight = 2
 
 title = "mariomenjr.com"
@@ -18,6 +19,6 @@ title = "mariomenjr.com"
   links = [
     { github = "https://github.com/mariomenjr" },
     { youtube = "https://youtube.com/mariomenjr" },
-    { twitter = "https://twitter.com/mariomenjr" },
+    { x-twitter = "https://twitter.com/mariomenjr" },
     { mastodon = "https://mastodon.social/@mariomenjr" },
   ]
