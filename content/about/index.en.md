@@ -2,16 +2,16 @@
 slug: about
 title: "About"
 date: 2023-06-03T11:36:12.000-07:00
-lastmod: 2026-03-04T00:00:00.000-08:00
+lastmod: 2026-09-30T00:00:00.000-07:00
 description: "AI & Data Architect, Computer Scientist, and lifelong learner."
 summary: "Curiosity-driven human. AI & Data Architect. Global Professional."
 keywords: ["mariomenjr.com", "mariomenjr", "AI Architect", "Software Engineer"]
 showEdit: false
 ---
 
-{{< figure src="about.jpg" title="Mario Menjivar" caption="At the Grand Canyon. January 2023.">}}
+{{< figure src="about.jpg" title="Mario Menjivar" caption="Segovia, Spain. September 2026.">}}
 
-My name is **Mario Menjívar**, and I am a curiosity-driven human, computer scientist, and immigrant. Originally from El Salvador, I have spent the last decade living and working in Southern California.
+My name is **Mario Menjívar**, and I am a curiosity-driven human, computer scientist, and immigrant. Originally from El Salvador, I spent over a decade living and working in Southern California, and today I'm writing to you from Spain.
 
 With over ten years of experience in the technology industry, my work has evolved from building core software to architecting complex systems that bridge the gap between legacy industrial processes and modern Artificial Intelligence. In my current leadership role, I focus on implementing LLM-based automation and Business Intelligence solutions that drive efficiency and data-backed decision-making.
 

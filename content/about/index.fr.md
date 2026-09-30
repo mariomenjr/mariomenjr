@@ -2,16 +2,16 @@
 slug: about
 title: "À propos"
 date: 2023-08-05T00:36:12.000-07:00
-lastmod: 2026-03-04T00:00:00.000-08:00
+lastmod: 2026-09-30T00:00:00.000-07:00
 description: "Architecte d'IA et de données, informaticien et éternel apprenant."
 summary: "Esprit curieux. Architecte d'IA et de données. Professionnel global."
 keywords: ["mariomenjr.com", "mariomenjr", "Architecte IA", "Ingénieur Logiciel"]
 showEdit: false
 ---
 
-{{< figure src="about.jpg" title="Mario Menjivar" caption="Au Grand Canyon. Janvier 2023.">}}
+{{< figure src="about.jpg" title="Mario Menjivar" caption="Ségovie, Espagne. Septembre 2026.">}}
 
-Je m’appelle **Mario Menjívar**. Je suis un esprit curieux, informaticien et immigrant. Originaire d'El Salvador, je vis et travaille dans le sud de la Californie depuis maintenant une décennie.
+Je m’appelle **Mario Menjívar**. Je suis un esprit curieux, informaticien et immigrant. Originaire d'El Salvador, j'ai passé plus d'une décennie à vivre et à travailler dans le sud de la Californie, et aujourd'hui, je vous écris depuis l'Espagne.
 
 Avec plus de dix ans d'expérience dans l'industrie technologique, mon parcours a évolué du développement logiciel vers l'architecture de systèmes complexes. Je me spécialise aujourd'hui dans l'intégration de l'Intelligence Artificielle moderne au sein de processus industriels, notamment via l'automatisation basée sur les LLM et les solutions de Business Intelligence (BI).
 
